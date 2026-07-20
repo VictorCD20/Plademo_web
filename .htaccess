@@ -1,0 +1,98 @@
+# ==============================================================================
+# CONFIGURACIÓN DE SEGURIDAD Y OPTIMIZACIÓN DE PRODUCCIÓN - PLADEMO
+# ==============================================================================
+
+# 1. EVITAR LISTADO DE DIRECTORIOS
+# ------------------------------------------------------------------------------
+# Evita que cualquier usuario pueda ver la lista de archivos dentro de las carpetas
+Options -Indexes
+
+# 2. DESACTIVAR LA FIRMA DEL SERVIDOR
+# ------------------------------------------------------------------------------
+# Oculta información sobre la versión de Apache y el SO instalado
+ServerSignature Off
+
+# 3. FORZAR CONEXIÓN SEGURA HTTPS
+# ------------------------------------------------------------------------------
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# 4. PROTEGER ARCHIVOS SENSIBLES
+# ------------------------------------------------------------------------------
+# Denegar el acceso a archivos de configuración, desarrollo o control de versiones
+<FilesMatch "^\.">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+<FilesMatch "\.(psd|git|md|json|log|sh|bak|sql)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# 5. COMPRESIÓN DE TEXTO (GZIP) PARA RENDIMIENTO
+# ------------------------------------------------------------------------------
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/x-javascript
+</IfModule>
+
+# 6. CACHÉ DEL NAVEGADOR (EXPIRES HEADERS)
+# ------------------------------------------------------------------------------
+# Define el tiempo de vida de los recursos estáticos para acelerar cargas repetidas
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault "access plus 1 month"
+    
+    # CSS y JS
+    ExpiresByType text/css "access plus 1 year"
+    ExpiresByType application/javascript "access plus 1 year"
+    ExpiresByType text/javascript "access plus 1 year"
+    
+    # Imágenes y multimedia
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+</IfModule>
+
+# 7. EVITAR HOTLINKING DE IMÁGENES
+# ------------------------------------------------------------------------------
+# Previene que otros sitios web usen el ancho de banda cargando nuestras imágenes
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+    RewriteCond %{HTTP_REFERER} !^$
+    RewriteCond %{HTTP_REFERER} !^http(s)?://(www\.)?plademo.mx [NC]
+    RewriteCond %{HTTP_REFERER} !^http(s)?://(www\.)?plademo.com [NC]
+    RewriteRule \.(jpg|jpeg|png|gif|webp)$ - [F,NC,L]
+</IfModule>
+
+# 8. CABECERAS DE SEGURIDAD (HTTP SECURITY HEADERS)
+# ------------------------------------------------------------------------------
+<IfModule mod_headers.c>
+    # Evitar Clickjacking (impedir renderizar el sitio en frames/iframes externos)
+    Header set X-Frame-Options "SAMEORIGIN"
+    
+    # Evitar rastreo de tipos MIME (Content-Type Sniffing)
+    Header set X-Content-Type-Options "nosniff"
+    
+    # Control del origen de las peticiones referidas
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+    
+    # Política de permisos básicos del navegador
+    Header set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+    
+    # Content-Security-Policy (CSP) básica y segura para un sitio estático
+    Header set Content-Security-Policy "default-src 'self' https: 'unsafe-inline' 'unsafe-eval'; img-src 'self' data: https:; font-src 'self' https: data:;"
+</IfModule>
