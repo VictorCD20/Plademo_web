@@ -1,12 +1,455 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plademo</title>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PLADEMO - Soluciones de empaque flexible</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Manrope & Lexend -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config from Guidance -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "navy-dark": "#082B49",
+                        "blue-corp": "#0B5FA5",
+                        "blue-light": "#BFE3F0",
+                        "green-main": "#008C3A",
+                        "green-dark": "#103F24",
+                        "green-light": "#C8F8C6",
+                        "white": "#FFFFFF",
+                        "gray-text": "#5F6B76"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0px",
+                        "sm": "0px",
+                        "md": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "lexend": ["Lexend", "sans-serif"],
+                        "gilroy": ["Manrope", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.filled {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .text-stroke {
+            -webkit-text-stroke: 1px rgba(255,255,255,0.3);
+            color: transparent;
+        }
+    </style>
 </head>
-<body>
-    <h1>Plademo</h1>
-    <img src="assets/image.png" alt="plademo-blanco">
-</body>
-</html>
+<body class="bg-background text-on-background font-body-md antialiased pt-[88px]">
+<!-- TopNavBar -->
+<nav class="fixed top-0 left-0 w-full z-50 bg-white border-b border-gray-100 shadow-sm h-[70px] flex items-center font-gilroy">
+    <div class="w-full max-w-[1440px] mx-auto px-6 md:px-12 flex justify-between items-center">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center">
+            <img alt="plademo_logo" class="h-10 w-auto object-contain" src="assets/plademo-original.png"/>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex gap-8 items-center h-[70px]">
+            <a class="text-navy-dark font-semibold border-b-2 border-green-main h-[70px] flex items-center px-1 text-sm tracking-wide transition-colors" href="index.html">Inicio</a>
+            <a class="text-gray-text hover:text-blue-corp font-medium h-[70px] flex items-center px-1 text-sm tracking-wide transition-colors" href="productos.html">Productos</a>
+            <a class="text-gray-text hover:text-blue-corp font-medium h-[70px] flex items-center px-1 text-sm tracking-wide transition-colors" href="mercado.html">Mercados</a>
+            <a class="text-gray-text hover:text-blue-corp font-medium h-[70px] flex items-center px-1 text-sm tracking-wide transition-colors" href="nosotros.html">Nosotros</a>
+            <a class="text-gray-text hover:text-blue-corp font-medium h-[70px] flex items-center px-1 text-sm tracking-wide transition-colors" href="contacto.html">Contacto</a>
+        </div>
+
+        <!-- Desktop Action Button -->
+        <div class="hidden md:flex items-center">
+            <a href="contacto.html" class="bg-blue-corp hover:bg-navy-dark text-white px-5 py-2.5 text-sm font-semibold transition-all shadow-sm">Solicitar Cotización</a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" class="md:hidden flex items-center text-navy-dark focus:outline-none" aria-label="Abrir menú">
+            <span class="material-symbols-outlined text-3xl">menu</span>
+        </button>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobile-menu" class="hidden absolute top-[70px] left-0 w-full bg-white border-b border-gray-100 flex flex-col px-6 py-4 gap-4 shadow-lg md:hidden">
+        <a class="text-navy-dark font-semibold border-l-4 border-green-main pl-2 text-base transition-colors" href="index.html">Inicio</a>
+        <a class="text-gray-text hover:text-blue-corp font-medium pl-2 text-base transition-colors" href="productos.html">Productos</a>
+        <a class="text-gray-text hover:text-blue-corp font-medium pl-2 text-base transition-colors" href="mercado.html">Mercados</a>
+        <a class="text-gray-text hover:text-blue-corp font-medium pl-2 text-base transition-colors" href="nosotros.html">Nosotros</a>
+        <a class="text-gray-text hover:text-blue-corp font-medium pl-2 text-base transition-colors" href="contacto.html">Contacto</a>
+        <a href="contacto.html" class="bg-blue-corp hover:bg-navy-dark text-white text-center py-3 text-sm font-semibold transition-all mt-2">Solicitar Cotización</a>
+    </div>
+</nav>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        if (btn && menu) {
+            btn.addEventListener('click', function() {
+                menu.classList.toggle('hidden');
+                const icon = btn.querySelector('.material-symbols-outlined');
+                if (icon) {
+                    icon.textContent = menu.classList.contains('hidden') ? 'menu' : 'close';
+                }
+            });
+        }
+    });
+</script>
+<!-- Editorial Hero Section -->
+<section class="relative w-full min-h-[85vh] flex items-center bg-navy-dark overflow-hidden py-16 md:py-24">
+    <!-- Background Image -->
+    <div class="absolute inset-0 z-0">
+        <img class="w-full h-full object-cover opacity-60 object-center" alt="Planta industrial PLADEMO" src="assets/hero.png"/>
+        <!-- Gradient Overlay: Blue/Green tint -->
+        <div class="absolute inset-0 bg-gradient-to-r from-navy-dark via-navy-dark/85 to-green-dark/40"></div>
+    </div>
+
+    <!-- Content Container -->
+    <div class="relative z-10 w-full max-w-[1440px] mx-auto px-6 md:px-12 flex flex-col md:flex-row justify-between items-center gap-12 mt-12">
+        <!-- Text & CTA Block -->
+        <div class="max-w-3xl flex flex-col items-start">
+            <!-- Label -->
+            <div class="font-gilroy text-green-light font-bold tracking-[0.2em] text-xs uppercase mb-6 flex items-center gap-3">
+                <span class="w-8 h-[1px] bg-green-light"></span>
+                <span>FABRICACIÓN INDUSTRIAL</span>
+            </div>
+
+            <!-- Title in Lexend -->
+            <h1 class="font-lexend font-extrabold text-white text-4xl sm:text-5xl md:text-6xl leading-[1.1] mb-6">
+                Soluciones de empaque flexible para industria y comercio.
+            </h1>
+
+            <!-- Description in Gilroy -->
+            <p class="font-gilroy text-white/95 text-base md:text-lg leading-relaxed max-w-xl mb-10 border-l border-green-main pl-5">
+                Fabricación de soluciones con precisión técnica. Desarrollamos materiales que protegen tu producto y optimizan la cadena de suministro, cumpliendo con los más altos estándares de la industria.
+            </p>
+
+            <!-- Buttons -->
+            <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                <a href="#contacto" class="bg-green-main hover:bg-green-dark text-white font-gilroy font-semibold text-center px-8 py-4 transition-all shadow-md">
+                    Solicitar cotización
+                </a>
+                <a href="#productos" class="border border-white hover:bg-white hover:text-navy-dark text-white font-gilroy font-semibold text-center px-8 py-4 transition-all flex items-center justify-center gap-2">
+                    Explorar productos
+                    <span class="material-symbols-outlined text-lg">arrow_forward</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Badges Block (Floating effect on desktop) -->
+        <div class="flex flex-col sm:flex-row md:flex-col gap-4 w-full md:w-auto self-start md:self-center shrink-0">
+            <!-- Badge 1 -->
+            <div class="bg-white/10 backdrop-blur-md border border-white/20 p-5 flex items-center gap-4 text-white min-w-[240px]">
+                <span class="material-symbols-outlined text-green-light text-3xl">recycling</span>
+                <div>
+                    <h4 class="font-lexend font-bold text-sm text-white">Sostenibilidad</h4>
+                    <p class="font-gilroy text-white/70 text-xs mt-0.5">Materiales 100% reciclados</p>
+                </div>
+            </div>
+            <!-- Badge 2 -->
+            <div class="bg-white/10 backdrop-blur-md border border-white/20 p-5 flex items-center gap-4 text-white min-w-[240px]">
+                <span class="material-symbols-outlined text-green-light text-3xl">build</span>
+                <div>
+                    <h4 class="font-lexend font-bold text-sm text-white">Precisión Técnica</h4>
+                    <p class="font-gilroy text-white/70 text-xs mt-0.5">Hecho a la medida</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Sección líneas de producto -->
+<section id="productos" class="py-20 md:py-28 px-6 md:px-12 bg-blue-light">
+    <div class="max-w-[1440px] mx-auto">
+        <!-- Section Header -->
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 pb-6">
+            <div class="max-w-2xl">
+                <span class="font-gilroy text-green-main text-xs font-bold tracking-widest uppercase block mb-3">01 / LÍNEAS DE PRODUCTO</span>
+                <h2 class="font-lexend font-extrabold text-green-main text-3xl sm:text-4xl md:text-5xl leading-tight">
+                    Empaques que se adaptan a tu operación
+                </h2>
+            </div>
+            <p class="font-gilroy text-green-main text-sm max-w-md leading-relaxed md:text-right">
+                Líneas desarrolladas bajo estrictos controles, diseñadas para responder a las exigencias físicas de cada sector industrial y comercial.
+            </p>
+        </div>
+
+        <!-- Divider Line -->
+        <div class="w-full h-[1px] bg-green-main/30 mb-12"></div>
+
+        <!-- Product Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Card 1 -->
+            <div class="bg-[#c0f1be] flex flex-col justify-between overflow-hidden shadow-sm transition-all hover:shadow-md group">
+                <div class="w-full h-[360px] flex items-center justify-center p-4">
+                    <img class="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105" alt="Rollo Polietileno calibre 600" src="assets/productos/rollo polietileno calibre 600.png"/>
+                </div>
+                <div class="bg-green-dark py-6 px-6 text-center">
+                    <h3 class="font-lexend font-bold text-white text-base md:text-lg tracking-wide leading-snug">
+                        Rollo Polietileno<br>calibre 600
+                    </h3>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="bg-[#c0f1be] flex flex-col justify-between overflow-hidden shadow-sm transition-all hover:shadow-md group">
+                <div class="w-full h-[360px] flex items-center justify-center p-4">
+                    <img class="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105" alt="Bolsas para basura Es-Rollo" src="assets/productos/es-rollo.png"/>
+                </div>
+                <div class="bg-green-dark py-6 px-6 text-center">
+                    <h3 class="font-lexend font-bold text-white text-base md:text-lg tracking-wide leading-snug">
+                        Bolsas para<br>basura "Es-Rollo"
+                    </h3>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="bg-[#c0f1be] flex flex-col justify-between overflow-hidden shadow-sm transition-all hover:shadow-md group">
+                <div class="w-full h-[360px] flex items-center justify-center p-4">
+                    <img class="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105" alt="Bolsas Hoteleras" src="assets/productos/bolsa dorada.png"/>
+                </div>
+                <div class="bg-green-dark py-6 px-6 text-center flex items-center justify-center min-h-[96px]">
+                    <h3 class="font-lexend font-bold text-white text-base md:text-lg tracking-wide leading-snug">
+                        Bolsas Hoteleras
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Sección mercados atendidos -->
+<section id="mercados" class="py-20 md:py-28 px-6 md:px-12 bg-green-light">
+    <div class="max-w-[1440px] mx-auto">
+        <!-- Section Header -->
+        <div class="flex flex-col md:flex-row justify-between items-start gap-6 mb-16">
+            <div class="max-w-2xl">
+                <span class="font-gilroy text-green-dark/80 text-xs font-bold tracking-widest uppercase block mb-3">02 / MERCADOS ATENDIDOS</span>
+                <h2 class="font-lexend font-extrabold text-green-dark text-3xl sm:text-4xl md:text-5xl leading-[1.15]">
+                    Cobertura especializada<br>con precisión técnica
+                </h2>
+            </div>
+            <div class="border-l-2 border-green-dark/30 pl-6 py-2 max-w-md">
+                <p class="font-gilroy text-green-dark/95 text-base leading-relaxed">
+                    Tenemos la solución para diferentes industrias: química, comercio, textil, agroagricultura y más.
+                </p>
+            </div>
+        </div>
+
+        <!-- Cards Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <!-- Card 1 -->
+            <div class="bg-green-dark p-8 flex flex-col justify-between h-auto min-h-[240px] shadow-sm transition-all hover:bg-[#154f2e]">
+                <div>
+                    <img class="h-10 w-10 object-contain mb-6 filter brightness-0 invert" alt="Industria General Icon" src="assets/iconos plademo/pared-de-ladrillo.png"/>
+                    <h3 class="font-lexend font-bold text-white text-lg mb-3">Industria General</h3>
+                    <p class="font-gilroy text-white/80 text-sm leading-relaxed">
+                        Películas y bolsas de uso rudo diseñadas para resistir manipulación constante en líneas de ensamble y bodegas.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="bg-green-dark p-8 flex flex-col justify-between h-auto min-h-[240px] shadow-sm transition-all hover:bg-[#154f2e]">
+                <div>
+                    <img class="h-10 w-10 object-contain mb-6 filter brightness-0 invert" alt="Industria Química Icon" src="assets/iconos plademo/prueba.png"/>
+                    <h3 class="font-lexend font-bold text-white text-lg mb-3">Industria Química</h3>
+                    <p class="font-gilroy text-white/80 text-sm leading-relaxed">
+                        Diseñadas para contener sustancias y materiales sensibles, cumpliendo con estándares de seguridad y manejo industrial.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="bg-green-dark p-8 flex flex-col justify-between h-auto min-h-[240px] shadow-sm transition-all hover:bg-[#154f2e]">
+                <div>
+                    <img class="h-10 w-10 object-contain mb-6 filter brightness-0 invert" alt="Comercio y Retail Icon" src="assets/iconos plademo/tienda.png"/>
+                    <h3 class="font-lexend font-bold text-white text-lg mb-3">Comercio y Retail</h3>
+                    <p class="font-gilroy text-white/80 text-sm leading-relaxed">
+                        Empaques funcionales y personalizables ideales para proteger productos y fortalecer la imagen de marca en punto de venta.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="bg-green-dark p-8 flex flex-col justify-between h-auto min-h-[240px] shadow-sm transition-all hover:bg-[#154f2e]">
+                <div>
+                    <img class="h-10 w-10 object-contain mb-6 filter brightness-0 invert" alt="Hotelería Icon" src="assets/iconos plademo/hotel-bell.png"/>
+                    <h3 class="font-lexend font-bold text-white text-lg mb-3">Hotelería</h3>
+                    <p class="font-gilroy text-white/80 text-sm leading-relaxed">
+                        Bolsas y películas diseñadas para manejo eficiente de residuos y suministros, asegurando higiene, practicidad y resistencia.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="bg-green-dark p-8 flex flex-col justify-between h-auto min-h-[240px] shadow-sm transition-all hover:bg-[#154f2e]">
+                <div>
+                    <img class="h-10 w-10 object-contain mb-6 filter brightness-0 invert" alt="Construcción Icon" src="assets/iconos plademo/mantenimiento.png"/>
+                    <h3 class="font-lexend font-bold text-white text-lg mb-3">Construcción</h3>
+                    <p class="font-gilroy text-white/80 text-sm leading-relaxed">
+                        Materiales de empaque robustos para proteger insumos y herramientas en obra, resistentes a condiciones exigentes.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="bg-green-dark p-8 flex flex-col justify-between h-auto min-h-[240px] shadow-sm transition-all hover:bg-[#154f2e]">
+                <div>
+                    <img class="h-10 w-10 object-contain mb-6 filter brightness-0 invert" alt="Agricultura Icon" src="assets/iconos plademo/planta.png"/>
+                    <h3 class="font-lexend font-bold text-white text-lg mb-3">Agricultura</h3>
+                    <p class="font-gilroy text-white/80 text-sm leading-relaxed">
+                        Diseñado para proteger cultivos, facilitar el tránsito y mejorar la eficiencia en operaciones agrícolas.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Sección responsabilidad ecológica -->
+<section id="nosotros" class="py-20 md:py-28 px-6 md:px-12 bg-green-dark text-white">
+    <div class="max-w-[1440px] mx-auto">
+        <!-- Section Header -->
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-16">
+            <div class="max-w-2xl">
+                <span class="font-gilroy text-green-light text-xs font-bold tracking-widest uppercase block mb-3">03 / RESPONSABILIDAD ECOLÓGICA</span>
+                <h2 class="font-lexend font-extrabold text-white text-3xl sm:text-4xl md:text-5xl leading-tight">
+                    Tenemos un compromiso social con el medio ambiente.
+                </h2>
+            </div>
+            <p class="font-gilroy text-white/80 text-base max-w-md leading-relaxed border-l-2 border-green-light pl-5">
+                Somos parte del movimiento #YoCuidoYucatán, participando en limpiezas de playas y manglares, así como promoviendo activamente la economía circular para reducir los plásticos.
+            </p>
+        </div>
+
+        <!-- Vertical Images Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="overflow-hidden shadow-md bg-green-dark">
+                <img class="w-full h-[580px] object-contain filter brightness-90 hover:brightness-100 transition-all duration-300" alt="Compromiso ambiental PLADEMO 1" src="assets/responsabilidad ecologica/1.png"/>
+            </div>
+            <div class="overflow-hidden shadow-md bg-green-dark">
+                <img class="w-full h-[580px] object-contain filter brightness-90 hover:brightness-100 transition-all duration-300" alt="Compromiso ambiental PLADEMO 2" src="assets/responsabilidad ecologica/2.png"/>
+            </div>
+            <div class="overflow-hidden shadow-md bg-green-dark">
+                <img class="w-full h-[580px] object-contain filter brightness-90 hover:brightness-100 transition-all duration-300" alt="Compromiso ambiental PLADEMO 3" src="assets/responsabilidad ecologica/3.png"/>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- CTA comercial -->
+<section id="contacto" class="bg-navy-dark text-white py-20 md:py-28 px-6 md:px-12 relative overflow-hidden">
+    <div class="max-w-[1440px] mx-auto text-center relative z-10">
+        <!-- Label -->
+        <span class="font-gilroy text-green-light text-xs font-bold tracking-[0.25em] uppercase block mb-6">
+            INGENIERÍA COMERCIAL A SU SERVICIO
+        </span>
+        
+        <!-- Title in Lexend -->
+        <h2 class="font-lexend font-extrabold text-3xl sm:text-4xl md:text-5xl leading-tight max-w-4xl mx-auto mb-6">
+            ¿Necesita un desarrollo de empaque adaptado a su operación?
+        </h2>
+        
+        <!-- Description -->
+        <p class="font-gilroy text-white/80 text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-10">
+            Nuestro equipo técnico está listo para analizar sus requerimientos, desde calibres y aditivos hasta volúmenes de producción, ofreciendo la solución más eficiente para su cadena de suministro.
+        </p>
+        
+        <!-- Buttons Group -->
+        <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+            <a href="#" class="bg-white hover:bg-white/90 text-navy-dark font-gilroy font-semibold px-8 py-4 transition-all shadow-md w-full sm:w-auto text-center">
+                Solicitar cotización formal
+            </a>
+            <a href="https://wa.me/529992183848" target="_blank" rel="noopener noreferrer" class="bg-green-main hover:bg-green-dark text-white font-gilroy font-semibold px-8 py-4 transition-all flex items-center justify-center gap-3 shadow-md w-full sm:w-auto text-center">
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+                </svg>
+                Atención vía WhatsApp
+            </a>
+        </div>
+    </div>
+</section>
+<!-- Footer Component -->
+<footer class="w-full bg-white border-t border-gray-100 py-16 px-6 md:px-12 font-gilroy text-navy-dark">
+    <div class="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+        <!-- Brand Info -->
+        <div class="flex flex-col items-start max-w-sm">
+            <img alt="plademo_logo" class="h-10 w-auto object-contain mb-6" src="assets/plademo-original.png"/>
+            <p class="text-gray-text text-sm leading-relaxed mb-6">
+                Precisión Flexible. Soluciones de empaque industrial de alta ingeniería para operaciones que exigen calidad, especificaciones exactas y continuidad.
+            </p>
+            <!-- Social Icons -->
+            <div class="flex gap-3">
+                <a href="https://www.instagram.com/plademomx/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-text hover:text-blue-corp hover:border-blue-corp transition-colors" aria-label="Instagram">
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+                </a>
+                <a href="https://www.facebook.com/plademo.mx" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-text hover:text-blue-corp hover:border-blue-corp transition-colors" aria-label="Facebook">
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
+                </a>
+            </div>
+        </div>
+
+        <!-- Navigation Links -->
+        <div class="flex flex-col items-start">
+            <h4 class="font-lexend font-bold text-sm text-navy-dark tracking-wider uppercase mb-6">Navegación</h4>
+            <ul class="space-y-3 text-sm">
+                <li><a href="#" class="text-gray-text hover:text-blue-corp transition-colors">Inicio</a></li>
+                <li><a href="#productos" class="text-gray-text hover:text-blue-corp transition-colors">Líneas de producto</a></li>
+                <li><a href="#mercados" class="text-gray-text hover:text-blue-corp transition-colors">Mercados atendidos</a></li>
+                <li><a href="#nosotros" class="text-gray-text hover:text-blue-corp transition-colors">Responsabilidad ecológica</a></li>
+                <li><a href="#contacto" class="text-gray-text hover:text-blue-corp transition-colors">Contacto comercial</a></li>
+                <li><a href="#" class="text-gray-text hover:text-blue-corp transition-colors">Aviso de privacidad</a></li>
+                <li><a href="#" class="text-gray-text hover:text-blue-corp transition-colors">Términos y condiciones</a></li>
+            </ul>
+        </div>
+
+        <!-- Contact & Hours -->
+        <div class="flex flex-col items-start text-sm">
+            <h4 class="font-lexend font-bold text-sm text-navy-dark tracking-wider uppercase mb-6">Contacto y Horarios</h4>
+            <ul class="space-y-4">
+                <li class="flex items-start gap-3">
+                    <span class="material-symbols-outlined text-blue-corp text-lg mt-0.5">phone</span>
+                    <div>
+                        <span class="font-semibold block text-navy-dark">Teléfono:</span>
+                        <a href="tel:9992183848" class="text-gray-text hover:text-blue-corp transition-colors">999 218 3848</a>
+                    </div>
+                </li>
+                <li class="flex items-start gap-3">
+                    <span class="material-symbols-outlined text-blue-corp text-lg mt-0.5">schedule</span>
+                    <div>
+                        <span class="font-semibold block text-navy-dark">Horario de Atención:</span>
+                        <span class="text-gray-text block">Lunes a viernes: 8:00 a.m. – 5:00 p.m.</span>
+                        <span class="text-gray-text block">Sábados: 8:00 a.m. – 2:00 p.m.</span>
+                    </div>
+                </li>
+                <li class="flex items-start gap-3">
+                    <span class="material-symbols-outlined text-blue-corp text-lg mt-0.5">location_on</span>
+                    <div>
+                        <span class="font-semibold block text-navy-dark">Dirección:</span>
+                        <span class="text-gray-text">Carretera Dzununcan-Motul, C.P. 97430</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- Bottom Copyright -->
+    <div class="max-w-[1440px] mx-auto border-t border-gray-100 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-gray-text">
+        <p>© 2026 PLADEMO. Todos los derechos reservados.</p>
+    </div>
+</footer>
+</body></html>

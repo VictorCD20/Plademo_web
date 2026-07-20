@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Nosotros - PLADEMO</title>
+    <!-- Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <!-- Google Fonts: Manrope & Lexend -->
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Tailwind Config from Guidance -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "navy-dark": "#082B49",
+                        "blue-corp": "#0B5FA5",
+                        "blue-light": "#BFE3F0",
+                        "green-main": "#008C3A",
+                        "green-dark": "#103F24",
+                        "green-light": "#C8F8C6",
+                        "white": "#FFFFFF",
+                        "gray-text": "#5F6B76"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0px",
+                        "sm": "0px",
+                        "md": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "lexend": ["Lexend", "sans-serif"],
+                        "gilroy": ["Manrope", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.filled {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-white text-navy-dark font-gilroy antialiased pt-[70px]">
+    <!-- TopNavBar -->
+    <nav class="fixed top-0 left-0 w-full z-50 bg-white border-b border-gray-100 shadow-sm h-[70px] flex items-center font-gilroy">
+        <div class="w-full max-w-[1440px] mx-auto px-6 md:px-12 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center">
+                <img alt="plademo_logo" class="h-10 w-auto object-contain" src="assets/plademo-original.png"/>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex gap-8 items-center h-[70px]">
+                <a class="text-gray-text hover:text-blue-corp font-medium h-[70px] flex items-center px-1 text-sm tracking-wide transition-colors" href="index.html">Inicio</a>
+                <a class="text-gray-text hover:text-blue-corp font-medium h-[70px] flex items-center px-1 text-sm tracking-wide transition-colors" href="productos.html">Productos</a>
+                <a class="text-gray-text hover:text-blue-corp font-medium h-[70px] flex items-center px-1 text-sm tracking-wide transition-colors" href="mercado.html">Mercados</a>
+                <a class="text-navy-dark font-semibold border-b-2 border-green-main h-[70px] flex items-center px-1 text-sm tracking-wide transition-colors" href="nosotros.html">Nosotros</a>
+                <a class="text-gray-text hover:text-blue-corp font-medium h-[70px] flex items-center px-1 text-sm tracking-wide transition-colors" href="contacto.html">Contacto</a>
+            </div>
+
+            <!-- Desktop Action Button -->
+            <div class="hidden md:flex items-center">
+                <a href="contacto.html" class="bg-blue-corp hover:bg-navy-dark text-white px-5 py-2.5 text-sm font-semibold transition-all shadow-sm">Solicitar Cotización</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden flex items-center text-navy-dark focus:outline-none" aria-label="Abrir menú">
+                <span class="material-symbols-outlined text-3xl">menu</span>
+            </button>
+        </div>
+
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobile-menu" class="hidden absolute top-[70px] left-0 w-full bg-white border-b border-gray-100 flex flex-col px-6 py-4 gap-4 shadow-lg md:hidden">
+            <a class="text-gray-text hover:text-blue-corp font-medium pl-2 text-base transition-colors" href="index.html">Inicio</a>
+            <a class="text-gray-text hover:text-blue-corp font-medium pl-2 text-base transition-colors" href="productos.html">Productos</a>
+            <a class="text-gray-text hover:text-blue-corp font-medium pl-2 text-base transition-colors" href="mercado.html">Mercados</a>
+            <a class="text-navy-dark font-semibold border-l-4 border-green-main pl-2 text-base transition-colors" href="nosotros.html">Nosotros</a>
+            <a class="text-gray-text hover:text-blue-corp font-medium pl-2 text-base transition-colors" href="contacto.html">Contacto</a>
+            <a href="contacto.html" class="bg-blue-corp hover:bg-navy-dark text-white text-center py-3 text-sm font-semibold transition-all mt-2">Solicitar Cotización</a>
+        </div>
+    </nav>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+            if (btn && menu) {
+                btn.addEventListener('click', function() {
+                    menu.classList.toggle('hidden');
+                    const icon = btn.querySelector('.material-symbols-outlined');
+                    if (icon) {
+                        icon.textContent = menu.classList.contains('hidden') ? 'menu' : 'close';
+                    }
+                });
+            }
+        });
+    </script>
+
+    <div class="py-20 text-center max-w-4xl mx-auto px-6">
+        <h1 class="font-lexend font-extrabold text-navy-dark text-4xl mb-4">NOSOTROS</h1>
+        <p class="text-gray-text">Página en desarrollo técnico.</p>
+    </div>
+</body>
+<footer class="w-full bg-white border-t border-gray-100 py-16 px-6 md:px-12 font-gilroy text-navy-dark">
+    <div class="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+        <!-- Brand Info -->
+        <div class="flex flex-col items-start max-w-sm">
+            <img alt="plademo_logo" class="h-10 w-auto object-contain mb-6" src="assets/plademo-original.png"/>
+            <p class="text-gray-text text-sm leading-relaxed mb-6">
+                Precisión Flexible. Soluciones de empaque industrial de alta ingeniería para operaciones que exigen calidad, especificaciones exactas y continuidad.
+            </p>
+            <!-- Social Icons -->
+            <div class="flex gap-3">
+                <a href="https://www.instagram.com/plademomx/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-text hover:text-blue-corp hover:border-blue-corp transition-colors" aria-label="Instagram">
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+                </a>
+                <a href="https://www.facebook.com/plademo.mx" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-text hover:text-blue-corp hover:border-blue-corp transition-colors" aria-label="Facebook">
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
+                </a>
+            </div>
+        </div>
+
+        <!-- Navigation Links -->
+        <div class="flex flex-col items-start">
+            <h4 class="font-lexend font-bold text-sm text-navy-dark tracking-wider uppercase mb-6">Navegación</h4>
+            <ul class="space-y-3 text-sm">
+                <li><a href="#" class="text-gray-text hover:text-blue-corp transition-colors">Inicio</a></li>
+                <li><a href="#productos" class="text-gray-text hover:text-blue-corp transition-colors">Líneas de producto</a></li>
+                <li><a href="#mercados" class="text-gray-text hover:text-blue-corp transition-colors">Mercados atendidos</a></li>
+                <li><a href="#nosotros" class="text-gray-text hover:text-blue-corp transition-colors">Responsabilidad ecológica</a></li>
+                <li><a href="#contacto" class="text-gray-text hover:text-blue-corp transition-colors">Contacto comercial</a></li>
+                <li><a href="#" class="text-gray-text hover:text-blue-corp transition-colors">Aviso de privacidad</a></li>
+                <li><a href="#" class="text-gray-text hover:text-blue-corp transition-colors">Términos y condiciones</a></li>
+            </ul>
+        </div>
+
+        <!-- Contact & Hours -->
+        <div class="flex flex-col items-start text-sm">
+            <h4 class="font-lexend font-bold text-sm text-navy-dark tracking-wider uppercase mb-6">Contacto y Horarios</h4>
+            <ul class="space-y-4">
+                <li class="flex items-start gap-3">
+                    <span class="material-symbols-outlined text-blue-corp text-lg mt-0.5">phone</span>
+                    <div>
+                        <span class="font-semibold block text-navy-dark">Teléfono:</span>
+                        <a href="tel:9992183848" class="text-gray-text hover:text-blue-corp transition-colors">999 218 3848</a>
+                    </div>
+                </li>
+                <li class="flex items-start gap-3">
+                    <span class="material-symbols-outlined text-blue-corp text-lg mt-0.5">schedule</span>
+                    <div>
+                        <span class="font-semibold block text-navy-dark">Horario de Atención:</span>
+                        <span class="text-gray-text block">Lunes a viernes: 8:00 a.m. – 5:00 p.m.</span>
+                        <span class="text-gray-text block">Sábados: 8:00 a.m. – 2:00 p.m.</span>
+                    </div>
+                </li>
+                <li class="flex items-start gap-3">
+                    <span class="material-symbols-outlined text-blue-corp text-lg mt-0.5">location_on</span>
+                    <div>
+                        <span class="font-semibold block text-navy-dark">Dirección:</span>
+                        <span class="text-gray-text">Carretera Dzununcan-Motul, C.P. 97430</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- Bottom Copyright -->
+    <div class="max-w-[1440px] mx-auto border-t border-gray-100 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-gray-text">
+        <p>© 2026 PLADEMO. Todos los derechos reservados.</p>
+    </div>
+</footer>
+</body>
+</html>
