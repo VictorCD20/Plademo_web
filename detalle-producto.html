@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Detalle de Producto - PLADEMO</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+    
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "navy-dark": "#0f2d56",
+                        "blue-corp": "#0f2d56",
+                        "blue-light": "#bbdaea",
+                        "green-main": "#007d32",
+                        "green-dark": "#1a3b23",
+                        "green-light": "#c0f1be",
+                        "white": "#FFFFFF",
+                        "gray-text": "#5F6B76"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0px",
+                        "sm": "0px",
+                        "md": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "lexend": ["Lexend", "sans-serif"],
+                        "gilroy": ["Manrope", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.filled {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-white text-navy-dark font-gilroy antialiased pt-[70px]">
+    <!-- TopNavBar -->
+    <nav class="fixed top-0 left-0 w-full z-50 bg-white border-b border-gray-100 shadow-sm h-[70px] flex items-center font-gilroy">
+        <div class="w-full max-w-[1440px] mx-auto px-6 md:px-12 flex justify-between items-center">
+            
+            <a href="index.html" class="flex items-center">
+                <img alt="plademo_logo" class="h-10 w-auto object-contain" src="assets/img/plademo-original.webp"/>
+            </a>
+
+            <!-- Desktop Nav -->
+            <div class="hidden md:flex gap-8 items-center h-[70px]">
+                <a class="text-gray-text hover:text-blue-corp font-medium h-[70px] flex items-center px-1 text-sm tracking-wide transition-colors" href="index.html">Inicio</a>
+                <a class="text-navy-dark font-semibold border-b-2 border-green-main h-[70px] flex items-center px-1 text-sm tracking-wide transition-colors" href="productos.html">Productos</a>
+                <a class="text-gray-text hover:text-blue-corp font-medium h-[70px] flex items-center px-1 text-sm tracking-wide transition-colors" href="mercado.html">Mercados</a>
+                <a class="text-gray-text hover:text-blue-corp font-medium h-[70px] flex items-center px-1 text-sm tracking-wide transition-colors" href="nosotros.html">Nosotros</a>
+                <a class="text-gray-text hover:text-blue-corp font-medium h-[70px] flex items-center px-1 text-sm tracking-wide transition-colors" href="contacto.html">Contacto</a>
+            </div>
+
+            <!-- CTA Desktop -->
+            <div class="hidden md:flex items-center">
+                <a href="contacto.html" class="bg-blue-corp hover:bg-navy-dark text-white px-5 py-2.5 text-sm font-semibold transition-all shadow-sm">Solicitar Cotización</a>
+            </div>
+
+            <!-- Burger Button -->
+            <button id="mobile-menu-btn" class="md:hidden flex items-center text-navy-dark focus:outline-none" aria-label="Abrir menú">
+                <span class="material-symbols-outlined text-3xl">menu</span>
+            </button>
+        </div>
+
+        <!-- Mobile Nav Menu -->
+        <div id="mobile-menu" class="hidden absolute top-[70px] left-0 w-full bg-white border-b border-gray-100 flex flex-col px-6 py-4 gap-4 shadow-lg md:hidden">
+            <a class="text-gray-text hover:text-blue-corp font-medium pl-2 text-base transition-colors" href="index.html">Inicio</a>
+            <a class="text-navy-dark font-semibold border-l-4 border-green-main pl-2 text-base transition-colors" href="productos.html">Productos</a>
+            <a class="text-gray-text hover:text-blue-corp font-medium pl-2 text-base transition-colors" href="mercado.html">Mercados</a>
+            <a class="text-gray-text hover:text-blue-corp font-medium pl-2 text-base transition-colors" href="nosotros.html">Nosotros</a>
+            <a class="text-gray-text hover:text-blue-corp font-medium pl-2 text-base transition-colors" href="contacto.html">Contacto</a>
+            <a href="contacto.html" class="bg-blue-corp hover:bg-navy-dark text-white text-center py-3 text-sm font-semibold transition-all mt-2">Solicitar Cotización</a>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <main class="max-w-[1440px] mx-auto px-6 md:px-12 py-10" id="product-detail-container">
+        <!-- Breadcrumbs & Back button -->
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-10 pb-6 border-b border-gray-100">
+            <div class="flex items-center gap-2 text-xs text-gray-text">
+                <a href="index.html" class="hover:text-green-main transition-colors">Inicio</a>
+                <span class="material-symbols-outlined text-sm">chevron_right</span>
+                <a href="productos.html" class="hover:text-green-main transition-colors">Productos</a>
+                <span class="material-symbols-outlined text-sm">chevron_right</span>
+                <span class="text-navy-dark font-semibold" id="breadcrumb-product-name">Cargando...</span>
+            </div>
+            <a href="productos.html" class="flex items-center gap-2 text-sm text-navy-dark hover:text-green-main font-semibold transition-colors">
+                <span class="material-symbols-outlined text-base">arrow_back</span>
+                Volver al catálogo
+            </a>
+        </div>
+
+        <!-- 2-Column Product Layout -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-16">
+            <!-- Left: Image Box -->
+            <div class="lg:col-span-5 flex flex-col items-center">
+                <div class="w-full aspect-square bg-[#c0f1be]/30 flex items-center justify-center p-12 border border-gray-100 relative group overflow-hidden">
+                    <img id="product-image" alt="Imagen del producto" class="max-h-[90%] max-w-[90%] object-contain transition-transform duration-500 group-hover:scale-105" src=""/>
+                    <div id="product-code-badge" class="absolute top-4 left-4 bg-navy-dark text-white px-3 py-1 font-gilroy font-bold text-xs tracking-wider uppercase">
+                        -
+                    </div>
+                </div>
+                
+                <!-- Additional Specs Table -->
+                <div class="w-full mt-8 bg-gray-50 border border-gray-100 p-6">
+                    <h4 class="font-lexend font-bold text-sm text-navy-dark uppercase tracking-wider mb-4 border-b border-gray-200 pb-2">Especificaciones Estándar</h4>
+                    <dl class="space-y-3 text-sm text-gray-text" id="product-specs-list">
+                        <!-- Populated by JS -->
+                    </dl>
+                </div>
+            </div>
+
+            <!-- Right: Info, Description & Calculator -->
+            <div class="lg:col-span-7 flex flex-col justify-between">
+                <div>
+                    <!-- Product Metadata -->
+                    <span id="product-subtitle" class="text-green-main font-gilroy font-bold text-xs uppercase tracking-widest block mb-2">-</span>
+                    <h1 id="product-title" class="font-lexend font-normal text-4xl sm:text-5xl text-navy-dark mb-6 leading-tight">Cargando...</h1>
+                    
+                    <div class="w-full border-t border-gray-100 my-6"></div>
+                    
+                    <p id="product-description" class="font-gilroy text-gray-text text-base leading-relaxed mb-8">
+                        -
+                    </p>
+
+                    <!-- Interactive Configurator -->
+                    <div class="bg-gray-50 border border-gray-100 p-6 sm:p-8 mb-8">
+                        <div class="flex items-center gap-3 mb-6">
+                            <span class="material-symbols-outlined text-green-main">build</span>
+                            <h3 class="font-lexend font-bold text-base text-navy-dark uppercase tracking-wider">Configurador de Pedido Industrial</h3>
+                        </div>
+                        
+                        <!-- Options Container -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6" id="calculator-controls">
+                            <!-- Populated by JS -->
+                        </div>
+
+                        <!-- Live Summary Panel -->
+                        <div class="bg-[#c0f1be]/30 border border-[#c0f1be] p-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                            <div>
+                                <span class="block text-[10px] font-gilroy font-bold text-green-main uppercase tracking-widest mb-1">Especificación técnica configurada:</span>
+                                <span id="summary-spec-text" class="block font-lexend font-bold text-sm text-navy-dark">Ninguna</span>
+                            </div>
+                            <button id="add-to-form-btn" class="bg-green-main hover:bg-green-dark text-white font-gilroy font-bold text-xs uppercase tracking-widest px-4 py-2.5 transition-colors">
+                                Cargar en Formulario
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-4 bg-gray-50 p-4 border border-gray-100">
+                    <span class="material-symbols-outlined text-green-main text-3xl">info</span>
+                    <p class="text-xs text-gray-text leading-relaxed">
+                        Este catálogo tiene propósitos técnicos y de desarrollo de empaque. Todas las solicitudes requieren análisis y validación de volumen mínimo por nuestro equipo de ingeniería.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact/Quote Section -->
+        <section id="quote-section" class="bg-navy-dark text-white p-8 sm:p-12 mb-16 scroll-mt-24">
+            <div class="max-w-3xl mx-auto">
+                <div class="text-center mb-10">
+                    <span class="text-green-light font-gilroy font-bold text-xs uppercase tracking-widest block mb-2">Presupuesto Técnico</span>
+                    <h2 class="font-lexend font-normal text-3xl mb-4">Solicitar Cotización de Volumen</h2>
+                    <p class="font-gilroy text-white/70 text-sm leading-relaxed">
+                        Complete el siguiente formulario con sus requerimientos operativos. Un ingeniero comercial B2B se pondrá en contacto con usted en un lapso no mayor a 24 horas hábiles.
+                    </p>
+                </div>
+
+                <!-- Quote Form -->
+                <form id="quote-form" class="space-y-6 text-navy-dark">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-gilroy font-bold text-white uppercase tracking-wider mb-2" for="quote-name">Nombre Completo *</label>
+                            <input class="w-full bg-white border border-transparent px-4 py-3 text-sm focus:outline-none focus:border-green-light" type="text" id="quote-name" required placeholder="Ej. Ing. Carlos Mendoza"/>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-gilroy font-bold text-white uppercase tracking-wider mb-2" for="quote-company">Empresa / Razón Social *</label>
+                            <input class="w-full bg-white border border-transparent px-4 py-3 text-sm focus:outline-none focus:border-green-light" type="text" id="quote-company" required placeholder="Ej. Distribuidora del Norte"/>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-gilroy font-bold text-white uppercase tracking-wider mb-2" for="quote-email">Correo Electrónico Corporativo *</label>
+                            <input class="w-full bg-white border border-transparent px-4 py-3 text-sm focus:outline-none focus:border-green-light" type="email" id="quote-email" required placeholder="Ej. c.mendoza@empresa.com"/>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-gilroy font-bold text-white uppercase tracking-wider mb-2" for="quote-phone">Teléfono de Contacto (con Whatsapp) *</label>
+                            <input class="w-full bg-white border border-transparent px-4 py-3 text-sm focus:outline-none focus:border-green-light" type="tel" id="quote-phone" required placeholder="Ej. 999 123 4567"/>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-gilroy font-bold text-white uppercase tracking-wider mb-2" for="quote-volume">Cantidad / Volumen Estimado *</label>
+                            <input class="w-full bg-white border border-transparent px-4 py-3 text-sm focus:outline-none focus:border-green-light" type="text" id="quote-volume" required placeholder="Ej. 500 kg, 10,000 piezas, etc."/>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-gilroy font-bold text-white uppercase tracking-wider mb-2" for="quote-product">Producto Seleccionado</label>
+                            <input class="w-full bg-gray-200 border border-transparent px-4 py-3 text-sm text-gray-500 cursor-not-allowed" type="text" id="quote-product" readonly/>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-gilroy font-bold text-white uppercase tracking-wider mb-2" for="quote-specs">Especificaciones Técnicas Seleccionadas</label>
+                        <input class="w-full bg-gray-200 border border-transparent px-4 py-3 text-sm text-gray-500 cursor-not-allowed font-mono" type="text" id="quote-specs" readonly placeholder="Configure las especificaciones arriba"/>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-gilroy font-bold text-white uppercase tracking-wider mb-2" for="quote-comments">Comentarios o Requerimientos Especiales</label>
+                        <textarea class="w-full bg-white border border-transparent px-4 py-3 text-sm focus:outline-none focus:border-green-light h-32 resize-none" id="quote-comments" placeholder="Ej. Requerimos tratamiento Corona para impresión, aditivo UV para 6 meses, empaque individual..."></textarea>
+                    </div>
+
+                    <div class="text-center pt-4">
+                        <button type="submit" class="bg-green-main hover:bg-green-dark text-white font-gilroy font-bold text-sm uppercase tracking-widest px-10 py-4 transition-all shadow-md w-full sm:w-auto">
+                            Enviar Solicitud de Cotización
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Feedback Toast/Message -->
+                <div id="form-success-msg" class="hidden mt-6 bg-[#c0f1be] border border-green-main p-6 text-green-dark text-center">
+                    <span class="material-symbols-outlined text-4xl mb-2 block">check_circle</span>
+                    <h4 class="font-lexend font-bold text-lg mb-1">¡Solicitud Enviada con Éxito!</h4>
+                    <p class="font-gilroy text-sm">Hemos recibido sus requerimientos técnicos. Un ingeniero comercial B2B se pondrá en contacto pronto.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Products Section -->
+        <section class="border-t border-gray-100 pt-16">
+            <h3 class="font-lexend font-normal text-2xl text-navy-dark mb-8">Otros Productos del Catálogo</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="related-products-grid">
+                <!-- Populated by JS -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full bg-white border-t border-gray-100 py-16 px-6 md:px-12 font-gilroy text-navy-dark relative">
+        <div class="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 mb-12 justify-items-center text-center md:text-left">
+            
+            <div class="flex flex-col items-center md:items-start max-w-sm">
+                <img alt="plademo_logo" class="h-10 w-auto object-contain mb-6" src="assets/img/plademo-original.webp"/>
+                <p class="text-gray-text text-sm leading-relaxed mb-6">
+                    Precisión Flexible. Soluciones de empaque industrial de alta ingeniería para operaciones que exigen calidad, especificaciones exactas y continuidad.
+                </p>
+                <div class="flex gap-3">
+                    <a href="https://www.instagram.com/plademomx/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-text hover:text-blue-corp hover:border-blue-corp transition-colors" aria-label="Instagram">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+                    </a>
+                    <a href="https://www.facebook.com/plademo.mx" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-text hover:text-blue-corp hover:border-blue-corp transition-colors" aria-label="Facebook">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="flex flex-col items-center md:items-start">
+                <h4 class="font-lexend font-bold text-sm text-navy-dark tracking-wider uppercase mb-6">Navegación</h4>
+                <ul class="space-y-3 text-sm text-center md:text-left">
+                    <li><a href="index.html" class="text-gray-text hover:text-blue-corp transition-colors">Inicio</a></li>
+                    <li><a href="productos.html" class="text-gray-text hover:text-blue-corp transition-colors">Productos</a></li>
+                    <li><a href="mercado.html" class="text-gray-text hover:text-blue-corp transition-colors">Mercados atendidos</a></li>
+                    <li><a href="nosotros.html" class="text-gray-text hover:text-blue-corp transition-colors">Responsabilidad ecológica</a></li>
+                    <li><a href="contacto.html" class="text-gray-text hover:text-blue-corp transition-colors">Contacto comercial</a></li>
+                </ul>
+            </div>
+
+            <div class="flex flex-col items-center md:items-start text-sm">
+                <h4 class="font-lexend font-bold text-sm text-navy-dark tracking-wider uppercase mb-6">Contacto y Horarios</h4>
+                <ul class="space-y-4 flex flex-col items-center md:items-start">
+                    <li class="flex flex-col md:flex-row items-center md:items-start gap-3">
+                        <span class="material-symbols-outlined text-blue-corp text-lg">phone</span>
+                        <div class="text-center md:text-left">
+                            <span class="font-semibold block text-navy-dark">Teléfono:</span>
+                            <a href="tel:9992183848" class="text-gray-text hover:text-blue-corp transition-colors">999 218 3848</a>
+                        </div>
+                    </li>
+                    <li class="flex flex-col md:flex-row items-center md:items-start gap-3">
+                        <span class="material-symbols-outlined text-blue-corp text-lg">schedule</span>
+                        <div class="text-center md:text-left">
+                            <span class="font-semibold block text-navy-dark">Horario de Atención:</span>
+                            <span class="text-gray-text block">Lunes a viernes: 8:00 a.m. – 5:00 p.m.</span>
+                            <span class="text-gray-text block">Sábados: 8:00 a.m. – 2:00 p.m.</span>
+                        </div>
+                    </li>
+                    <li class="flex flex-col md:flex-row items-center md:items-start gap-3">
+                        <span class="material-symbols-outlined text-blue-corp text-lg">location_on</span>
+                        <div class="text-center md:text-left">
+                            <span class="font-semibold block text-navy-dark">Dirección:</span>
+                            <span class="text-gray-text">Carretera Dzununcan-Motul, C.P. 97430</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="max-w-[1440px] mx-auto border-t border-gray-100 pt-8 flex justify-center items-center text-xs text-gray-text text-center">
+            <p>© 2026 PLADEMO. Todos los derechos reservados.</p>
+        </div>
+
+        <!-- Floating WhatsApp Widget -->
+        <div class="fixed bottom-6 right-6 z-50">
+            <a href="https://wa.me/529992183848" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp" class="bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-105 transition-transform flex items-center justify-center w-14 h-14">
+                <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24">
+                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.25 8.477 3.517 2.266 2.268 3.512 5.28 3.51 8.482-.006 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.5-5.787-1.45L0 24zm6.304-1.655c1.728.986 3.564 1.507 5.688 1.508 5.923 0 10.745-4.819 10.749-10.743.003-2.87-1.111-5.569-3.137-7.597-2.026-2.027-4.721-3.142-7.592-3.143C6.093 1.378 1.272 6.2 1.269 12.124c-.001 2.125.556 4.2 1.61 5.987l-.998 3.646 3.732-.98 1.748 1.012zm11.111-7.963c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/>
+                </svg>
+            </a>
+        </div>
+    </footer>
+
+    <!-- Product Database and Controller -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Menu Toggle
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+            if (btn && menu) {
+                btn.addEventListener('click', function() {
+                    menu.classList.toggle('hidden');
+                    const icon = btn.querySelector('.material-symbols-outlined');
+                    if (icon) {
+                        icon.textContent = menu.classList.contains('hidden') ? 'menu' : 'close';
+                    }
+                });
+            }
+
+            // Products Database
+            const products = {
+                'rollo-600': {
+                    id: 'rollo-600',
+                    title: 'Rollo Polietileno calibre 600',
+                    subtitle: 'Empaque Continuo de Alta Resistencia',
+                    code: 'POL-600',
+                    description: 'Película continua de polietileno de baja densidad (PEBD) de alta resistencia y espesor consistente de calibre 600 (equivalente a 150 micras o 6 milésimas de pulgada). Proporciona una barrera impermeable óptima frente a factores externos, humedad y polvo. Ideal para construcción (barrera de vapor), protección de superficies y empaque industrial pesado.',
+                    image: 'assets/img/producto-rollo-polietileno.webp',
+                    specs: [
+                        { name: 'Material', value: 'Polietileno de Baja Densidad (PEBD) virgen o reciclado' },
+                        { name: 'Calibre Nominal', value: '600 (150 µm / 6 mil)' },
+                        { name: 'Ancho de Bobina', value: '1.0m hasta 3.0m' },
+                        { name: 'Presentación', value: 'Bobina continua de peso regulado' },
+                        { name: 'Coloración', value: 'Natural, Negro, Translúcido' }
+                    ],
+                    controls: [
+                        {
+                            label: 'Calibre de la Bobina',
+                            id: 'spec-calibre',
+                            options: ['Calibre 600 (150 µm / Estándar)', 'Calibre 400 (100 µm / Ligero)', 'Calibre 800 (200 µm / Extra Reforzado)']
+                        },
+                        {
+                            label: 'Ancho del Rollo',
+                            id: 'spec-ancho',
+                            options: ['1.0 metros', '1.5 metros', '2.0 metros', '3.0 metros']
+                        },
+                        {
+                            label: 'Color / Aditivo',
+                            id: 'spec-color',
+                            options: ['Natural (Translúcido)', 'Negro con aditivo UV', 'Transparente Cristal']
+                        }
+                    ]
+                },
+                'es-rollo': {
+                    id: 'es-rollo',
+                    title: 'Bolsas para basura “Es-Rollo”',
+                    subtitle: 'Manejo Eficiente de Residuos',
+                    code: 'RES-01',
+                    description: 'Bolsas de alta resistencia fabricadas con polímeros reciclados post-industriales, presentadas en rollos compactos y prácticos con línea de precorte. Su diseño optimiza el espacio de almacenamiento y garantiza una dispensación rápida y limpia en entornos industriales, corporativos u hoteleros.',
+                    image: 'assets/img/producto-bolsa-basura-es-rollo.webp',
+                    specs: [
+                        { name: 'Material', value: 'Polietileno de Baja Densidad (PEBD) reciclado seleccionado' },
+                        { name: 'Tipo de Sello', value: 'Sello en estrella de fondo reforzado contra goteos' },
+                        { name: 'Calibre Promedio', value: '120 a 220' },
+                        { name: 'Presentación', value: 'Rollo continuo con precorte de precisión' },
+                        { name: 'Biodegradabilidad', value: 'Apta para aditivos oxo-biodegradables a solicitud' }
+                    ],
+                    controls: [
+                        {
+                            label: 'Dimensión / Capacidad',
+                            id: 'spec-dim',
+                            options: ['Chica (50x60 cm)', 'Mediana (70x90 cm)', 'Grande (90x120 cm)', 'Industrial (120x150 cm)']
+                        },
+                        {
+                            label: 'Calibre y Resistencia',
+                            id: 'spec-resistencia',
+                            options: ['Uso Comercial (120)', 'Uso Rudo Industrial (180)', 'Extra Pesado B2B (220)']
+                        },
+                        {
+                            label: 'Presentación en Rollo',
+                            id: 'spec-presentacion',
+                            options: ['Rollo con 10 bolsas', 'Rollo con 20 bolsas', 'Rollo con 50 bolsas']
+                        }
+                    ]
+                },
+                'bolsa-hotelera': {
+                    id: 'bolsa-hotelera',
+                    title: 'Bolsas Hoteleras',
+                    subtitle: 'Soluciones de Hospitalidad y Servicio',
+                    code: 'HOT-02',
+                    description: 'Desarrolladas específicamente para responder a los flujos y estándares de la industria hotelera y de hospitalidad. Diseños funcionales y discretos para el embalaje y transporte de blancos, recolección de lavandería de huéspedes o protección de amenidades en habitaciones.',
+                    image: 'assets/img/producto-bolsa-hotelera.webp',
+                    specs: [
+                        { name: 'Material', value: 'Polietileno de Baja Densidad virgen higiénico' },
+                        { name: 'Tipología', value: 'Bolsa plana con o sin cordón de cierre' },
+                        { name: 'Calibre Nominal', value: '80 a 140' },
+                        { name: 'Impresión flexográfica', value: 'Hasta 3 tintas (Logotipo corporativo)' },
+                        { name: 'Color del sustrato', value: 'Blanco opaco, Azul translúcido, Transparente' }
+                    ],
+                    controls: [
+                        {
+                            label: 'Aplicación / Tipo',
+                            id: 'spec-tipo-hotel',
+                            options: ['Lavandería de Huéspedes (Con cordón)', 'Protección de Blancos (Grande sin cordón)', 'Amenidades y Organización']
+                        },
+                        {
+                            label: 'Impresión / Branding',
+                            id: 'spec-branding',
+                            options: ['Sin Impresión (Genérica)', 'Impresión a 1 Tinta', 'Impresión a 2 Tintas (Logotipo)']
+                        },
+                        {
+                            label: 'Color de Bolsa',
+                            id: 'spec-color-hotel',
+                            options: ['Blanco Opaco Premium', 'Azul Translúcido', 'Transparente Cristal']
+                        }
+                    ]
+                },
+                'empaque-medida': {
+                    id: 'empaque-medida',
+                    title: 'Soluciones de empaque a medida',
+                    subtitle: 'Co-Diseño e Ingeniería Flexible',
+                    code: 'MED-99',
+                    description: 'Solución integral de desarrollo técnico a la medida. Nuestro equipo técnico analiza sus requerimientos específicos de línea de producción, envasado automatizado (VFFS/HFFS) o manipulación para proponer la combinación idónea de resinas, calibres, aditivos específicos (UV, antideslave) e impresión flexográfica.',
+                    image: 'assets/productos/bolsa dorada.png',
+                    specs: [
+                        { name: 'Materiales disponibles', value: 'PEAD, PEBD, Coextruidos multicapa' },
+                        { name: 'Calibres formulables', value: 'Desde calibre 40 hasta calibre 1000' },
+                        { name: 'Ancho y fuelle', value: 'Totalmente personalizado según requerimiento' },
+                        { name: 'Capacidad de Impresión', value: 'Flexografía de alta resolución hasta 6 colores' },
+                        { name: 'Aditivos especiales', value: 'UV, Deslizante, Antibloqueo, Antiestático' }
+                    ],
+                    controls: [
+                        {
+                            label: 'Tipo de Estructura',
+                            id: 'spec-estructura',
+                            options: ['Bolsa con Fuelles Laterales', 'Rollo Tubular Continuo', 'Película Plana para Envolvedora', 'Bolsa Plana Sencilla']
+                        },
+                        {
+                            label: 'Aditivos Requeridos',
+                            id: 'spec-aditivos',
+                            options: ['Sin aditivos', 'Protección Solar UV (Exterior)', 'Deslizante (Desmolde rápido)', 'Antiestático / Electrónico']
+                        },
+                        {
+                            label: 'Impresión / Diseño',
+                            id: 'spec-impresion-medida',
+                            options: ['Sin Impresión (Liso)', 'Impresión Flexográfica 1-3 Colores', 'Impresión Flexográfica 4-6 Colores']
+                        }
+                    ]
+                }
+            };
+
+            // Get product ID from URL query param
+            const urlParams = new URLSearchParams(window.location.search);
+            let productId = urlParams.get('id');
+
+            // Fallback if product ID is invalid or missing
+            if (!productId || !products[productId]) {
+                productId = 'rollo-600'; // default
+            }
+
+            const currentProduct = products[productId];
+
+            // Render Product Details
+            document.title = `${currentProduct.title} - Ficha Técnica - PLADEMO`;
+            document.getElementById('breadcrumb-product-name').textContent = currentProduct.title;
+            document.getElementById('product-title').textContent = currentProduct.title;
+            document.getElementById('product-subtitle').textContent = currentProduct.subtitle;
+            document.getElementById('product-code-badge').textContent = currentProduct.code;
+            document.getElementById('product-description').textContent = currentProduct.description;
+            document.getElementById('product-image').src = currentProduct.image;
+            document.getElementById('product-image').alt = currentProduct.title;
+            
+            // Set Form Pre-population
+            document.getElementById('quote-product').value = `${currentProduct.title} (${currentProduct.code})`;
+
+            // Populate Specs Table
+            const specsList = document.getElementById('product-specs-list');
+            specsList.innerHTML = '';
+            currentProduct.specs.forEach(spec => {
+                const div = document.createElement('div');
+                div.className = 'grid grid-cols-3 py-2 border-b border-gray-100 last:border-b-0';
+                div.innerHTML = `
+                    <dt class="font-semibold text-navy-dark col-span-1">${spec.name}</dt>
+                    <dd class="col-span-2 text-right">${spec.value}</dd>
+                `;
+                specsList.appendChild(div);
+            });
+
+            // Populate Configurator Controls
+            const controlsContainer = document.getElementById('calculator-controls');
+            controlsContainer.innerHTML = '';
+            currentProduct.controls.forEach(ctrl => {
+                const div = document.createElement('div');
+                div.className = 'flex flex-col';
+                
+                let optionsHtml = '';
+                ctrl.options.forEach(opt => {
+                    optionsHtml += `<option value="${opt}">${opt}</option>`;
+                });
+
+                div.innerHTML = `
+                    <label class="block text-xs font-gilroy font-bold text-navy-dark uppercase tracking-wider mb-2" for="${ctrl.id}">${ctrl.label}</label>
+                    <select id="${ctrl.id}" class="w-full bg-white border border-gray-200 px-4 py-3 text-sm focus:outline-none focus:border-green-main">
+                        ${optionsHtml}
+                    </select>
+                `;
+                controlsContainer.appendChild(div);
+            });
+
+            // Summary Specs Update Logic
+            function updateSpecsSummary() {
+                const selectedSpecs = [];
+                currentProduct.controls.forEach(ctrl => {
+                    const selectEl = document.getElementById(ctrl.id);
+                    if (selectEl) {
+                        selectedSpecs.push(selectEl.value);
+                    }
+                });
+                
+                const specString = selectedSpecs.join(' | ');
+                document.getElementById('summary-spec-text').textContent = specString;
+            }
+
+            // Bind change events to configurator controls
+            currentProduct.controls.forEach(ctrl => {
+                const selectEl = document.getElementById(ctrl.id);
+                if (selectEl) {
+                    selectEl.addEventListener('change', updateSpecsSummary);
+                }
+            });
+
+            // Initial summary setup
+            updateSpecsSummary();
+
+            // "Cargar en Formulario" button handler
+            const loadBtn = document.getElementById('add-to-form-btn');
+            loadBtn.addEventListener('click', function() {
+                const specString = document.getElementById('summary-spec-text').textContent;
+                document.getElementById('quote-specs').value = specString;
+                
+                // Scroll to form smoothly
+                const formSection = document.getElementById('quote-section');
+                if (formSection) {
+                    formSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+
+            // Form Submit handler
+            const form = document.getElementById('quote-form');
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Simulated AJAX submission
+                form.classList.add('hidden');
+                document.getElementById('form-success-msg').classList.remove('hidden');
+            });
+
+            // Render Related Products
+            const relatedContainer = document.getElementById('related-products-grid');
+            relatedContainer.innerHTML = '';
+            
+            Object.keys(products).forEach(key => {
+                if (key !== productId) {
+                    const prod = products[key];
+                    const article = document.createElement('article');
+                    article.className = 'bg-white border border-gray-100 p-6 flex flex-col justify-between hover:shadow-lg transition-all group';
+                    article.innerHTML = `
+                        <div>
+                            <div class="h-40 bg-gray-50 flex items-center justify-center border border-gray-100 overflow-hidden relative mb-6">
+                                <img alt="${prod.title}" class="max-h-[85%] max-w-[85%] object-contain transition-transform duration-500 group-hover:scale-105" src="${prod.image}"/>
+                                <div class="absolute top-3 left-3 bg-navy-dark text-white px-2 py-0.5 font-gilroy font-bold text-[9px] tracking-wider uppercase">
+                                    ${prod.code}
+                                </div>
+                            </div>
+                            <h4 class="font-lexend font-bold text-lg text-navy-dark mb-2 group-hover:text-green-main transition-colors">${prod.title}</h4>
+                            <p class="font-gilroy text-gray-text text-xs leading-relaxed line-clamp-3 mb-6">${prod.description}</p>
+                        </div>
+                        <a href="detalle-producto.html?id=${prod.id}" class="w-full text-center bg-navy-dark text-white font-gilroy font-bold text-xs uppercase tracking-widest py-3 hover:bg-green-main transition-colors block">Ficha Técnica</a>
+                    `;
+                    relatedContainer.appendChild(article);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
