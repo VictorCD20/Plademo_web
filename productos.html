@@ -109,11 +109,15 @@
                     <span class="text-blue-light font-gilroy font-bold tracking-[0.2em] text-xs uppercase">Edición 2026</span>
                 </div>
                 <h1 class="font-lexend font-normal text-4xl sm:text-5xl md:text-6xl text-white mb-6 leading-none">
-                    Catálogo de Productos
+                    Catálogo técnico de empaques flexibles
                 </h1>
-                <p class="font-gilroy text-white/80 text-sm md:text-base leading-relaxed max-w-xl">
-                    Ingeniería de precisión en plásticos para la industria. Exploración de materiales de alta resistencia, sellabilidad y rendimiento automatizado.
+                <p class="font-gilroy text-white/80 text-sm md:text-base leading-relaxed max-w-xl mb-8">
+                    Soluciones de empaque diseñadas para uso industrial, comercial y operativo, fabricadas con criterios de resistencia, funcionalidad y adaptación a cada necesidad.
                 </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="contacto.html" class="bg-green-main hover:bg-green-dark text-white font-gilroy font-bold text-xs uppercase tracking-widest px-6 py-3.5 transition-colors">Solicitar cotización</a>
+                    <a href="#products-grid" class="border border-white/30 text-white font-gilroy font-bold text-xs uppercase tracking-widest px-6 py-3.5 hover:bg-white/10 transition-colors">Ver productos</a>
+                </div>
             </div>
             <div class="hidden lg:flex gap-6 bg-white/10 backdrop-blur-md border border-white/20 p-6">
                 <div class="flex flex-col gap-1">
@@ -126,6 +130,15 @@
                     <span class="text-white text-lg font-bold">100% Reciclable</span>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Introducción Breve -->
+    <section class="max-w-[1440px] mx-auto px-6 md:px-12 pt-16 pb-4">
+        <div class="border-l-4 border-green-main pl-6 max-w-4xl">
+            <p class="font-gilroy text-gray-text text-base md:text-lg leading-relaxed">
+                Cada producto puede adaptarse según calibre, medida, presentación y volumen requerido. Nuestro equipo revisa las especificaciones de cada cliente para ofrecer una solución funcional y adecuada a su operación.
+            </p>
         </div>
     </section>
 
@@ -145,123 +158,154 @@
         </div>
     </section>
 
-    <!-- Bento Product Grid -->
+    <!-- Product Grid (2 columns on large screens) -->
     <section class="max-w-[1440px] mx-auto px-6 md:px-12 pb-24">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[minmax(320px,_auto)]" id="products-grid">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="products-grid">
             
-            <!-- PRODUCT 1: Rollo Polietileno calibre 600 (Featured / 2 columns wide on large screens) -->
-            <article data-category="rollos" class="product-card md:col-span-2 bg-[#c0f1be] border border-gray-100 group relative overflow-hidden flex flex-col lg:flex-row hover:shadow-xl transition-all duration-300">
-                <div class="lg:w-1/2 h-[300px] lg:h-auto bg-[#c0f1be] flex items-center justify-center p-8 relative overflow-hidden">
+            <!-- PRODUCT 1: Rollo Polietileno calibre 600 -->
+            <article data-category="rollos" class="product-card bg-white border border-gray-100 flex flex-col justify-between hover:shadow-xl transition-all duration-300 group">
+                <div class="relative w-full aspect-[4/3] bg-[#c0f1be] flex items-center justify-center p-8 overflow-hidden">
                     <img alt="Rollo Polietileno calibre 600" class="max-h-[85%] max-w-[85%] object-contain transition-transform duration-500 group-hover:scale-105" src="assets/img/producto-rollo-polietileno.webp"/>
                     <div class="absolute top-4 left-4 bg-navy-dark text-white px-3 py-1 font-gilroy font-bold text-[10px] tracking-wider uppercase">
                         POL-600
                     </div>
                 </div>
-                <div class="lg:w-1/2 p-8 flex flex-col justify-between bg-green-dark text-white">
+                <div class="p-8 flex flex-col justify-between flex-grow bg-white border-t border-gray-100">
                     <div>
-                        <span class="text-green-light font-gilroy font-bold text-xs uppercase tracking-widest mb-2 block">Empaque Continuo</span>
-                        <h3 class="font-lexend font-normal text-3xl mb-4 text-[#c0f1be]">Rollo Polietileno calibre 600</h3>
-                        <p class="font-gilroy text-white/80 text-sm leading-relaxed mb-6">
+                        <span class="text-green-main font-gilroy font-bold text-xs uppercase tracking-widest mb-2 block">Empaque Continuo</span>
+                        <h3 class="font-lexend font-normal text-2xl text-navy-dark mb-3">Rollo Polietileno calibre 600</h3>
+                        <p class="font-gilroy text-gray-text text-sm leading-relaxed mb-6 line-clamp-2">
                             Película de polietileno de baja densidad (PEBD) y calibre consistente, formulada para resistir altas tensiones y proteger materiales en tránsito o almacenamiento prolongado.
                         </p>
-                        <div class="mb-6">
-                            <span class="text-xs font-gilroy font-bold text-green-light uppercase tracking-wider block mb-2">Usos principales:</span>
-                            <ul class="text-xs text-white/80 space-y-1.5 list-disc list-inside">
-                                <li>Empaque industrial y envasado automático</li>
-                                <li>Barrera impermeable y protección de tarimas</li>
-                                <li>Protección en obras de construcción y almacenamiento</li>
-                            </ul>
+                        <div class="space-y-2 border-t border-gray-100 pt-4 mb-6 text-sm">
+                            <div class="flex justify-between items-start gap-2">
+                                <span class="font-semibold text-navy-dark text-xs uppercase tracking-wider">Uso principal:</span>
+                                <span class="text-gray-text text-right text-xs">Empaque industrial y envasado automático.</span>
+                            </div>
+                            <div class="flex justify-between items-start gap-2">
+                                <span class="font-semibold text-navy-dark text-xs uppercase tracking-wider">Presentación:</span>
+                                <span class="text-gray-text text-right text-xs">Bobina continua de peso regulado.</span>
+                            </div>
+                            <div class="flex justify-between items-start gap-2">
+                                <span class="font-semibold text-navy-dark text-xs uppercase tracking-wider">Aplicación rec.:</span>
+                                <span class="text-gray-text text-right text-xs">Construcción y embalaje pesado.</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="flex gap-4">
-                        <a href="detalle-producto.html?id=rollo-600" class="bg-[#c0f1be] text-green-dark font-gilroy font-bold text-xs uppercase tracking-widest px-6 py-3 hover:bg-white hover:text-navy-dark transition-colors text-center flex-1 sm:flex-none">Ficha Técnica</a>
-                        <a href="contacto.html?producto=rollo-600" class="border border-white/30 text-white font-gilroy font-bold text-xs uppercase tracking-widest px-6 py-3 hover:bg-white/10 transition-colors text-center flex-1 sm:flex-none">Cotizar</a>
+                    <div class="flex gap-4 mt-auto">
+                        <a href="detalle-producto.html?id=rollo-600" class="bg-green-main hover:bg-green-dark text-white font-gilroy font-bold text-xs uppercase tracking-widest px-4 py-3 text-center flex-1 transition-colors">Ver ficha técnica</a>
+                        <a href="detalle-producto.html?id=rollo-600#quote-section" class="border border-navy-dark text-navy-dark font-gilroy font-bold text-xs uppercase tracking-widest px-4 py-3 hover:bg-navy-dark hover:text-white text-center flex-1 transition-colors">Cotizar</a>
                     </div>
                 </div>
             </article>
 
             <!-- PRODUCT 2: Bolsas para basura “Es-Rollo” -->
-            <article data-category="bolsas" class="product-card bg-white border border-gray-100 group flex flex-col justify-between hover:shadow-xl transition-all duration-300">
-                <div class="p-6">
-                    <div class="flex justify-between items-center mb-6">
-                        <span class="text-gray-text font-gilroy font-bold text-[10px] tracking-wider uppercase">RES-01</span>
-                        <span class="material-symbols-outlined text-gray-400 group-hover:text-green-main transition-colors">delete_outline</span>
-                    </div>
-                    <h3 class="font-lexend font-bold text-xl text-navy-dark mb-2 group-hover:text-green-main transition-colors">Bolsas para basura “Es-Rollo”</h3>
-                    <p class="font-gilroy text-gray-text text-sm leading-relaxed mb-6">
-                        Bolsas de alta resistencia presentadas en práctico rollo con precorte. Diseñadas para simplificar el almacenamiento y la dispensación en áreas industriales o comerciales.
-                    </p>
-                    <div class="h-44 bg-gray-50 flex items-center justify-center overflow-hidden border border-gray-100 relative mb-6">
-                        <img alt="Bolsas para basura Es-Rollo" class="max-h-[85%] max-w-[85%] object-contain transition-transform duration-500 group-hover:scale-105" src="assets/img/producto-bolsa-basura-es-rollo.webp"/>
-                    </div>
-                    <div class="mb-4">
-                        <span class="text-xs font-gilroy font-bold text-navy-dark uppercase tracking-wider block mb-1">Usos principales:</span>
-                        <p class="text-xs text-gray-text leading-relaxed">Manejo de residuos corporativos, hotelería, limpieza industrial y áreas comunes.</p>
+            <article data-category="bolsas" class="product-card bg-white border border-gray-100 flex flex-col justify-between hover:shadow-xl transition-all duration-300 group">
+                <div class="relative w-full aspect-[4/3] bg-[#c0f1be] flex items-center justify-center p-8 overflow-hidden">
+                    <img alt="Bolsas para basura Es-Rollo" class="max-h-[85%] max-w-[85%] object-contain transition-transform duration-500 group-hover:scale-105" src="assets/img/producto-bolsa-basura-es-rollo.webp"/>
+                    <div class="absolute top-4 left-4 bg-navy-dark text-white px-3 py-1 font-gilroy font-bold text-[10px] tracking-wider uppercase">
+                        RES-01
                     </div>
                 </div>
-                <div class="p-6 pt-0 flex gap-2">
-                    <a href="detalle-producto.html?id=es-rollo" class="border border-navy-dark text-navy-dark font-gilroy font-bold text-xs uppercase tracking-widest py-3 text-center flex-1 hover:bg-navy-dark hover:text-white transition-colors">Ver Detalles</a>
-                    <a href="contacto.html?producto=es-rollo" class="bg-green-main text-white font-gilroy font-bold text-xs uppercase tracking-widest py-3 text-center flex-1 hover:bg-green-dark transition-colors">Cotizar</a>
+                <div class="p-8 flex flex-col justify-between flex-grow bg-white border-t border-gray-100">
+                    <div>
+                        <span class="text-green-main font-gilroy font-bold text-xs uppercase tracking-widest mb-2 block">Manejo de Residuos</span>
+                        <h3 class="font-lexend font-normal text-2xl text-navy-dark mb-3">Bolsas para basura “Es-Rollo”</h3>
+                        <p class="font-gilroy text-gray-text text-sm leading-relaxed mb-6 line-clamp-2">
+                            Bolsas de alta resistencia presentadas en práctico rollo con precorte. Diseñadas para simplificar el almacenamiento y la dispensación en áreas industriales o comerciales.
+                        </p>
+                        <div class="space-y-2 border-t border-gray-100 pt-4 mb-6 text-sm">
+                            <div class="flex justify-between items-start gap-2">
+                                <span class="font-semibold text-navy-dark text-xs uppercase tracking-wider">Uso principal:</span>
+                                <span class="text-gray-text text-right text-xs">Manejo de residuos y limpieza comercial.</span>
+                            </div>
+                            <div class="flex justify-between items-start gap-2">
+                                <span class="font-semibold text-navy-dark text-xs uppercase tracking-wider">Presentación:</span>
+                                <span class="text-gray-text text-right text-xs">Rollo continuo con precorte de precisión.</span>
+                            </div>
+                            <div class="flex justify-between items-start gap-2">
+                                <span class="font-semibold text-navy-dark text-xs uppercase tracking-wider">Aplicación rec.:</span>
+                                <span class="text-gray-text text-right text-xs">Hotelería, corporativos y áreas de servicio.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 mt-auto">
+                        <a href="detalle-producto.html?id=es-rollo" class="bg-green-main hover:bg-green-dark text-white font-gilroy font-bold text-xs uppercase tracking-widest px-4 py-3 text-center flex-1 transition-colors">Ver ficha técnica</a>
+                        <a href="detalle-producto.html?id=es-rollo#quote-section" class="border border-navy-dark text-navy-dark font-gilroy font-bold text-xs uppercase tracking-widest px-4 py-3 hover:bg-navy-dark hover:text-white text-center flex-1 transition-colors">Cotizar</a>
+                    </div>
                 </div>
             </article>
 
             <!-- PRODUCT 3: Bolsas Hoteleras -->
-            <article data-category="bolsas" class="product-card bg-white border border-gray-100 group flex flex-col justify-between hover:shadow-xl transition-all duration-300">
-                <div class="p-6">
-                    <div class="flex justify-between items-center mb-6">
-                        <span class="text-gray-text font-gilroy font-bold text-[10px] tracking-wider uppercase">HOT-02</span>
-                        <span class="material-symbols-outlined text-gray-400 group-hover:text-green-main transition-colors">hotel</span>
-                    </div>
-                    <h3 class="font-lexend font-bold text-xl text-navy-dark mb-2 group-hover:text-green-main transition-colors">Bolsas Hoteleras</h3>
-                    <p class="font-gilroy text-gray-text text-sm leading-relaxed mb-6">
-                        Empaques de alta presentación y resistencia para el sector de hospitalidad. Ideales para el manejo higiénico de blancos, amenidades y servicio de lavandería.
-                    </p>
-                    <div class="h-44 bg-gray-50 flex items-center justify-center overflow-hidden border border-gray-100 relative mb-6">
-                        <img alt="Bolsas Hoteleras" class="max-h-[85%] max-w-[85%] object-contain transition-transform duration-500 group-hover:scale-105" src="assets/img/producto-bolsa-hotelera.webp"/>
-                    </div>
-                    <div class="mb-4">
-                        <span class="text-xs font-gilroy font-bold text-navy-dark uppercase tracking-wider block mb-1">Usos principales:</span>
-                        <p class="text-xs text-gray-text leading-relaxed">Lavandería interna de hoteles, protección de blancos limpios, amenidades y servicio al huésped.</p>
+            <article data-category="bolsas" class="product-card bg-white border border-gray-100 flex flex-col justify-between hover:shadow-xl transition-all duration-300 group">
+                <div class="relative w-full aspect-[4/3] bg-[#c0f1be] flex items-center justify-center p-8 overflow-hidden">
+                    <img alt="Bolsas Hoteleras" class="max-h-[85%] max-w-[85%] object-contain transition-transform duration-500 group-hover:scale-105" src="assets/img/producto-bolsa-hotelera.webp"/>
+                    <div class="absolute top-4 left-4 bg-navy-dark text-white px-3 py-1 font-gilroy font-bold text-[10px] tracking-wider uppercase">
+                        HOT-02
                     </div>
                 </div>
-                <div class="p-6 pt-0 flex gap-2">
-                    <a href="detalle-producto.html?id=bolsa-hotelera" class="border border-navy-dark text-navy-dark font-gilroy font-bold text-xs uppercase tracking-widest py-3 text-center flex-1 hover:bg-navy-dark hover:text-white transition-colors">Ver Detalles</a>
-                    <a href="contacto.html?producto=bolsa-hotelera" class="bg-green-main text-white font-gilroy font-bold text-xs uppercase tracking-widest py-3 text-center flex-1 hover:bg-green-dark transition-colors">Cotizar</a>
+                <div class="p-8 flex flex-col justify-between flex-grow bg-white border-t border-gray-100">
+                    <div>
+                        <span class="text-green-main font-gilroy font-bold text-xs uppercase tracking-widest mb-2 block">Hospitalidad y Servicio</span>
+                        <h3 class="font-lexend font-normal text-2xl text-navy-dark mb-3">Bolsas Hoteleras</h3>
+                        <p class="font-gilroy text-gray-text text-sm leading-relaxed mb-6 line-clamp-2">
+                            Empaques de alta presentación y resistencia para el sector de hospitalidad. Ideales para el manejo higiénico de blancos, amenidades y servicio de lavandería de huéspedes.
+                        </p>
+                        <div class="space-y-2 border-t border-gray-100 pt-4 mb-6 text-sm">
+                            <div class="flex justify-between items-start gap-2">
+                                <span class="font-semibold text-navy-dark text-xs uppercase tracking-wider">Uso principal:</span>
+                                <span class="text-gray-text text-right text-xs">Manejo higiénico de blancos y lavandería.</span>
+                            </div>
+                            <div class="flex justify-between items-start gap-2">
+                                <span class="font-semibold text-navy-dark text-xs uppercase tracking-wider">Presentación:</span>
+                                <span class="text-gray-text text-right text-xs">Bolsa plana (con o sin cordón de cierre).</span>
+                            </div>
+                            <div class="flex justify-between items-start gap-2">
+                                <span class="font-semibold text-navy-dark text-xs uppercase tracking-wider">Aplicación rec.:</span>
+                                <span class="text-gray-text text-right text-xs">Sector hotelero, clínicas y lavanderías.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 mt-auto">
+                        <a href="detalle-producto.html?id=bolsa-hotelera" class="bg-green-main hover:bg-green-dark text-white font-gilroy font-bold text-xs uppercase tracking-widest px-4 py-3 text-center flex-1 transition-colors">Ver ficha técnica</a>
+                        <a href="detalle-producto.html?id=bolsa-hotelera#quote-section" class="border border-navy-dark text-navy-dark font-gilroy font-bold text-xs uppercase tracking-widest px-4 py-3 hover:bg-navy-dark hover:text-white text-center flex-1 transition-colors">Cotizar</a>
+                    </div>
                 </div>
             </article>
 
-            <!-- PRODUCT 4: Soluciones de empaque a medida (Featured Horizontal layout or large box) -->
-            <article data-category="medida" class="product-card md:col-span-2 lg:col-span-2 bg-white border border-gray-100 flex flex-col md:flex-row group overflow-hidden hover:shadow-xl transition-all duration-300">
-                <div class="md:w-1/2 h-[300px] md:h-auto relative overflow-hidden bg-gray-50 flex items-center justify-center p-8">
-                    <img alt="Empaques personalizados PLADEMO" class="max-h-[90%] max-w-[90%] object-cover mix-blend-multiply transition-transform duration-500 group-hover:scale-105" src="assets/productos/bolsa dorada.png"/>
+            <!-- PRODUCT 4: Soluciones de empaque a medida -->
+            <article data-category="medida" class="product-card bg-white border border-gray-100 flex flex-col justify-between hover:shadow-xl transition-all duration-300 group">
+                <div class="relative w-full aspect-[4/3] bg-[#c0f1be] flex items-center justify-center p-8 overflow-hidden">
+                    <img alt="Empaques personalizados PLADEMO" class="max-h-[90%] max-w-[90%] object-cover mix-blend-multiply transition-transform duration-500 group-hover:scale-105" src="assets/images_sitioanterior/packinflex/bolsa-punteada-01.png"/>
                     <div class="absolute top-4 left-4 bg-navy-dark text-white px-3 py-1 font-gilroy font-bold text-[10px] tracking-wider uppercase">
                         MED-99
                     </div>
                 </div>
-                <div class="md:w-1/2 p-8 flex flex-col justify-between">
+                <div class="p-8 flex flex-col justify-between flex-grow bg-white border-t border-gray-100">
                     <div>
-                        <div class="flex items-center gap-3 mb-4">
-                            <span class="text-green-main font-gilroy font-bold text-xs uppercase tracking-widest">Co-Diseño Técnico</span>
-                            <div class="h-[1px] flex-grow bg-gray-200"></div>
-                        </div>
-                        <h3 class="font-lexend font-normal text-3xl text-navy-dark mb-4">Soluciones de empaque a medida</h3>
-                        <p class="font-gilroy text-gray-text text-sm leading-relaxed mb-6">
-                            Desarrollamos soluciones personalizadas adaptadas a sus necesidades de envasado y logística. Ajustamos dimensiones, calibres, aditivos (UV, antideslave) y opciones de impresión flexográfica de alta definición.
+                        <span class="text-green-main font-gilroy font-bold text-xs uppercase tracking-widest mb-2 block">Co-Diseño Técnico</span>
+                        <h3 class="font-lexend font-normal text-2xl text-navy-dark mb-3">Empaques a medida</h3>
+                        <p class="font-gilroy text-gray-text text-sm leading-relaxed mb-6 line-clamp-2">
+                            Desarrollamos soluciones personalizadas adaptadas a sus necesidades de envasado y logística. Ajustamos dimensiones, calibres, aditivos e impresión flexográfica.
                         </p>
-                        <div class="grid grid-cols-2 gap-4 mb-6">
-                            <div>
-                                <span class="block text-xs font-gilroy font-bold text-navy-dark uppercase tracking-wider mb-1">Flexibilidad:</span>
-                                <span class="block text-xs text-gray-text">Cualquier tamaño y calibre</span>
+                        <div class="space-y-2 border-t border-gray-100 pt-4 mb-6 text-sm">
+                            <div class="flex justify-between items-start gap-2">
+                                <span class="font-semibold text-navy-dark text-xs uppercase tracking-wider">Uso principal:</span>
+                                <span class="text-gray-text text-right text-xs">Envasado automatizado y logística industrial.</span>
                             </div>
-                            <div>
-                                <span class="block text-xs font-gilroy font-bold text-navy-dark uppercase tracking-wider mb-1">Impresión:</span>
-                                <span class="block text-xs text-gray-text">Flexografía personalizada</span>
+                            <div class="flex justify-between items-start gap-2">
+                                <span class="font-semibold text-navy-dark text-xs uppercase tracking-wider">Presentación:</span>
+                                <span class="text-gray-text text-right text-xs">Bobinas, películas o bolsas personalizadas.</span>
+                            </div>
+                            <div class="flex justify-between items-start gap-2">
+                                <span class="font-semibold text-navy-dark text-xs uppercase tracking-wider">Aplicación rec.:</span>
+                                <span class="text-gray-text text-right text-xs">Líneas de envasado y co-diseño de empaques.</span>
                             </div>
                         </div>
                     </div>
-                    <div class="flex gap-4">
-                        <a href="detalle-producto.html?id=empaque-medida" class="bg-navy-dark text-white font-gilroy font-bold text-xs uppercase tracking-widest px-8 py-3.5 hover:bg-green-main transition-colors text-center">Ficha a Medida</a>
-                        <a href="contacto.html?producto=a-medida" class="border border-gray-300 text-gray-text hover:text-navy-dark font-gilroy font-bold text-xs uppercase tracking-widest px-8 py-3.5 hover:border-navy-dark transition-colors text-center">Cotizar Proyecto</a>
+                    <div class="flex gap-4 mt-auto">
+                        <a href="detalle-producto.html?id=empaque-medida" class="bg-green-main hover:bg-green-dark text-white font-gilroy font-bold text-xs uppercase tracking-widest px-4 py-3 text-center flex-1 transition-colors">Ver ficha técnica</a>
+                        <a href="detalle-producto.html?id=empaque-medida#quote-section" class="border border-navy-dark text-navy-dark font-gilroy font-bold text-xs uppercase tracking-widest px-4 py-3 hover:bg-navy-dark hover:text-white text-center flex-1 transition-colors">Cotizar</a>
                     </div>
                 </div>
             </article>
@@ -274,13 +318,13 @@
         <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 24px 24px;"></div>
         <div class="max-w-4xl mx-auto px-6 md:px-12 relative z-10 flex flex-col items-center text-center">
             <div class="w-16 h-[4px] bg-green-main mb-8"></div>
-            <h2 class="font-lexend font-normal text-3xl sm:text-4xl md:text-5xl mb-6 leading-tight">Desarrollo técnico a la medida</h2>
+            <h2 class="font-lexend font-normal text-3xl sm:text-4xl md:text-5xl mb-6 leading-tight">¿No encuentras la medida que necesitas?</h2>
             <p class="font-gilroy text-white/80 text-sm md:text-base leading-relaxed max-w-2xl mb-10">
-                Nuestro equipo de ingeniería de empaque diseña la solución exacta basada en polímeros específicos, calibres, barreras y requerimientos mecánicos de su línea de producción.
+                Podemos revisar tus requerimientos técnicos y preparar una cotización personalizada según calibre, volumen, medidas y aplicación.
             </p>
             <div class="flex flex-col sm:flex-row gap-4">
-                <a href="contacto.html" class="bg-green-main hover:bg-green-dark text-white font-gilroy font-bold text-xs uppercase tracking-widest px-8 py-4 transition-all">Solicitar Asesoría Técnica</a>
-                <a href="https://wa.me/529992183848" target="_blank" rel="noopener noreferrer" class="border border-white/30 text-white font-gilroy font-bold text-xs uppercase tracking-widest px-8 py-4 hover:bg-white/10 transition-all">Contactar Ventas B2B</a>
+                <a href="contacto.html" class="bg-green-main hover:bg-green-dark text-white font-gilroy font-bold text-xs uppercase tracking-widest px-8 py-4 transition-all">Solicitar asesoría técnica</a>
+                <a href="https://wa.me/529992183848" target="_blank" rel="noopener noreferrer" class="border border-white/30 text-white font-gilroy font-bold text-xs uppercase tracking-widest px-8 py-4 hover:bg-white/10 transition-all">Contactar por WhatsApp</a>
             </div>
         </div>
     </section>

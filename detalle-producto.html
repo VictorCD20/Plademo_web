@@ -109,69 +109,96 @@
             </a>
         </div>
 
+        <!-- Product Header -->
+        <div class="mb-12">
+            <span id="product-header-category" class="text-green-main font-gilroy font-bold text-xs uppercase tracking-widest block mb-2">Cargando categoría...</span>
+            <h1 id="product-header-title" class="font-lexend font-normal text-4xl sm:text-5xl text-navy-dark mb-4 leading-tight">Cargando...</h1>
+            <p class="font-gilroy text-gray-text text-base leading-relaxed max-w-3xl">
+                Producto diseñado para aplicaciones industriales y comerciales que requieren resistencia, protección y adaptación a distintas condiciones de uso.
+            </p>
+        </div>
+
         <!-- 2-Column Product Layout -->
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-16">
             <!-- Left: Image Box -->
             <div class="lg:col-span-5 flex flex-col items-center">
-                <div class="w-full aspect-square bg-[#c0f1be]/30 flex items-center justify-center p-12 border border-gray-100 relative group overflow-hidden">
+                <div class="w-full aspect-square bg-[#c0f1be] flex items-center justify-center p-12 border border-gray-100 relative group overflow-hidden">
                     <img id="product-image" alt="Imagen del producto" class="max-h-[90%] max-w-[90%] object-contain transition-transform duration-500 group-hover:scale-105" src=""/>
                     <div id="product-code-badge" class="absolute top-4 left-4 bg-navy-dark text-white px-3 py-1 font-gilroy font-bold text-xs tracking-wider uppercase">
                         -
                     </div>
                 </div>
-                
-                <!-- Additional Specs Table -->
-                <div class="w-full mt-8 bg-gray-50 border border-gray-100 p-6">
-                    <h4 class="font-lexend font-bold text-sm text-navy-dark uppercase tracking-wider mb-4 border-b border-gray-200 pb-2">Especificaciones Estándar</h4>
-                    <dl class="space-y-3 text-sm text-gray-text" id="product-specs-list">
-                        <!-- Populated by JS -->
-                    </dl>
-                </div>
             </div>
 
-            <!-- Right: Info, Description & Calculator -->
+            <!-- Right: Info, Description & Benefits -->
             <div class="lg:col-span-7 flex flex-col justify-between">
                 <div>
                     <!-- Product Metadata -->
-                    <span id="product-subtitle" class="text-green-main font-gilroy font-bold text-xs uppercase tracking-widest block mb-2">-</span>
-                    <h1 id="product-title" class="font-lexend font-normal text-4xl sm:text-5xl text-navy-dark mb-6 leading-tight">Cargando...</h1>
+                    <span id="product-right-subtitle" class="text-green-main font-gilroy font-bold text-xs uppercase tracking-widest block mb-2">-</span>
+                    <h2 id="product-right-title" class="font-lexend font-normal text-3xl sm:text-4xl text-navy-dark mb-6 leading-tight">Cargando...</h2>
                     
-                    <div class="w-full border-t border-gray-100 my-6"></div>
-                    
-                    <p id="product-description" class="font-gilroy text-gray-text text-base leading-relaxed mb-8">
+                    <p id="product-right-description" class="font-gilroy text-gray-text text-base leading-relaxed mb-8">
                         -
                     </p>
 
-                    <!-- Interactive Configurator -->
-                    <div class="bg-gray-50 border border-gray-100 p-6 sm:p-8 mb-8">
-                        <div class="flex items-center gap-3 mb-6">
-                            <span class="material-symbols-outlined text-green-main">build</span>
-                            <h3 class="font-lexend font-bold text-base text-navy-dark uppercase tracking-wider">Configurador de Pedido Industrial</h3>
-                        </div>
-                        
-                        <!-- Options Container -->
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6" id="calculator-controls">
+                    <!-- Benefits List -->
+                    <div class="mb-8">
+                        <h4 class="font-lexend font-bold text-sm text-navy-dark uppercase tracking-wider mb-4">Beneficios del Producto</h4>
+                        <ul id="product-benefits-list" class="space-y-3 text-sm text-gray-text">
                             <!-- Populated by JS -->
-                        </div>
-
-                        <!-- Live Summary Panel -->
-                        <div class="bg-[#c0f1be]/30 border border-[#c0f1be] p-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-                            <div>
-                                <span class="block text-[10px] font-gilroy font-bold text-green-main uppercase tracking-widest mb-1">Especificación técnica configurada:</span>
-                                <span id="summary-spec-text" class="block font-lexend font-bold text-sm text-navy-dark">Ninguna</span>
-                            </div>
-                            <button id="add-to-form-btn" class="bg-green-main hover:bg-green-dark text-white font-gilroy font-bold text-xs uppercase tracking-widest px-4 py-2.5 transition-colors">
-                                Cargar en Formulario
-                            </button>
-                        </div>
+                        </ul>
                     </div>
                 </div>
 
-                <div class="flex items-center gap-4 bg-gray-50 p-4 border border-gray-100">
-                    <span class="material-symbols-outlined text-green-main text-3xl">info</span>
-                    <p class="text-xs text-gray-text leading-relaxed">
-                        Este catálogo tiene propósitos técnicos y de desarrollo de empaque. Todas las solicitudes requieren análisis y validación de volumen mínimo por nuestro equipo de ingeniería.
-                    </p>
+                <div class="flex flex-col sm:flex-row gap-4 mt-6">
+                    <a href="#quote-section" class="bg-green-main hover:bg-green-dark text-white font-gilroy font-bold text-xs uppercase tracking-widest px-8 py-4 text-center transition-colors shadow-sm flex-1">Solicitar Cotización</a>
+                    <a href="https://wa.me/529992183848" target="_blank" rel="noopener noreferrer" class="border border-[#25D366] text-[#25D366] font-gilroy font-bold text-xs uppercase tracking-widest px-8 py-4 hover:bg-[#25D366] hover:text-white text-center transition-all flex-1">Contactar por WhatsApp</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Technical Specs & Uses Section -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+            <!-- Left: Technical Data Table -->
+            <div class="bg-gray-50 border border-gray-100 p-8">
+                <h3 class="font-lexend font-bold text-lg text-navy-dark uppercase tracking-wider mb-6 border-b border-gray-200 pb-3">Ficha de Datos Técnicos</h3>
+                <dl class="space-y-3 text-sm text-gray-text" id="product-specs-list">
+                    <!-- Populated by JS -->
+                </dl>
+            </div>
+
+            <!-- Right: Uses & Custom Configurator -->
+            <div class="flex flex-col gap-8">
+                <!-- Usos Principales -->
+                <div class="bg-gray-50 border border-gray-100 p-8">
+                    <h3 class="font-lexend font-bold text-lg text-navy-dark uppercase tracking-wider mb-6 border-b border-gray-200 pb-3">Usos Principales</h3>
+                    <ul id="product-uses-list" class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-gray-text">
+                        <!-- Populated by JS -->
+                    </ul>
+                </div>
+
+                <!-- Configurator -->
+                <div class="bg-[#f5fcf7] border border-gray-100 p-8">
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="material-symbols-outlined text-green-main">build</span>
+                        <h3 class="font-lexend font-bold text-base text-navy-dark uppercase tracking-wider">Configurador de Pedido Industrial</h3>
+                    </div>
+                    
+                    <!-- Options Container -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6" id="calculator-controls">
+                        <!-- Populated by JS -->
+                    </div>
+
+                    <!-- Live Summary Panel -->
+                    <div class="bg-[#c0f1be]/30 border border-[#c0f1be] p-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                        <div>
+                            <span class="block text-[10px] font-gilroy font-bold text-green-main uppercase tracking-widest mb-1">Especificación técnica configurada:</span>
+                            <span id="summary-spec-text" class="block font-lexend font-bold text-sm text-navy-dark">Ninguna</span>
+                        </div>
+                        <button id="add-to-form-btn" class="bg-green-main hover:bg-green-dark text-white font-gilroy font-bold text-xs uppercase tracking-widest px-4 py-2.5 transition-colors">
+                            Cargar en Formulario
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -191,50 +218,50 @@
                 <form id="quote-form" class="space-y-6 text-navy-dark">
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <div>
-                            <label class="block text-xs font-gilroy font-bold text-white uppercase tracking-wider mb-2" for="quote-name">Nombre Completo *</label>
+                            <label class="block text-xs font-gilroy font-bold text-white uppercase tracking-wider mb-2" for="quote-name">Nombre *</label>
                             <input class="w-full bg-white border border-transparent px-4 py-3 text-sm focus:outline-none focus:border-green-light" type="text" id="quote-name" required placeholder="Ej. Ing. Carlos Mendoza"/>
                         </div>
                         <div>
-                            <label class="block text-xs font-gilroy font-bold text-white uppercase tracking-wider mb-2" for="quote-company">Empresa / Razón Social *</label>
+                            <label class="block text-xs font-gilroy font-bold text-white uppercase tracking-wider mb-2" for="quote-company">Empresa *</label>
                             <input class="w-full bg-white border border-transparent px-4 py-3 text-sm focus:outline-none focus:border-green-light" type="text" id="quote-company" required placeholder="Ej. Distribuidora del Norte"/>
                         </div>
                     </div>
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <div>
-                            <label class="block text-xs font-gilroy font-bold text-white uppercase tracking-wider mb-2" for="quote-email">Correo Electrónico Corporativo *</label>
-                            <input class="w-full bg-white border border-transparent px-4 py-3 text-sm focus:outline-none focus:border-green-light" type="email" id="quote-email" required placeholder="Ej. c.mendoza@empresa.com"/>
+                            <label class="block text-xs font-gilroy font-bold text-white uppercase tracking-wider mb-2" for="quote-phone">Teléfono *</label>
+                            <input class="w-full bg-white border border-transparent px-4 py-3 text-sm focus:outline-none focus:border-green-light" type="tel" id="quote-phone" required placeholder="Ej. 999 123 4567"/>
                         </div>
                         <div>
-                            <label class="block text-xs font-gilroy font-bold text-white uppercase tracking-wider mb-2" for="quote-phone">Teléfono de Contacto (con Whatsapp) *</label>
-                            <input class="w-full bg-white border border-transparent px-4 py-3 text-sm focus:outline-none focus:border-green-light" type="tel" id="quote-phone" required placeholder="Ej. 999 123 4567"/>
+                            <label class="block text-xs font-gilroy font-bold text-white uppercase tracking-wider mb-2" for="quote-email">Correo *</label>
+                            <input class="w-full bg-white border border-transparent px-4 py-3 text-sm focus:outline-none focus:border-green-light" type="email" id="quote-email" required placeholder="Ej. c.mendoza@empresa.com"/>
                         </div>
                     </div>
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <div>
-                            <label class="block text-xs font-gilroy font-bold text-white uppercase tracking-wider mb-2" for="quote-volume">Cantidad / Volumen Estimado *</label>
-                            <input class="w-full bg-white border border-transparent px-4 py-3 text-sm focus:outline-none focus:border-green-light" type="text" id="quote-volume" required placeholder="Ej. 500 kg, 10,000 piezas, etc."/>
-                        </div>
-                        <div>
-                            <label class="block text-xs font-gilroy font-bold text-white uppercase tracking-wider mb-2" for="quote-product">Producto Seleccionado</label>
+                            <label class="block text-xs font-gilroy font-bold text-white uppercase tracking-wider mb-2" for="quote-product">Producto de interés</label>
                             <input class="w-full bg-gray-200 border border-transparent px-4 py-3 text-sm text-gray-500 cursor-not-allowed" type="text" id="quote-product" readonly/>
                         </div>
+                        <div>
+                            <label class="block text-xs font-gilroy font-bold text-white uppercase tracking-wider mb-2" for="quote-specs">Medida requerida / Especificaciones</label>
+                            <input class="w-full bg-white border border-transparent px-4 py-3 text-sm focus:outline-none focus:border-green-light" type="text" id="quote-specs" placeholder="Ej. Medida o especificación técnica"/>
+                        </div>
                     </div>
 
                     <div>
-                        <label class="block text-xs font-gilroy font-bold text-white uppercase tracking-wider mb-2" for="quote-specs">Especificaciones Técnicas Seleccionadas</label>
-                        <input class="w-full bg-gray-200 border border-transparent px-4 py-3 text-sm text-gray-500 cursor-not-allowed font-mono" type="text" id="quote-specs" readonly placeholder="Configure las especificaciones arriba"/>
+                        <label class="block text-xs font-gilroy font-bold text-white uppercase tracking-wider mb-2" for="quote-volume">Cantidad aproximada *</label>
+                        <input class="w-full bg-white border border-transparent px-4 py-3 text-sm focus:outline-none focus:border-green-light" type="text" id="quote-volume" required placeholder="Ej. 500 kg, 10,000 piezas, etc."/>
                     </div>
 
                     <div>
-                        <label class="block text-xs font-gilroy font-bold text-white uppercase tracking-wider mb-2" for="quote-comments">Comentarios o Requerimientos Especiales</label>
+                        <label class="block text-xs font-gilroy font-bold text-white uppercase tracking-wider mb-2" for="quote-comments">Mensaje</label>
                         <textarea class="w-full bg-white border border-transparent px-4 py-3 text-sm focus:outline-none focus:border-green-light h-32 resize-none" id="quote-comments" placeholder="Ej. Requerimos tratamiento Corona para impresión, aditivo UV para 6 meses, empaque individual..."></textarea>
                     </div>
 
                     <div class="text-center pt-4">
                         <button type="submit" class="bg-green-main hover:bg-green-dark text-white font-gilroy font-bold text-sm uppercase tracking-widest px-10 py-4 transition-all shadow-md w-full sm:w-auto">
-                            Enviar Solicitud de Cotización
+                            Enviar solicitud de cotización
                         </button>
                     </div>
                 </form>
@@ -352,15 +379,31 @@
                     id: 'rollo-600',
                     title: 'Rollo Polietileno calibre 600',
                     subtitle: 'Empaque Continuo de Alta Resistencia',
+                    category: 'Empaque Continuo / Uso Industrial',
                     code: 'POL-600',
                     description: 'Película continua de polietileno de baja densidad (PEBD) de alta resistencia y espesor consistente de calibre 600 (equivalente a 150 micras o 6 milésimas de pulgada). Proporciona una barrera impermeable óptima frente a factores externos, humedad y polvo. Ideal para construcción (barrera de vapor), protección de superficies y empaque industrial pesado.',
                     image: 'assets/img/producto-rollo-polietileno.webp',
                     specs: [
-                        { name: 'Material', value: 'Polietileno de Baja Densidad (PEBD) virgen o reciclado' },
-                        { name: 'Calibre Nominal', value: '600 (150 µm / 6 mil)' },
-                        { name: 'Ancho de Bobina', value: '1.0m hasta 3.0m' },
+                        { name: 'Material', value: 'Polietileno de Baja Densidad (PEBD) de alta calidad' },
+                        { name: 'Calibre', value: '600 (equivalente a 150 µm / 6 mil)' },
                         { name: 'Presentación', value: 'Bobina continua de peso regulado' },
-                        { name: 'Coloración', value: 'Natural, Negro, Translúcido' }
+                        { name: 'Medidas disponibles', value: 'Anchos de 1.0m a 3.0m (bajo solicitud)' },
+                        { name: 'Color', value: 'Natural, Negro, o translúcido' },
+                        { name: 'Aplicaciones', value: 'Protección industrial, barrera de vapor, uso agrícola' },
+                        { name: 'Personalización', value: 'Disponible bajo solicitud (aditivos UV, colores)' },
+                        { name: 'Volumen de producción', value: 'A definir por cotización' }
+                    ],
+                    benefits: [
+                        'Excelente barrera impermeable contra humedad, polvo y agentes contaminantes.',
+                        'Espesor ultra consistente de calibre 600 que garantiza alta resistencia a la tracción.',
+                        'Material flexible y adaptable a diversas superficies y geometrías industriales.',
+                        'Alta durabilidad ante la exposición ambiental y manipulación ruda.'
+                    ],
+                    uses: [
+                        'Protección de superficies en construcción y remodelación.',
+                        'Uso agrícola para cobertura de suelos y protección de cultivos.',
+                        'Cubiertas temporales para resguardo de maquinaria y materiales a la intemperie.',
+                        'Separación o aislamiento físico de áreas de trabajo y almacenes.'
                     ],
                     controls: [
                         {
@@ -384,15 +427,31 @@
                     id: 'es-rollo',
                     title: 'Bolsas para basura “Es-Rollo”',
                     subtitle: 'Manejo Eficiente de Residuos',
+                    category: 'Manejo de Residuos / Higiene B2B',
                     code: 'RES-01',
                     description: 'Bolsas de alta resistencia fabricadas con polímeros reciclados post-industriales, presentadas en rollos compactos y prácticos con línea de precorte. Su diseño optimiza el espacio de almacenamiento y garantiza una dispensación rápida y limpia en entornos industriales, corporativos u hoteleros.',
                     image: 'assets/img/producto-bolsa-basura-es-rollo.webp',
                     specs: [
                         { name: 'Material', value: 'Polietileno de Baja Densidad (PEBD) reciclado seleccionado' },
-                        { name: 'Tipo de Sello', value: 'Sello en estrella de fondo reforzado contra goteos' },
-                        { name: 'Calibre Promedio', value: '120 a 220' },
+                        { name: 'Calibre', value: 'Calibre 120 a 220 según requerimiento' },
                         { name: 'Presentación', value: 'Rollo continuo con precorte de precisión' },
-                        { name: 'Biodegradabilidad', value: 'Apta para aditivos oxo-biodegradables a solicitud' }
+                        { name: 'Medidas disponibles', value: 'Desde 50x60 cm hasta 120x150 cm' },
+                        { name: 'Color', value: 'Negro estándar (otros bajo solicitud)' },
+                        { name: 'Aplicaciones', value: 'Manejo de residuos industriales, comerciales y hoteleros' },
+                        { name: 'Personalización', value: 'Medidas especiales y aditivos oxo-biodegradables' },
+                        { name: 'Volumen de producción', value: 'Disponible bajo solicitud' }
+                    ],
+                    benefits: [
+                        'Precorte de alta precisión que facilita el desprendimiento rápido sin desgarros.',
+                        'Formato en rollo compacto que optimiza el espacio de almacenamiento.',
+                        'Sello de estrella reforzado en el fondo para evitar escurrimientos y goteos.',
+                        'Fabricado con polímeros reciclados de alta resistencia mecánica.'
+                    ],
+                    uses: [
+                        'Manejo de residuos en oficinas corporativas y áreas administrativas.',
+                        'Operación de limpieza diaria en pasillos, lobby y áreas comunes.',
+                        'Mantenimiento general en instalaciones industriales y comerciales.',
+                        'Áreas de servicio de alimentos y hospitalidad.'
                     ],
                     controls: [
                         {
@@ -416,15 +475,31 @@
                     id: 'bolsa-hotelera',
                     title: 'Bolsas Hoteleras',
                     subtitle: 'Soluciones de Hospitalidad y Servicio',
+                    category: 'Hospitalidad / Logística de Servicio',
                     code: 'HOT-02',
                     description: 'Desarrolladas específicamente para responder a los flujos y estándares de la industria hotelera y de hospitalidad. Diseños funcionales y discretos para el embalaje y transporte de blancos, recolección de lavandería de huéspedes o protección de amenidades en habitaciones.',
                     image: 'assets/img/producto-bolsa-hotelera.webp',
                     specs: [
-                        { name: 'Material', value: 'Polietileno de Baja Densidad virgen higiénico' },
-                        { name: 'Tipología', value: 'Bolsa plana con o sin cordón de cierre' },
-                        { name: 'Calibre Nominal', value: '80 a 140' },
-                        { name: 'Impresión flexográfica', value: 'Hasta 3 tintas (Logotipo corporativo)' },
-                        { name: 'Color del sustrato', value: 'Blanco opaco, Azul translúcido, Transparente' }
+                        { name: 'Material', value: 'Polietileno de Baja Densidad (PEBD) virgen' },
+                        { name: 'Calibre', value: 'Calibre 80 a 140' },
+                        { name: 'Presentación', value: 'Bolsa plana con o sin cordón de cierre' },
+                        { name: 'Medidas disponibles', value: 'Según requerimiento del cliente' },
+                        { name: 'Color', value: 'Blanco opaco, Azul translúcido, Transparente' },
+                        { name: 'Aplicaciones', value: 'Manejo de blancos, lavandería y amenidades' },
+                        { name: 'Personalización', value: 'Impresión flexográfica hasta 3 tintas' },
+                        { name: 'Volumen de producción', value: 'A definir por cotización' }
+                    ],
+                    benefits: [
+                        'Excelente presentación visual que cuida la imagen del establecimiento.',
+                        'Espesor óptimo que asegura el resguardo de blancos y ropa de huéspedes.',
+                        'Disponible en opciones con cordón para un cierre y manejo higiénico.',
+                        'Material 100% reciclable que apoya las políticas de sustentabilidad hotelera.'
+                    ],
+                    uses: [
+                        'Manejo de residuos y recolección en habitaciones y suites.',
+                        'Operación y logística de lavandería interna de hoteles, moteles y spas.',
+                        'Protección y almacenamiento de blancos limpios, toallas y almohadas.',
+                        'Distribución de amenidades y kits de servicio al huésped.'
                     ],
                     controls: [
                         {
@@ -448,15 +523,31 @@
                     id: 'empaque-medida',
                     title: 'Soluciones de empaque a medida',
                     subtitle: 'Co-Diseño e Ingeniería Flexible',
+                    category: 'Co-Diseño / Producción Personalizada',
                     code: 'MED-99',
                     description: 'Solución integral de desarrollo técnico a la medida. Nuestro equipo técnico analiza sus requerimientos específicos de línea de producción, envasado automatizado (VFFS/HFFS) o manipulación para proponer la combinación idónea de resinas, calibres, aditivos específicos (UV, antideslave) e impresión flexográfica.',
-                    image: 'assets/productos/bolsa dorada.png',
+                    image: 'assets/images_sitioanterior/packinflex/bolsa-punteada-01.png',
                     specs: [
-                        { name: 'Materiales disponibles', value: 'PEAD, PEBD, Coextruidos multicapa' },
-                        { name: 'Calibres formulables', value: 'Desde calibre 40 hasta calibre 1000' },
-                        { name: 'Ancho y fuelle', value: 'Totalmente personalizado según requerimiento' },
-                        { name: 'Capacidad de Impresión', value: 'Flexografía de alta resolución hasta 6 colores' },
-                        { name: 'Aditivos especiales', value: 'UV, Deslizante, Antibloqueo, Antiestático' }
+                        { name: 'Material', value: 'PEAD, PEBD, Coextruidos multicapa según requerimiento' },
+                        { name: 'Calibre', value: 'Desde calibre 40 hasta calibre 1000' },
+                        { name: 'Presentación', value: 'Bobina, película plana o bolsas personalizadas' },
+                        { name: 'Medidas disponibles', value: 'Totalmente personalizado a la medida' },
+                        { name: 'Color', value: 'A definir por cotización' },
+                        { name: 'Aplicaciones', value: 'Envasado automático y logística industrial especializada' },
+                        { name: 'Personalización', value: 'Flexografía hasta 6 colores y aditivos avanzados (UV, antiestático)' },
+                        { name: 'Volumen de producción', value: 'Disponible bajo solicitud' }
+                    ],
+                    benefits: [
+                        'Total libertad en dimensiones, calibres (hasta calibre 1000) y fuelles.',
+                        'Compatibilidad con líneas de envasado automático de alta velocidad.',
+                        'Aditivos funcionales a elegir (UV, antideslizante, antiestático, etc.).',
+                        'Impresión flexográfica de alta definición para destacar la identidad de marca.'
+                    ],
+                    uses: [
+                        'Envasado automático en líneas de producción continua B2B.',
+                        'Embalaje técnico con especificaciones de resistencia a punción y desgarro.',
+                        'Identificación y branding de empaques comerciales con impresión personalizada.',
+                        'Protección especializada para componentes electrónicos, industriales o agrícolas.'
                     ],
                     controls: [
                         {
@@ -492,27 +583,59 @@
             // Render Product Details
             document.title = `${currentProduct.title} - Ficha Técnica - PLADEMO`;
             document.getElementById('breadcrumb-product-name').textContent = currentProduct.title;
-            document.getElementById('product-title').textContent = currentProduct.title;
-            document.getElementById('product-subtitle').textContent = currentProduct.subtitle;
+            
+            // Header elements
+            document.getElementById('product-header-title').textContent = currentProduct.title;
+            document.getElementById('product-header-category').textContent = currentProduct.category;
+
+            // Two-column right elements
+            document.getElementById('product-right-title').textContent = currentProduct.title;
+            document.getElementById('product-right-subtitle').textContent = currentProduct.subtitle;
+            document.getElementById('product-right-description').textContent = currentProduct.description;
             document.getElementById('product-code-badge').textContent = currentProduct.code;
-            document.getElementById('product-description').textContent = currentProduct.description;
             document.getElementById('product-image').src = currentProduct.image;
             document.getElementById('product-image').alt = currentProduct.title;
             
             // Set Form Pre-population
             document.getElementById('quote-product').value = `${currentProduct.title} (${currentProduct.code})`;
 
+            // Populate Benefits List
+            const benefitsList = document.getElementById('product-benefits-list');
+            benefitsList.innerHTML = '';
+            currentProduct.benefits.forEach(benefit => {
+                const li = document.createElement('li');
+                li.className = 'flex items-start gap-3';
+                li.innerHTML = `
+                    <span class="material-symbols-outlined text-green-main text-sm mt-0.5">check_circle</span>
+                    <span>${benefit}</span>
+                `;
+                benefitsList.appendChild(li);
+            });
+
             // Populate Specs Table
             const specsList = document.getElementById('product-specs-list');
             specsList.innerHTML = '';
             currentProduct.specs.forEach(spec => {
                 const div = document.createElement('div');
-                div.className = 'grid grid-cols-3 py-2 border-b border-gray-100 last:border-b-0';
+                div.className = 'grid grid-cols-3 py-3 border-b border-gray-200 last:border-b-0';
                 div.innerHTML = `
                     <dt class="font-semibold text-navy-dark col-span-1">${spec.name}</dt>
                     <dd class="col-span-2 text-right">${spec.value}</dd>
                 `;
                 specsList.appendChild(div);
+            });
+
+            // Populate Uses List
+            const usesList = document.getElementById('product-uses-list');
+            usesList.innerHTML = '';
+            currentProduct.uses.forEach(use => {
+                const li = document.createElement('li');
+                li.className = 'flex items-start gap-3 bg-white p-4 border border-gray-100 shadow-sm';
+                li.innerHTML = `
+                    <span class="material-symbols-outlined text-green-main text-base mt-0.5">label</span>
+                    <span>${use}</span>
+                `;
+                usesList.appendChild(li);
             });
 
             // Populate Configurator Controls
@@ -595,7 +718,7 @@
                     article.className = 'bg-white border border-gray-100 p-6 flex flex-col justify-between hover:shadow-lg transition-all group';
                     article.innerHTML = `
                         <div>
-                            <div class="h-40 bg-gray-50 flex items-center justify-center border border-gray-100 overflow-hidden relative mb-6">
+                            <div class="h-40 bg-[#c0f1be] flex items-center justify-center border border-gray-100 overflow-hidden relative mb-6">
                                 <img alt="${prod.title}" class="max-h-[85%] max-w-[85%] object-contain transition-transform duration-500 group-hover:scale-105" src="${prod.image}"/>
                                 <div class="absolute top-3 left-3 bg-navy-dark text-white px-2 py-0.5 font-gilroy font-bold text-[9px] tracking-wider uppercase">
                                     ${prod.code}
