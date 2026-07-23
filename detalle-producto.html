@@ -4,6 +4,7 @@
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Detalle de Producto - PLADEMO</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico"/>
     
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com" rel="preconnect"/>
@@ -67,7 +68,18 @@
                 <a class="text-navy-dark font-semibold border-b-2 border-green-main h-[70px] flex items-center px-1 text-sm tracking-wide transition-colors" href="productos.html">Productos</a>
                 <a class="text-gray-text hover:text-blue-corp font-medium h-[70px] flex items-center px-1 text-sm tracking-wide transition-colors" href="mercado.html">Mercados</a>
                 <a class="text-gray-text hover:text-blue-corp font-medium h-[70px] flex items-center px-1 text-sm tracking-wide transition-colors" href="nosotros.html">Nosotros</a>
-                <a class="text-gray-text hover:text-blue-corp font-medium h-[70px] flex items-center px-1 text-sm tracking-wide transition-colors" href="contacto.html">Contacto</a>
+                
+                <!-- Dropdown de Contacto (Inactivo) -->
+                <div class="relative group h-[70px] flex items-center">
+                    <button class="text-gray-text hover:text-blue-corp font-medium h-[70px] flex items-center gap-1 px-1 text-sm tracking-wide transition-colors focus:outline-none">
+                        Contacto
+                        <span class="material-symbols-outlined text-xs transition-transform group-hover:rotate-180">keyboard_arrow_down</span>
+                    </button>
+                    <div class="absolute top-[70px] left-1/2 -translate-x-1/2 bg-white border border-gray-100 shadow-lg py-2 min-w-[160px] hidden group-hover:block transition-all duration-300">
+                        <a class="block px-4 py-2 text-sm text-gray-text hover:text-blue-corp hover:bg-gray-50 font-medium" href="contacto.html">Contacto</a>
+                        <a class="block px-4 py-2 text-sm text-gray-text hover:text-blue-corp hover:bg-gray-50 font-medium" href="bolsa-trabajo.html">Bolsa de trabajo</a>
+                    </div>
+                </div>
             </div>
 
             <!-- CTA Desktop -->
@@ -87,7 +99,14 @@
             <a class="text-navy-dark font-semibold border-l-4 border-green-main pl-2 text-base transition-colors" href="productos.html">Productos</a>
             <a class="text-gray-text hover:text-blue-corp font-medium pl-2 text-base transition-colors" href="mercado.html">Mercados</a>
             <a class="text-gray-text hover:text-blue-corp font-medium pl-2 text-base transition-colors" href="nosotros.html">Nosotros</a>
-            <a class="text-gray-text hover:text-blue-corp font-medium pl-2 text-base transition-colors" href="contacto.html">Contacto</a>
+            
+            <!-- Contacto en móvil -->
+            <div class="flex flex-col gap-2 pl-2">
+                <span class="text-gray-text hover:text-blue-corp font-medium text-base">Contacto</span>
+                <a class="text-gray-text hover:text-blue-corp font-medium pl-4 text-sm transition-colors" href="contacto.html">- Formulario de Contacto</a>
+                <a class="text-gray-text hover:text-blue-corp font-medium pl-4 text-sm transition-colors" href="bolsa-trabajo.html">- Bolsa de trabajo</a>
+            </div>
+            
             <a href="contacto.html" class="bg-blue-corp hover:bg-navy-dark text-white text-center py-3 text-sm font-semibold transition-all mt-2">Solicitar Cotización</a>
         </div>
     </nav>

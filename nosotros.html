@@ -4,6 +4,7 @@
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Nosotros - PLADEMO</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico"/>
     
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
     
@@ -68,7 +69,18 @@
                 <a class="text-gray-text hover:text-blue-corp font-medium h-[70px] flex items-center px-1 text-sm tracking-wide transition-colors" href="productos.html">Productos</a>
                 <a class="text-gray-text hover:text-blue-corp font-medium h-[70px] flex items-center px-1 text-sm tracking-wide transition-colors" href="mercado.html">Mercados</a>
                 <a class="text-navy-dark font-semibold border-b-2 border-green-main h-[70px] flex items-center px-1 text-sm tracking-wide transition-colors" href="nosotros.html">Nosotros</a>
-                <a class="text-gray-text hover:text-blue-corp font-medium h-[70px] flex items-center px-1 text-sm tracking-wide transition-colors" href="contacto.html">Contacto</a>
+                
+                <!-- Dropdown de Contacto (Inactivo) -->
+                <div class="relative group h-[70px] flex items-center">
+                    <button class="text-gray-text hover:text-blue-corp font-medium h-[70px] flex items-center gap-1 px-1 text-sm tracking-wide transition-colors focus:outline-none">
+                        Contacto
+                        <span class="material-symbols-outlined text-xs transition-transform group-hover:rotate-180">keyboard_arrow_down</span>
+                    </button>
+                    <div class="absolute top-[70px] left-1/2 -translate-x-1/2 bg-white border border-gray-100 shadow-lg py-2 min-w-[160px] hidden group-hover:block transition-all duration-300">
+                        <a class="block px-4 py-2 text-sm text-gray-text hover:text-blue-corp hover:bg-gray-50 font-medium" href="contacto.html">Contacto</a>
+                        <a class="block px-4 py-2 text-sm text-gray-text hover:text-blue-corp hover:bg-gray-50 font-medium" href="bolsa-trabajo.html">Bolsa de trabajo</a>
+                    </div>
+                </div>
             </div>
 
             
@@ -88,7 +100,14 @@
             <a class="text-gray-text hover:text-blue-corp font-medium pl-2 text-base transition-colors" href="productos.html">Productos</a>
             <a class="text-gray-text hover:text-blue-corp font-medium pl-2 text-base transition-colors" href="mercado.html">Mercados</a>
             <a class="text-navy-dark font-semibold border-l-4 border-green-main pl-2 text-base transition-colors" href="nosotros.html">Nosotros</a>
-            <a class="text-gray-text hover:text-blue-corp font-medium pl-2 text-base transition-colors" href="contacto.html">Contacto</a>
+            
+            <!-- Contacto en móvil -->
+            <div class="flex flex-col gap-2 pl-2">
+                <span class="text-gray-text hover:text-blue-corp font-medium text-base">Contacto</span>
+                <a class="text-gray-text hover:text-blue-corp font-medium pl-4 text-sm transition-colors" href="contacto.html">- Formulario de Contacto</a>
+                <a class="text-gray-text hover:text-blue-corp font-medium pl-4 text-sm transition-colors" href="bolsa-trabajo.html">- Bolsa de trabajo</a>
+            </div>
+            
             <a href="contacto.html" class="bg-blue-corp hover:bg-navy-dark text-white text-center py-3 text-sm font-semibold transition-all mt-2">Solicitar Cotización</a>
         </div>
     </nav>
@@ -109,10 +128,232 @@
         });
     </script>
 
-    <div class="py-20 text-center max-w-4xl mx-auto px-6">
-        <h1 class="font-lexend font-normal text-navy-dark text-4xl mb-4">NOSOTROS</h1>
-        <p class="text-gray-text">Página en desarrollo técnico.</p>
-    </div>
+    <!-- Hero Section -->
+    <section class="relative w-full py-24 md:py-32 bg-navy-dark text-white overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img alt="Instalaciones de producción PLADEMO" class="w-full h-full object-cover opacity-35 mix-blend-overlay" src="assets/img/hero-planta.webp"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-navy-dark via-navy-dark/70 to-transparent"></div>
+        </div>
+        <div class="relative z-10 max-w-[1440px] mx-auto px-6 md:px-12 w-full flex flex-col md:flex-row justify-between items-end gap-8">
+            <div class="max-w-3xl">
+                <div class="flex items-center gap-4 mb-6">
+                    <span class="text-blue-light font-gilroy font-bold tracking-[0.2em] text-xs uppercase border border-blue-light/30 px-3 py-1 bg-navy-dark/40 backdrop-blur-sm">100% EMPRESA MEXICANA</span>
+                    <div class="h-[1px] w-16 bg-blue-light/50"></div>
+                    <span class="text-blue-light font-gilroy font-bold tracking-[0.2em] text-xs uppercase">Edición 2026</span>
+                </div>
+                <h1 class="font-lexend font-normal text-4xl sm:text-5xl md:text-6xl text-white mb-6 leading-none">
+                    Conoce PLADEMO
+                </h1>
+                <p class="font-gilroy text-white/80 text-sm md:text-base leading-relaxed max-w-2xl mb-8">
+                    Somos una empresa dedicada al desarrollo de soluciones de empaque flexible para industrias, comercios y operaciones que requieren materiales resistentes, funcionales y adaptados a sus necesidades.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="contacto.html" class="bg-green-main hover:bg-green-dark text-white font-gilroy font-bold text-xs uppercase tracking-widest px-6 py-3.5 transition-colors">Solicitar cotización</a>
+                    <a href="productos.html" class="border border-white/30 text-white font-gilroy font-bold text-xs uppercase tracking-widest px-6 py-3.5 hover:bg-white/10 transition-colors">Ver productos</a>
+                </div>
+            </div>
+            
+            <!-- Side Badges -->
+            <div class="hidden lg:flex flex-col gap-4 bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded text-white min-w-[280px]">
+                <div>
+                    <div class="text-[10px] font-bold uppercase tracking-wider text-blue-light mb-1">Capacidad Instalada</div>
+                    <div class="font-lexend text-2xl font-normal">+5,000 Ton/Año</div>
+                </div>
+                <div class="h-px bg-white/20 w-full"></div>
+                <div>
+                    <div class="text-[10px] font-bold uppercase tracking-wider text-blue-light mb-1">Tecnología</div>
+                    <div class="font-lexend text-2xl font-normal">Extrusión Multicapa</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de presentación -->
+    <section class="max-w-[1440px] mx-auto px-6 md:px-12 py-20">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-6">
+                <span class="text-green-main font-gilroy font-bold text-xs uppercase tracking-widest block mb-3">Trayectoria Industrial</span>
+                <h2 class="font-lexend font-normal text-3xl sm:text-4xl text-navy-dark mb-6 leading-tight">Soluciones de empaque con enfoque industrial</h2>
+                <p class="font-gilroy text-gray-text text-base leading-relaxed mb-6">
+                    En PLADEMO trabajamos con materiales plásticos flexibles orientados a proteger, almacenar, transportar y facilitar la operación de distintos sectores. Nuestro enfoque combina experiencia, capacidad técnica y atención personalizada para ofrecer productos adecuados al uso real de cada cliente.
+                </p>
+                <p class="font-gilroy text-gray-text text-base leading-relaxed">
+                    No somos solo proveedores de insumos; nos convertimos en aliados técnicos para optimizar la resistencia, calibración y dimensiones que cada producto de empaque requiere en su entorno de trabajo diario.
+                </p>
+            </div>
+            <div class="lg:col-span-6 relative">
+                <div class="w-full aspect-[4/3] bg-[#c0f1be] p-4 border border-gray-100 overflow-hidden shadow-lg">
+                    <img alt="Materiales de empaque flexible PLADEMO" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80"/>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de fortalezas -->
+    <section class="bg-gray-50 border-y border-gray-100 py-20 px-6 md:px-12">
+        <div class="max-w-[1440px] mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-green-main font-gilroy font-bold text-xs uppercase tracking-widest block mb-3">Nuestros Pilares</span>
+                <h2 class="font-lexend font-normal text-3xl text-navy-dark">¿Por qué elegir a PLADEMO?</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+                
+                <!-- Fortaleza 1 -->
+                <div class="bg-white border border-gray-100 p-8 hover:shadow-lg transition-all duration-300 flex flex-col justify-between h-full group">
+                    <span class="material-symbols-outlined text-green-main text-4xl mb-6">history_edu</span>
+                    <div>
+                        <h4 class="font-lexend font-normal text-lg text-navy-dark mb-3">Experiencia en empaque</h4>
+                        <p class="font-gilroy text-gray-text text-xs leading-relaxed">
+                            Años de trayectoria respaldan nuestra capacidad para asesorar y proveer empaques eficientes.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Fortaleza 2 -->
+                <div class="bg-white border border-gray-100 p-8 hover:shadow-lg transition-all duration-300 flex flex-col justify-between h-full group">
+                    <span class="material-symbols-outlined text-green-main text-4xl mb-6">settings_suggest</span>
+                    <div>
+                        <h4 class="font-lexend font-normal text-lg text-navy-dark mb-3">Adaptación técnica</h4>
+                        <p class="font-gilroy text-gray-text text-xs leading-relaxed">
+                            Fabricación flexible y exacta según requerimientos específicos de calibre, fuelle y medidas.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Fortaleza 3 -->
+                <div class="bg-white border border-gray-100 p-8 hover:shadow-lg transition-all duration-300 flex flex-col justify-between h-full group">
+                    <span class="material-symbols-outlined text-green-main text-4xl mb-6">domain</span>
+                    <div>
+                        <h4 class="font-lexend font-normal text-lg text-navy-dark mb-3">Atención multisectorial</h4>
+                        <p class="font-gilroy text-gray-text text-xs leading-relaxed">
+                            Desarrollamos soluciones enfocadas para la industria, el comercio, la hotelería y la agricultura.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Fortaleza 4 -->
+                <div class="bg-white border border-gray-100 p-8 hover:shadow-lg transition-all duration-300 flex flex-col justify-between h-full group">
+                    <span class="material-symbols-outlined text-green-main text-4xl mb-6">verified_user</span>
+                    <div>
+                        <h4 class="font-lexend font-normal text-lg text-navy-dark mb-3">Calidad y funcionalidad</h4>
+                        <p class="font-gilroy text-gray-text text-xs leading-relaxed">
+                            Nuestras resinas de alta calidad garantizan un empaque que resiste tensiones operativas reales.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Fortaleza 5 -->
+                <div class="bg-white border border-gray-100 p-8 hover:shadow-lg transition-all duration-300 flex flex-col justify-between h-full group">
+                    <span class="material-symbols-outlined text-green-main text-4xl mb-6">nature_people</span>
+                    <div>
+                        <h4 class="font-lexend font-normal text-lg text-navy-dark mb-3">Soluciones responsables</h4>
+                        <p class="font-gilroy text-gray-text text-xs leading-relaxed">
+                            Compromiso firme con el aprovechamiento de recursos y el uso de materiales 100% reciclables.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de capacidad operativa -->
+    <section class="max-w-[1440px] mx-auto px-6 md:px-12 py-20">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <div class="lg:col-span-6 order-2 lg:order-1">
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-gray-50 border border-gray-100 p-6 flex flex-col justify-between h-36">
+                        <span class="text-green-main font-lexend font-bold text-2xl">01</span>
+                        <span class="font-gilroy text-navy-dark font-semibold text-sm">Medidas bajo requerimiento</span>
+                    </div>
+                    <div class="bg-gray-50 border border-gray-100 p-6 flex flex-col justify-between h-36">
+                        <span class="text-green-main font-lexend font-bold text-2xl">02</span>
+                        <span class="font-gilroy text-navy-dark font-semibold text-sm">Calibres según aplicación</span>
+                    </div>
+                    <div class="bg-gray-50 border border-gray-100 p-6 flex flex-col justify-between h-36">
+                        <span class="text-green-main font-lexend font-bold text-2xl">03</span>
+                        <span class="font-gilroy text-navy-dark font-semibold text-sm">Presentaciones personalizadas</span>
+                    </div>
+                    <div class="bg-gray-50 border border-gray-100 p-6 flex flex-col justify-between h-36">
+                        <span class="text-green-main font-lexend font-bold text-2xl">04</span>
+                        <span class="font-gilroy text-navy-dark font-semibold text-sm">Volumen de producción adaptable</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-6 order-1 lg:order-2">
+                <span class="text-green-main font-gilroy font-bold text-xs uppercase tracking-widest block mb-3">Infraestructura & Soporte</span>
+                <h2 class="font-lexend font-normal text-3xl sm:text-4xl text-navy-dark mb-6 leading-tight">Capacidad para atender necesidades específicas</h2>
+                <p class="font-gilroy text-gray-text text-base leading-relaxed mb-6">
+                    Cada cliente puede requerir medidas, calibres, presentaciones o aplicaciones diferentes. Por eso, PLADEMO ofrece acompañamiento para revisar las condiciones de uso y proponer soluciones acordes a la operación.
+                </p>
+                <div class="flex items-center gap-3 bg-[#f5fcf7] border border-green-light p-4 rounded text-sm text-green-dark">
+                    <span class="material-symbols-outlined text-green-main text-2xl">check_box</span>
+                    <span class="font-gilroy">Ingeniería comercial lista para co-diseñar el empaque ideal para tu línea logística.</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Sección de compromiso ambiental -->
+    <section class="bg-green-light/20 border-y border-green-light/40 py-20 px-6 md:px-12">
+        <div class="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <div class="lg:col-span-6">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="material-symbols-outlined text-green-main text-3xl">recycling</span>
+                    <span class="text-green-main font-gilroy font-bold text-xs uppercase tracking-widest">Enfoque Sustentable</span>
+                </div>
+                <h2 class="font-lexend font-normal text-3xl sm:text-4xl text-navy-dark mb-6 leading-tight">Compromiso con el cuidado ambiental</h2>
+                <p class="font-gilroy text-gray-text text-base leading-relaxed mb-6">
+                    PLADEMO reconoce la importancia de impulsar prácticas responsables dentro de la industria del empaque. Por ello, integra materiales reciclados y promueve soluciones que contribuyen al aprovechamiento de recursos y a una operación más consciente.
+                </p>
+                <div class="space-y-3 font-gilroy text-sm text-gray-text">
+                    <div class="flex items-center gap-3">
+                        <span class="w-1.5 h-1.5 bg-green-main rounded-full"></span>
+                        Reutilización selectiva de mermas industriales.
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="w-1.5 h-1.5 bg-green-main rounded-full"></span>
+                        Desarrollo de películas plásticas 100% reciclables.
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="w-1.5 h-1.5 bg-green-main rounded-full"></span>
+                        Reducción de huella de carbono mediante optimización logística y operativa.
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-6">
+                <div class="w-full aspect-video border border-gray-100 overflow-hidden shadow-lg relative rounded">
+                    <img alt="Sustentabilidad y reciclaje en la industria de empaques" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1532187643603-ba119ca4109e?auto=format&fit=crop&w=800&q=80"/>
+                    <div class="absolute bottom-4 left-4 bg-navy-dark text-white px-3 py-1 font-gilroy font-bold text-[10px] tracking-wider uppercase">
+                        Sostenibilidad Circular
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Sección de cierre comercial -->
+    <section class="bg-navy-dark text-white py-20 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 24px 24px;"></div>
+        <div class="max-w-4xl mx-auto px-6 md:px-12 relative z-10 flex flex-col items-center text-center">
+            <div class="w-16 h-[4px] bg-green-main mb-8"></div>
+            <h2 class="font-lexend font-normal text-3xl sm:text-4xl md:text-5xl mb-6 leading-tight">Trabajamos contigo para encontrar la solución adecuada</h2>
+            <p class="font-gilroy text-white/80 text-sm md:text-base leading-relaxed max-w-2xl mb-10">
+                Si tu empresa necesita un empaque específico, podemos revisar tus requerimientos y preparar una propuesta personalizada según uso, medida, calibre y volumen.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+                <a href="contacto.html" class="bg-green-main hover:bg-green-dark text-white font-gilroy font-bold text-xs uppercase tracking-widest px-8 py-4 transition-all">Solicitar asesoría</a>
+                <a href="https://wa.me/529992183848" target="_blank" rel="noopener noreferrer" class="border border-white/30 text-white font-gilroy font-bold text-xs uppercase tracking-widest px-8 py-4 hover:bg-white/10 transition-all">Contactar por WhatsApp</a>
+            </div>
+        </div>
+    </section>
 </body>
 <footer class="w-full bg-white border-t border-gray-100 py-16 px-6 md:px-12 font-gilroy text-navy-dark">
     <div class="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 mb-12 justify-items-center text-center md:text-left">

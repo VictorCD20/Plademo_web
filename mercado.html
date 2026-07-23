@@ -4,6 +4,7 @@
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Mercados - PLADEMO</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico"/>
     
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
     
@@ -68,7 +69,18 @@
                 <a class="text-gray-text hover:text-blue-corp font-medium h-[70px] flex items-center px-1 text-sm tracking-wide transition-colors" href="productos.html">Productos</a>
                 <a class="text-navy-dark font-semibold border-b-2 border-green-main h-[70px] flex items-center px-1 text-sm tracking-wide transition-colors" href="mercado.html">Mercados</a>
                 <a class="text-gray-text hover:text-blue-corp font-medium h-[70px] flex items-center px-1 text-sm tracking-wide transition-colors" href="nosotros.html">Nosotros</a>
-                <a class="text-gray-text hover:text-blue-corp font-medium h-[70px] flex items-center px-1 text-sm tracking-wide transition-colors" href="contacto.html">Contacto</a>
+                
+                <!-- Dropdown de Contacto (Inactivo) -->
+                <div class="relative group h-[70px] flex items-center">
+                    <button class="text-gray-text hover:text-blue-corp font-medium h-[70px] flex items-center gap-1 px-1 text-sm tracking-wide transition-colors focus:outline-none">
+                        Contacto
+                        <span class="material-symbols-outlined text-xs transition-transform group-hover:rotate-180">keyboard_arrow_down</span>
+                    </button>
+                    <div class="absolute top-[70px] left-1/2 -translate-x-1/2 bg-white border border-gray-100 shadow-lg py-2 min-w-[160px] hidden group-hover:block transition-all duration-300">
+                        <a class="block px-4 py-2 text-sm text-gray-text hover:text-blue-corp hover:bg-gray-50 font-medium" href="contacto.html">Contacto</a>
+                        <a class="block px-4 py-2 text-sm text-gray-text hover:text-blue-corp hover:bg-gray-50 font-medium" href="bolsa-trabajo.html">Bolsa de trabajo</a>
+                    </div>
+                </div>
             </div>
 
             
@@ -88,7 +100,14 @@
             <a class="text-gray-text hover:text-blue-corp font-medium pl-2 text-base transition-colors" href="productos.html">Productos</a>
             <a class="text-navy-dark font-semibold border-l-4 border-green-main pl-2 text-base transition-colors" href="mercado.html">Mercados</a>
             <a class="text-gray-text hover:text-blue-corp font-medium pl-2 text-base transition-colors" href="nosotros.html">Nosotros</a>
-            <a class="text-gray-text hover:text-blue-corp font-medium pl-2 text-base transition-colors" href="contacto.html">Contacto</a>
+            
+            <!-- Contacto en móvil -->
+            <div class="flex flex-col gap-2 pl-2">
+                <span class="text-gray-text hover:text-blue-corp font-medium text-base">Contacto</span>
+                <a class="text-gray-text hover:text-blue-corp font-medium pl-4 text-sm transition-colors" href="contacto.html">- Formulario de Contacto</a>
+                <a class="text-gray-text hover:text-blue-corp font-medium pl-4 text-sm transition-colors" href="bolsa-trabajo.html">- Bolsa de trabajo</a>
+            </div>
+            
             <a href="contacto.html" class="bg-blue-corp hover:bg-navy-dark text-white text-center py-3 text-sm font-semibold transition-all mt-2">Solicitar Cotización</a>
         </div>
     </nav>
@@ -109,10 +128,274 @@
         });
     </script>
 
-    <div class="py-20 text-center max-w-4xl mx-auto px-6">
-        <h1 class="font-lexend font-normal text-navy-dark text-4xl mb-4">MERCADOS</h1>
-        <p class="text-gray-text">Página en desarrollo técnico.</p>
-    </div>
+    <!-- Hero Section -->
+    <section class="relative w-full py-24 md:py-32 bg-navy-dark text-white overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img alt="Instalaciones de producción PLADEMO" class="w-full h-full object-cover opacity-30 mix-blend-overlay" src="assets/img/hero-planta.webp"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-navy-dark via-navy-dark/70 to-transparent"></div>
+        </div>
+        <div class="relative z-10 max-w-[1440px] mx-auto px-6 md:px-12 w-full flex flex-col md:flex-row justify-between items-end gap-8">
+            <div class="max-w-3xl">
+                <div class="flex items-center gap-4 mb-6">
+                    <span class="text-blue-light font-gilroy font-bold tracking-[0.2em] text-xs uppercase border border-blue-light/30 px-3 py-1 bg-navy-dark/40 backdrop-blur-sm">Sectores Industriales</span>
+                    <div class="h-[1px] w-16 bg-blue-light/50"></div>
+                    <span class="text-blue-light font-gilroy font-bold tracking-[0.2em] text-xs uppercase">Edición 2026</span>
+                </div>
+                <h1 class="font-lexend font-normal text-4xl sm:text-5xl md:text-6xl text-white mb-6 leading-none">
+                    Mercados que atendemos
+                </h1>
+                <p class="font-gilroy text-white/80 text-sm md:text-base leading-relaxed max-w-2xl mb-8">
+                    Desarrollamos soluciones de empaque flexible para distintos sectores industriales, comerciales y operativos, adaptándonos a las necesidades de protección, almacenamiento, traslado y presentación de cada cliente.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="contacto.html" class="bg-green-main hover:bg-green-dark text-white font-gilroy font-bold text-xs uppercase tracking-widest px-6 py-3.5 transition-colors">Solicitar cotización</a>
+                    <a href="#mercados-grid" class="border border-white/30 text-white font-gilroy font-bold text-xs uppercase tracking-widest px-6 py-3.5 hover:bg-white/10 transition-colors">Ver soluciones</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Introducción Breve -->
+    <section class="max-w-[1440px] mx-auto px-6 md:px-12 pt-16 pb-4">
+        <div class="border-l-4 border-green-main pl-6 max-w-4xl">
+            <p class="font-gilroy text-gray-text text-base md:text-lg leading-relaxed">
+                Cada mercado requiere materiales, medidas y presentaciones diferentes. Por eso, en PLADEMO trabajamos soluciones estándar y desarrollos a medida para responder a las condiciones reales de uso de cada industria.
+            </p>
+        </div>
+    </section>
+
+    <!-- Mercado Cards Grid -->
+    <section id="mercados-grid" class="max-w-[1440px] mx-auto px-6 md:px-12 py-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- CARD 1: Industria General -->
+            <article class="bg-white border border-gray-100 flex flex-col justify-between hover:shadow-xl transition-all duration-300 group">
+                <div class="relative w-full aspect-[4/3] bg-[#c0f1be] overflow-hidden">
+                    <img alt="Industria General" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80"/>
+                </div>
+                <div class="p-8 flex flex-col justify-between flex-grow bg-navy-dark border-t border-navy-dark text-white">
+                    <div>
+                        <h3 class="font-lexend font-normal text-2xl text-white mb-3">Industria General</h3>
+                        <p class="font-gilroy text-white/80 text-sm leading-relaxed mb-6 line-clamp-2">
+                            Empaques para operación, almacenamiento, protección de materiales y traslado interno.
+                        </p>
+                        <div class="space-y-2 border-t border-white/10 pt-4 mb-6 text-sm">
+                            <span class="font-semibold text-white/95 text-xs uppercase tracking-wider block mb-2">Aplicaciones principales:</span>
+                            <ul class="space-y-1.5 text-xs text-gray-300">
+                                <li class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-green-light text-base">check_circle</span>
+                                    Películas protectoras
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-green-light text-base">check_circle</span>
+                                    Fundas para tarimas
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-green-light text-base">check_circle</span>
+                                    Fundas de almacenamiento
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mt-auto">
+                        <a href="contacto.html?market=general" class="bg-white text-[#007d32] hover:bg-[#007d32] hover:text-white font-gilroy font-bold text-xs uppercase tracking-widest py-3 px-4 text-center block transition-colors w-full">Solicitar solución</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- CARD 2: Industria Química -->
+            <article class="bg-white border border-gray-100 flex flex-col justify-between hover:shadow-xl transition-all duration-300 group">
+                <div class="relative w-full aspect-[4/3] bg-[#c0f1be] overflow-hidden">
+                    <img alt="Industria Química" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://images.unsplash.com/photo-1532187643603-ba119ca4109e?auto=format&fit=crop&w=600&q=80"/>
+                </div>
+                <div class="p-8 flex flex-col justify-between flex-grow bg-navy-dark border-t border-navy-dark text-white">
+                    <div>
+                        <h3 class="font-lexend font-normal text-2xl text-white mb-3">Industria Química</h3>
+                        <p class="font-gilroy text-white/80 text-sm leading-relaxed mb-6 line-clamp-2">
+                            Soluciones para contener, proteger o separar materiales bajo requerimientos específicos.
+                        </p>
+                        <div class="space-y-2 border-t border-white/10 pt-4 mb-6 text-sm">
+                            <span class="font-semibold text-white/95 text-xs uppercase tracking-wider block mb-2">Aplicaciones principales:</span>
+                            <ul class="space-y-1.5 text-xs text-gray-300">
+                                <li class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-green-light text-base">check_circle</span>
+                                    Sacos para polvos
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-green-light text-base">check_circle</span>
+                                    Liner de protección
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-green-light text-base">check_circle</span>
+                                    Barreras impermeables
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mt-auto">
+                        <a href="contacto.html?market=quimica" class="bg-white text-[#007d32] hover:bg-[#007d32] hover:text-white font-gilroy font-bold text-xs uppercase tracking-widest py-3 px-4 text-center block transition-colors w-full">Solicitar solución</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- CARD 3: Comercio y Retail -->
+            <article class="bg-white border border-gray-100 flex flex-col justify-between hover:shadow-xl transition-all duration-300 group">
+                <div class="relative w-full aspect-[4/3] bg-[#c0f1be] overflow-hidden">
+                    <img alt="Comercio y Retail" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=600&q=80"/>
+                </div>
+                <div class="p-8 flex flex-col justify-between flex-grow bg-navy-dark border-t border-navy-dark text-white">
+                    <div>
+                        <h3 class="font-lexend font-normal text-2xl text-white mb-3">Comercio y Retail</h3>
+                        <p class="font-gilroy text-white/80 text-sm leading-relaxed mb-6 line-clamp-2">
+                            Empaques funcionales para manejo, entrega, presentación y operación comercial.
+                        </p>
+                        <div class="space-y-2 border-t border-white/10 pt-4 mb-6 text-sm">
+                            <span class="font-semibold text-white/95 text-xs uppercase tracking-wider block mb-2">Aplicaciones principales:</span>
+                            <ul class="space-y-1.5 text-xs text-gray-300">
+                                <li class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-green-light text-base">check_circle</span>
+                                    Bolsas para mercancía
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-green-light text-base">check_circle</span>
+                                    Películas de envolvedora
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-green-light text-base">check_circle</span>
+                                    Presentación de producto
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mt-auto">
+                        <a href="contacto.html?market=retail" class="bg-white text-[#007d32] hover:bg-[#007d32] hover:text-white font-gilroy font-bold text-xs uppercase tracking-widest py-3 px-4 text-center block transition-colors w-full">Solicitar solución</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- CARD 4: Hotelería -->
+            <article class="bg-white border border-gray-100 flex flex-col justify-between hover:shadow-xl transition-all duration-300 group">
+                <div class="relative w-full aspect-[4/3] bg-[#c0f1be] overflow-hidden">
+                    <img alt="Hotelería" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=600&q=80"/>
+                </div>
+                <div class="p-8 flex flex-col justify-between flex-grow bg-navy-dark border-t border-navy-dark text-white">
+                    <div>
+                        <h3 class="font-lexend font-normal text-2xl text-white mb-3">Hotelería</h3>
+                        <p class="font-gilroy text-white/80 text-sm leading-relaxed mb-6 line-clamp-2">
+                            Bolsas y soluciones de empaque para áreas de limpieza, servicio, lavandería y operación diaria.
+                        </p>
+                        <div class="space-y-2 border-t border-white/10 pt-4 mb-6 text-sm">
+                            <span class="font-semibold text-white/95 text-xs uppercase tracking-wider block mb-2">Aplicaciones principales:</span>
+                            <ul class="space-y-1.5 text-xs text-gray-300">
+                                <li class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-green-light text-base">check_circle</span>
+                                    Bolsas de lavandería
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-green-light text-base">check_circle</span>
+                                    Manejo de blancos
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-green-light text-base">check_circle</span>
+                                    Residuos de habitaciones
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mt-auto">
+                        <a href="contacto.html?market=hoteleria" class="bg-white text-[#007d32] hover:bg-[#007d32] hover:text-white font-gilroy font-bold text-xs uppercase tracking-widest py-3 px-4 text-center block transition-colors w-full">Solicitar solución</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- CARD 5: Construcción -->
+            <article class="bg-white border border-gray-100 flex flex-col justify-between hover:shadow-xl transition-all duration-300 group">
+                <div class="relative w-full aspect-[4/3] bg-[#c0f1be] overflow-hidden">
+                    <img alt="Construcción" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=80"/>
+                </div>
+                <div class="p-8 flex flex-col justify-between flex-grow bg-navy-dark border-t border-navy-dark text-white">
+                    <div>
+                        <h3 class="font-lexend font-normal text-2xl text-white mb-3">Construcción</h3>
+                        <p class="font-gilroy text-white/80 text-sm leading-relaxed mb-6 line-clamp-2">
+                            Materiales plásticos para protección, cubiertas temporales, separación de áreas y manejo en obra.
+                        </p>
+                        <div class="space-y-2 border-t border-white/10 pt-4 mb-6 text-sm">
+                            <span class="font-semibold text-white/95 text-xs uppercase tracking-wider block mb-2">Aplicaciones principales:</span>
+                            <ul class="space-y-1.5 text-xs text-gray-300">
+                                <li class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-green-light text-base">check_circle</span>
+                                    Película calibre 600
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-green-light text-base">check_circle</span>
+                                    Separadores de obra
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-green-light text-base">check_circle</span>
+                                    Protección de materiales
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mt-auto">
+                        <a href="contacto.html?market=construccion" class="bg-white text-[#007d32] hover:bg-[#007d32] hover:text-white font-gilroy font-bold text-xs uppercase tracking-widest py-3 px-4 text-center block transition-colors w-full">Solicitar solución</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- CARD 6: Agricultura -->
+            <article class="bg-white border border-gray-100 flex flex-col justify-between hover:shadow-xl transition-all duration-300 group">
+                <div class="relative w-full aspect-[4/3] bg-[#c0f1be] overflow-hidden">
+                    <img alt="Agricultura" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=600&q=80"/>
+                </div>
+                <div class="p-8 flex flex-col justify-between flex-grow bg-navy-dark border-t border-navy-dark text-white">
+                    <div>
+                        <h3 class="font-lexend font-normal text-2xl text-white mb-3">Agricultura</h3>
+                        <p class="font-gilroy text-white/80 text-sm leading-relaxed mb-6 line-clamp-2">
+                            Soluciones plásticas para protección, cobertura, manejo de materiales y apoyo en labores de campo.
+                        </p>
+                        <div class="space-y-2 border-t border-white/10 pt-4 mb-6 text-sm">
+                            <span class="font-semibold text-white/95 text-xs uppercase tracking-wider block mb-2">Aplicaciones principales:</span>
+                            <ul class="space-y-1.5 text-xs text-gray-300">
+                                <li class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-green-light text-base">check_circle</span>
+                                    Liner para ensilado
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-green-light text-base">check_circle</span>
+                                    Cobertura de cultivos
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-green-light text-base">check_circle</span>
+                                    Protección UV
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mt-auto">
+                        <a href="contacto.html?market=agricultura" class="bg-white text-[#007d32] hover:bg-[#007d32] hover:text-white font-gilroy font-bold text-xs uppercase tracking-widest py-3 px-4 text-center block transition-colors w-full">Solicitar solución</a>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- Custom Solutions Section -->
+    <section class="bg-navy-dark text-white py-20 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 24px 24px;"></div>
+        <div class="max-w-4xl mx-auto px-6 md:px-12 relative z-10 flex flex-col items-center text-center">
+            <div class="w-16 h-[4px] bg-green-main mb-8"></div>
+            <h2 class="font-lexend font-normal text-3xl sm:text-4xl md:text-5xl mb-6 leading-tight">Soluciones adaptadas a cada operación</h2>
+            <p class="font-gilroy text-white/80 text-sm md:text-base leading-relaxed max-w-2xl mb-10">
+                Si su empresa necesita medidas, calibres, presentaciones o aplicaciones específicas, podemos revisar sus requerimientos y preparar una propuesta de empaque acorde al uso real del producto.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+                <a href="contacto.html" class="bg-green-main hover:bg-green-dark text-white font-gilroy font-bold text-xs uppercase tracking-widest px-8 py-4 transition-all">Solicitar asesoría</a>
+                <a href="https://wa.me/529992183848" target="_blank" rel="noopener noreferrer" class="border border-white/30 text-white font-gilroy font-bold text-xs uppercase tracking-widest px-8 py-4 hover:bg-white/10 transition-all">Contactar por WhatsApp</a>
+            </div>
+        </div>
+    </section>
 </body>
 <footer class="w-full bg-white border-t border-gray-100 py-16 px-6 md:px-12 font-gilroy text-navy-dark">
     <div class="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 mb-12 justify-items-center text-center md:text-left">

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Bolsa de Trabajo - PLADEMO</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico"/>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+    
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "navy-dark": "#0f2d56",
+                        "blue-corp": "#0f2d56",
+                        "blue-light": "#bbdaea",
+                        "green-main": "#007d32",
+                        "green-dark": "#1a3b23",
+                        "green-light": "#c0f1be",
+                        "white": "#FFFFFF",
+                        "gray-text": "#5F6B76"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0px",
+                        "sm": "0px",
+                        "md": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "lexend": ["Lexend", "sans-serif"],
+                        "gilroy": ["Manrope", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.filled {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-white text-navy-dark font-gilroy antialiased pt-[70px]">
+    <!-- TopNavBar -->
+    <nav class="fixed top-0 left-0 w-full z-50 bg-white border-b border-gray-100 shadow-sm h-[70px] flex items-center font-gilroy">
+        <div class="w-full max-w-[1440px] mx-auto px-6 md:px-12 flex justify-between items-center">
+            
+            <a href="index.html" class="flex items-center">
+                <img alt="plademo_logo" class="h-10 w-auto object-contain" src="assets/img/plademo-original.webp"/>
+            </a>
+
+            
+            <div class="hidden md:flex gap-8 items-center h-[70px]">
+                <a class="text-gray-text hover:text-blue-corp font-medium h-[70px] flex items-center px-1 text-sm tracking-wide transition-colors" href="index.html">Inicio</a>
+                <a class="text-gray-text hover:text-blue-corp font-medium h-[70px] flex items-center px-1 text-sm tracking-wide transition-colors" href="productos.html">Productos</a>
+                <a class="text-gray-text hover:text-blue-corp font-medium h-[70px] flex items-center px-1 text-sm tracking-wide transition-colors" href="mercado.html">Mercados</a>
+                <a class="text-gray-text hover:text-blue-corp font-medium h-[70px] flex items-center px-1 text-sm tracking-wide transition-colors" href="nosotros.html">Nosotros</a>
+                
+                <!-- Dropdown de Contacto (Activo) -->
+                <div class="relative group h-[70px] flex items-center">
+                    <button class="text-navy-dark font-semibold border-b-2 border-green-main h-[70px] flex items-center gap-1 px-1 text-sm tracking-wide transition-colors focus:outline-none">
+                        Contacto
+                        <span class="material-symbols-outlined text-xs transition-transform group-hover:rotate-180">keyboard_arrow_down</span>
+                    </button>
+                    <div class="absolute top-[70px] left-1/2 -translate-x-1/2 bg-white border border-gray-100 shadow-lg py-2 min-w-[160px] hidden group-hover:block transition-all duration-300">
+                        <a class="block px-4 py-2 text-sm text-gray-text hover:text-blue-corp hover:bg-gray-50 font-medium" href="contacto.html">Contacto</a>
+                        <a class="block px-4 py-2 text-sm text-navy-dark font-semibold hover:bg-gray-50" href="bolsa-trabajo.html">Bolsa de trabajo</a>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="hidden md:flex items-center">
+                <a href="contacto.html" class="bg-blue-corp hover:bg-navy-dark text-white px-5 py-2.5 text-sm font-semibold transition-all shadow-sm">Solicitar Cotización</a>
+            </div>
+
+            
+            <button id="mobile-menu-btn" class="md:hidden flex items-center text-navy-dark focus:outline-none" aria-label="Abrir menú">
+                <span class="material-symbols-outlined text-3xl">menu</span>
+            </button>
+        </div>
+
+        
+        <div id="mobile-menu" class="hidden absolute top-[70px] left-0 w-full bg-white border-b border-gray-100 flex flex-col px-6 py-4 gap-4 shadow-lg md:hidden">
+            <a class="text-gray-text hover:text-blue-corp font-medium pl-2 text-base transition-colors" href="index.html">Inicio</a>
+            <a class="text-gray-text hover:text-blue-corp font-medium pl-2 text-base transition-colors" href="productos.html">Productos</a>
+            <a class="text-gray-text hover:text-blue-corp font-medium pl-2 text-base transition-colors" href="mercado.html">Mercados</a>
+            <a class="text-gray-text hover:text-blue-corp font-medium pl-2 text-base transition-colors" href="nosotros.html">Nosotros</a>
+            
+            <!-- Contacto en móvil -->
+            <div class="flex flex-col gap-2 pl-2">
+                <span class="text-navy-dark font-semibold text-base">Contacto</span>
+                <a class="text-gray-text hover:text-blue-corp font-medium pl-4 text-sm transition-colors" href="contacto.html">- Formulario de Contacto</a>
+                <a class="text-navy-dark font-semibold pl-4 text-sm transition-colors" href="bolsa-trabajo.html">- Bolsa de trabajo</a>
+            </div>
+            
+            <a href="contacto.html" class="bg-blue-corp hover:bg-navy-dark text-white text-center py-3 text-sm font-semibold transition-all mt-2">Solicitar Cotización</a>
+        </div>
+    </nav>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+            if (btn && menu) {
+                btn.addEventListener('click', function() {
+                    menu.classList.toggle('hidden');
+                    const icon = btn.querySelector('.material-symbols-outlined');
+                    if (icon) {
+                        icon.textContent = menu.classList.contains('hidden') ? 'menu' : 'close';
+                    }
+                });
+            }
+        });
+    </script>
+
+    <!-- Hero Section -->
+    <header class="bg-navy-dark text-white py-16 md:py-24 px-6 md:px-12 text-center relative overflow-hidden">
+        <div class="max-w-[1440px] mx-auto relative z-10">
+            <span class="font-gilroy text-green-light text-xs font-bold tracking-[0.2em] uppercase block mb-4">ÚNETE A NUESTRO EQUIPO</span>
+            <h1 class="font-lexend font-normal text-3xl sm:text-4xl md:text-5xl mb-6">Bolsa de Trabajo</h1>
+            <p class="font-gilroy text-white/80 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+                Buscamos personas comprometidas para crecer junto a nuestro equipo. Únete a una empresa líder en soluciones de empaque industrial.
+            </p>
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-b from-[#0a2343] to-[#0f2d56] opacity-90 z-0"></div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-[1440px] mx-auto py-16 px-6 md:px-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            
+            <!-- Left Column: Vacancies & Info -->
+            <div class="lg:col-span-6 space-y-8">
+                <div>
+                    <h2 class="font-lexend font-normal text-navy-dark text-2xl md:text-3xl mb-4">Vacantes Disponibles</h2>
+                    <p class="font-gilroy text-gray-text text-sm leading-relaxed">
+                        En PLADEMO valoramos la precisión, la dedicación y el trabajo en equipo. Consulta nuestras vacantes abiertas o envíanos tu postulación espontánea.
+                    </p>
+                </div>
+
+                <div class="space-y-4">
+                    <!-- Vacante 1 -->
+                    <div class="bg-gray-50 border border-gray-100 p-6 flex flex-col justify-between hover:border-green-main transition-colors">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <span class="bg-[#bbdaea] text-navy-dark px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider rounded-sm">Operaciones</span>
+                                <h3 class="font-lexend font-normal text-lg text-navy-dark mt-2">Operador de Producción</h3>
+                            </div>
+                            <span class="material-symbols-outlined text-gray-text">factory</span>
+                        </div>
+                        <div class="flex gap-6 text-xs text-gray-text mb-6">
+                            <span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">location_on</span> Dzununcan, Yucatán</span>
+                            <span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">schedule</span> Tiempo Completo</span>
+                        </div>
+                        <p class="font-gilroy text-gray-text text-sm leading-relaxed mb-6">
+                            Operación de maquinaria de extrusión y embobinado de películas plásticas. Se requiere responsabilidad y apego a normas de seguridad.
+                        </p>
+                        <button onclick="document.getElementById('form_puesto').value='operador'; document.getElementById('solicitud-form').scrollIntoView({behavior: 'smooth'});" class="border border-navy-dark text-navy-dark font-gilroy font-semibold py-2.5 px-6 hover:bg-navy-dark hover:text-white transition-all text-center text-xs uppercase tracking-wider">
+                            Postularme
+                        </button>
+                    </div>
+
+                    <!-- Vacante 2 -->
+                    <div class="bg-gray-50 border border-gray-100 p-6 flex flex-col justify-between hover:border-green-main transition-colors">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <span class="bg-[#bbdaea] text-navy-dark px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider rounded-sm">Administración</span>
+                                <h3 class="font-lexend font-normal text-lg text-navy-dark mt-2">Auxiliar Administrativo</h3>
+                            </div>
+                            <span class="material-symbols-outlined text-gray-text">business_center</span>
+                        </div>
+                        <div class="flex gap-6 text-xs text-gray-text mb-6">
+                            <span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">location_on</span> Planta PLADEMO</span>
+                            <span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">schedule</span> Tiempo Completo</span>
+                        </div>
+                        <p class="font-gilroy text-gray-text text-sm leading-relaxed mb-6">
+                            Soporte en tareas de facturación, atención telefónica, archivo y asistencia general al departamento de ventas.
+                        </p>
+                        <button onclick="document.getElementById('form_puesto').value='auxiliar'; document.getElementById('solicitud-form').scrollIntoView({behavior: 'smooth'});" class="border border-navy-dark text-navy-dark font-gilroy font-semibold py-2.5 px-6 hover:bg-navy-dark hover:text-white transition-all text-center text-xs uppercase tracking-wider">
+                            Postularme
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Info banner -->
+                <div class="bg-[#c0f1be]/30 p-6 border-l-4 border-green-main">
+                    <h4 class="font-lexend font-bold text-navy-dark text-sm mb-1">¿No encuentras el puesto ideal?</h4>
+                    <p class="font-gilroy text-gray-text text-sm leading-relaxed">
+                        Selecciona <strong>"Candidatura Espontánea"</strong> en el formulario y envíanos tus datos. Te consideraremos para futuros procesos de selección.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Right Column: Form -->
+            <div id="solicitud-form" class="lg:col-span-6 bg-white border border-gray-100 p-8 md:p-10 shadow-sm">
+                <h2 class="font-lexend font-normal text-navy-dark text-xl md:text-2xl mb-6">Enviar Solicitud</h2>
+                
+                <form action="https://formspree.io/f/placeholder" method="POST" enctype="multipart/form-data" class="space-y-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <!-- Nombre -->
+                        <div class="flex flex-col">
+                            <label for="form_name" class="font-gilroy text-navy-dark text-sm font-semibold mb-2">Nombre completo *</label>
+                            <input id="form_name" name="name" type="text" required class="border border-gray-200 px-4 py-3 text-sm focus:border-green-main focus:outline-none transition-colors" placeholder="Ej. Juan Pérez"/>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="flex flex-col">
+                            <label for="form_email" class="font-gilroy text-navy-dark text-sm font-semibold mb-2">Correo electrónico *</label>
+                            <input id="form_email" name="email" type="email" required class="border border-gray-200 px-4 py-3 text-sm focus:border-green-main focus:outline-none transition-colors" placeholder="Ej. juan@ejemplo.com"/>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <!-- Teléfono -->
+                        <div class="flex flex-col">
+                            <label for="form_phone" class="font-gilroy text-navy-dark text-sm font-semibold mb-2">Teléfono *</label>
+                            <input id="form_phone" name="phone" type="tel" required class="border border-gray-200 px-4 py-3 text-sm focus:border-green-main focus:outline-none transition-colors" placeholder="Ej. 999 123 4567"/>
+                        </div>
+
+                        <!-- Puesto -->
+                        <div class="flex flex-col">
+                            <label for="form_puesto" class="font-gilroy text-navy-dark text-sm font-semibold mb-2">Puesto de interés *</label>
+                            <select id="form_puesto" name="puesto" required class="border border-gray-200 px-4 py-3 text-sm focus:border-green-main focus:outline-none transition-colors">
+                                <option value="">Selecciona una opción</option>
+                                <option value="operador">Operador de Producción</option>
+                                <option value="auxiliar">Auxiliar Administrativo</option>
+                                <option value="spontaneous">Candidatura Espontánea / Otro</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Mensaje -->
+                    <div class="flex flex-col">
+                        <label for="form_message" class="font-gilroy text-navy-dark text-sm font-semibold mb-2">Mensaje / Presentación *</label>
+                        <textarea id="form_message" name="message" rows="4" required class="border border-gray-200 px-4 py-3 text-sm focus:border-green-main focus:outline-none transition-colors resize-none" placeholder="Cuéntanos brevemente tu experiencia y por qué deseas unirte a PLADEMO..."></textarea>
+                    </div>
+
+                    <!-- CV upload -->
+                    <div class="flex flex-col">
+                        <label class="font-gilroy text-navy-dark text-sm font-semibold mb-2">Adjuntar Currículum (PDF/Word) *</label>
+                        <div class="border-2 border-dashed border-gray-200 hover:border-green-main transition-colors p-6 text-center cursor-pointer relative">
+                            <input type="file" name="cv" required class="absolute inset-0 w-full h-full opacity-0 cursor-pointer"/>
+                            <span class="material-symbols-outlined text-3xl text-gray-text mb-2">upload_file</span>
+                            <p class="font-gilroy text-sm text-gray-text">Selecciona o arrastra tu CV aquí</p>
+                            <p class="font-gilroy text-xs text-gray-text/70 mt-1">Máximo 5MB (PDF, DOC, DOCX)</p>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div>
+                        <button type="submit" class="bg-green-main hover:bg-navy-dark text-white font-gilroy font-semibold py-4 px-8 w-full text-center transition-all shadow-sm">
+                            Enviar Solicitud
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full bg-white border-t border-gray-100 py-16 px-6 md:px-12 font-gilroy text-navy-dark">
+        <div class="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 mb-12 justify-items-center text-center md:text-left">
+            
+            <div class="flex flex-col items-center md:items-start max-w-sm">
+                <img alt="plademo_logo" class="h-10 w-auto object-contain mb-6" src="assets/img/plademo-original.webp"/>
+                <p class="text-gray-text text-sm leading-relaxed mb-6">
+                    Precisión Flexible. Soluciones de empaque industrial de alta ingeniería para operaciones que exigen calidad, especificaciones exactas y continuidad.
+                </p>
+                
+                <div class="flex gap-3">
+                    <a href="https://www.instagram.com/plademomx/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-text hover:text-blue-corp hover:border-blue-corp transition-colors" aria-label="Instagram">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+                    </a>
+                    <a href="https://www.facebook.com/plademo.mx" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-text hover:text-blue-corp hover:border-blue-corp transition-colors" aria-label="Facebook">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            
+            <div class="flex flex-col items-center md:items-start">
+                <h4 class="font-lexend font-bold text-sm text-navy-dark tracking-wider uppercase mb-6">Navegación</h4>
+                <ul class="space-y-3 text-sm text-center md:text-left">
+                    <li><a href="index.html" class="text-gray-text hover:text-blue-corp transition-colors">Inicio</a></li>
+                    <li><a href="productos.html" class="text-gray-text hover:text-blue-corp transition-colors">Productos</a></li>
+                    <li><a href="mercado.html" class="text-gray-text hover:text-blue-corp transition-colors">Mercados atendidos</a></li>
+                    <li><a href="nosotros.html" class="text-gray-text hover:text-blue-corp transition-colors">Responsabilidad ecológica</a></li>
+                    <li><a href="contacto.html" class="text-gray-text hover:text-blue-corp transition-colors">Contacto comercial</a></li>
+                    <li><a href="bolsa-trabajo.html" class="text-gray-text hover:text-blue-corp transition-colors font-semibold">Bolsa de trabajo</a></li>
+                </ul>
+            </div>
+
+            
+            <div class="flex flex-col items-center md:items-start text-sm">
+                <h4 class="font-lexend font-bold text-sm text-navy-dark tracking-wider uppercase mb-6">Contacto y Horarios</h4>
+                <ul class="space-y-4 flex flex-col items-center md:items-start">
+                    <li class="flex flex-col md:flex-row items-center md:items-start gap-3">
+                        <span class="material-symbols-outlined text-blue-corp text-lg">phone</span>
+                        <div class="text-center md:text-left">
+                            <span class="font-semibold block text-navy-dark">Teléfono:</span>
+                            <a href="tel:9992183848" class="text-gray-text hover:text-blue-corp transition-colors">999 218 3848</a>
+                        </div>
+                    </li>
+                    <li class="flex flex-col md:flex-row items-center md:items-start gap-3">
+                        <span class="material-symbols-outlined text-blue-corp text-lg">schedule</span>
+                        <div class="text-center md:text-left">
+                            <span class="font-semibold block text-navy-dark">Horario de Atención:</span>
+                            <span class="text-gray-text block">Lunes a viernes: 8:00 a.m. – 5:00 p.m.</span>
+                            <span class="text-gray-text block">Sábados: 8:00 a.m. – 2:00 p.m.</span>
+                        </div>
+                    </li>
+                    <li class="flex flex-col md:flex-row items-center md:items-start gap-3">
+                        <span class="material-symbols-outlined text-blue-corp text-lg">location_on</span>
+                        <div class="text-center md:text-left">
+                            <span class="font-semibold block text-navy-dark">Dirección:</span>
+                            <span class="text-gray-text">Carretera Dzununcan-Motul, C.P. 97430</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        
+        <div class="max-w-[1440px] mx-auto border-t border-gray-100 pt-8 flex justify-center items-center text-xs text-gray-text text-center">
+            <p>© 2026 PLADEMO. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
