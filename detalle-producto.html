@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Detalle de Producto - PLADEMO</title>
+    <title>Detalle de Producto | Plademo</title>
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico"/>
     
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
@@ -636,10 +636,10 @@
             specsList.innerHTML = '';
             currentProduct.specs.forEach(spec => {
                 const div = document.createElement('div');
-                div.className = 'grid grid-cols-3 py-3 border-b border-gray-200 last:border-b-0';
+                div.className = 'grid grid-cols-1 sm:grid-cols-3 gap-1 sm:gap-4 py-3 border-b border-gray-200 last:border-b-0';
                 div.innerHTML = `
-                    <dt class="font-semibold text-navy-dark col-span-1">${spec.name}</dt>
-                    <dd class="col-span-2 text-right">${spec.value}</dd>
+                    <dt class="font-semibold text-navy-dark sm:col-span-1">${spec.name}</dt>
+                    <dd class="sm:col-span-2 text-left sm:text-right">${spec.value}</dd>
                 `;
                 specsList.appendChild(div);
             });
