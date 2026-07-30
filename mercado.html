@@ -52,6 +52,21 @@
         .material-symbols-outlined.filled {
             font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
+        
+        /* Scroll animations styles */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            filter: blur(4px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+            filter: blur(0);
+        }
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
     </style>
 </head>
 <body class="bg-white text-navy-dark font-gilroy antialiased pt-[70px]">
@@ -125,6 +140,21 @@
                     }
                 });
             }
+            
+            // Scroll reveal animation logic
+            const reveals = document.querySelectorAll('.reveal');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.05,
+                rootMargin: "0px 0px -40px 0px"
+            });
+            reveals.forEach(el => observer.observe(el));
         });
     </script>
 
@@ -169,7 +199,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             
             <!-- CARD 1: Industria General -->
-            <article class="bg-white border border-gray-100 flex flex-col justify-between hover:shadow-xl transition-all duration-300 group">
+            <article class="reveal delay-100 bg-white border border-gray-100 flex flex-col justify-between hover:shadow-xl transition-all duration-300 group">
                 <div class="relative w-full aspect-[4/3] bg-[#c0f1be] overflow-hidden">
                     <img alt="Industria General" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="assets/fotos/fotos%20mercado/industria%20general.png"/>
                 </div>
@@ -204,7 +234,7 @@
             </article>
 
             <!-- CARD 2: Industria Química -->
-            <article class="bg-white border border-gray-100 flex flex-col justify-between hover:shadow-xl transition-all duration-300 group">
+            <article class="reveal delay-200 bg-white border border-gray-100 flex flex-col justify-between hover:shadow-xl transition-all duration-300 group">
                 <div class="relative w-full aspect-[4/3] bg-[#c0f1be] overflow-hidden">
                     <img alt="Industria Química" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="assets/fotos/fotos%20mercado/industria%20quimica.png"/>
                 </div>
@@ -239,7 +269,7 @@
             </article>
 
             <!-- CARD 3: Comercio y Retail -->
-            <article class="bg-white border border-gray-100 flex flex-col justify-between hover:shadow-xl transition-all duration-300 group">
+            <article class="reveal delay-100 bg-white border border-gray-100 flex flex-col justify-between hover:shadow-xl transition-all duration-300 group">
                 <div class="relative w-full aspect-[4/3] bg-[#c0f1be] overflow-hidden">
                     <img alt="Comercio y Retail" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="assets/fotos/fotos%20mercado/venta%20y%20retail.png"/>
                 </div>
@@ -274,7 +304,7 @@
             </article>
 
             <!-- CARD 4: Hotelería -->
-            <article class="bg-white border border-gray-100 flex flex-col justify-between hover:shadow-xl transition-all duration-300 group">
+            <article class="reveal delay-200 bg-white border border-gray-100 flex flex-col justify-between hover:shadow-xl transition-all duration-300 group">
                 <div class="relative w-full aspect-[4/3] bg-[#c0f1be] overflow-hidden">
                     <img alt="Hotelería" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="assets/fotos/fotos%20mercado/hoteleria.png"/>
                 </div>
@@ -309,7 +339,7 @@
             </article>
 
             <!-- CARD 5: Construcción -->
-            <article class="bg-white border border-gray-100 flex flex-col justify-between hover:shadow-xl transition-all duration-300 group">
+            <article class="reveal delay-100 bg-white border border-gray-100 flex flex-col justify-between hover:shadow-xl transition-all duration-300 group">
                 <div class="relative w-full aspect-[4/3] bg-[#c0f1be] overflow-hidden">
                     <img alt="Construcción" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="assets/fotos/fotos%20mercado/construccion.png"/>
                 </div>
@@ -344,7 +374,7 @@
             </article>
 
             <!-- CARD 6: Agricultura -->
-            <article class="bg-white border border-gray-100 flex flex-col justify-between hover:shadow-xl transition-all duration-300 group">
+            <article class="reveal delay-200 bg-white border border-gray-100 flex flex-col justify-between hover:shadow-xl transition-all duration-300 group">
                 <div class="relative w-full aspect-[4/3] bg-[#c0f1be] overflow-hidden">
                     <img alt="Agricultura" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="assets/fotos/fotos%20mercado/agricultura.png"/>
                 </div>

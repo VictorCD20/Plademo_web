@@ -56,6 +56,23 @@
             -webkit-text-stroke: 1px rgba(255,255,255,0.3);
             color: transparent;
         }
+        
+        /* Scroll animations styles */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            filter: blur(4px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+            filter: blur(0);
+        }
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+        .delay-400 { transition-delay: 400ms; }
     </style>
 </head>
 <body class="bg-background text-on-background font-body-md antialiased pt-[88px]">
@@ -129,6 +146,21 @@
                 }
             });
         }
+        
+        // Scroll reveal animation logic
+        const reveals = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.05,
+            rootMargin: "0px 0px -40px 0px"
+        });
+        reveals.forEach(el => observer.observe(el));
     });
 </script>
 <!-- Editorial Hero Section -->
@@ -161,7 +193,7 @@
                 <!-- Description -->
                 <div class="border-l border-white/20 pl-6 max-w-xl">
                     <p class="font-gilroy text-white/80 text-sm md:text-base leading-relaxed">
-                        Fabricación de alto volumen con precisión técnica. Desarrollamos materiales que protegen tu producto y optimizan la cadena de suministro, cumpliendo con los más altos estándares de la industria.
+                        Desde Motul, Yucatán, desarrollamos soluciones de empaque flexible para industria y comercio. Fabricación de alto volumen con precisión técnica para proteger tu producto y optimizar la cadena de suministro.
                     </p>
                 </div>
 
@@ -215,7 +247,7 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             
             <!-- Product 1 -->
-            <a href="detalle-producto.html?id=rollo-600" class="bg-[#c0f1be] flex flex-col justify-between overflow-hidden shadow-sm transition-all hover:shadow-md hover:scale-[1.02] duration-300 group">
+            <a href="detalle-producto.html?id=rollo-600" class="reveal delay-100 bg-[#c0f1be] flex flex-col justify-between overflow-hidden shadow-sm transition-all hover:shadow-md hover:scale-[1.02] duration-300 group">
                 <div class="w-full h-[360px] flex items-center justify-center p-4">
                     <img class="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105" alt="Rollo Polietileno calibre 600" src="assets/foto_productos/rollo polietileno calibre 600.png"/>
                 </div>
@@ -227,7 +259,7 @@
             </a>
 
             <!-- Product 2 -->
-            <a href="detalle-producto.html?id=es-rollo" class="bg-[#c0f1be] flex flex-col justify-between overflow-hidden shadow-sm transition-all hover:shadow-md hover:scale-[1.02] duration-300 group">
+            <a href="detalle-producto.html?id=es-rollo" class="reveal delay-200 bg-[#c0f1be] flex flex-col justify-between overflow-hidden shadow-sm transition-all hover:shadow-md hover:scale-[1.02] duration-300 group">
                 <div class="w-full h-[360px] flex items-center justify-center p-4">
                     <img class="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105" alt="Bolsas para basura Es-Rollo" src="assets/foto_productos/es-rollo.png"/>
                 </div>
@@ -239,7 +271,7 @@
             </a>
 
             <!-- Product 3 -->
-            <a href="detalle-producto.html?id=bolsa-hotelera" class="bg-[#c0f1be] flex flex-col justify-between overflow-hidden shadow-sm transition-all hover:shadow-md hover:scale-[1.02] duration-300 group">
+            <a href="detalle-producto.html?id=bolsa-hotelera" class="reveal delay-300 bg-[#c0f1be] flex flex-col justify-between overflow-hidden shadow-sm transition-all hover:shadow-md hover:scale-[1.02] duration-300 group">
                 <div class="w-full h-[360px] flex items-center justify-center p-4">
                     <img class="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105" alt="Bolsas Hoteleras" src="assets/foto_productos/bolsa dorada.png"/>
                 </div>
@@ -275,7 +307,7 @@
         <!-- Cards Grid (gap-3 to match minimal gaps in reference) -->
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
             <!-- Card 1 -->
-            <div class="bg-green-dark p-6 flex flex-col justify-between h-auto min-h-[220px] transition-all hover:bg-[#204c2c]">
+            <div class="reveal delay-100 bg-green-dark p-6 flex flex-col justify-between h-auto min-h-[220px] transition-all hover:bg-[#204c2c]">
                 <div>
                     <img class="h-10 w-10 object-contain mb-6 filter brightness-0 invert" alt="Industria General Icon" src="assets/img/iconos/mantenimiento.webp"/>
                     <h3 class="font-lexend font-bold text-white text-lg mb-3">Industria General</h3>
@@ -286,7 +318,7 @@
             </div>
 
             <!-- Card 2 -->
-            <div class="bg-green-dark p-6 flex flex-col justify-between h-auto min-h-[220px] transition-all hover:bg-[#204c2c]">
+            <div class="reveal delay-200 bg-green-dark p-6 flex flex-col justify-between h-auto min-h-[220px] transition-all hover:bg-[#204c2c]">
                 <div>
                     <img class="h-10 w-10 object-contain mb-6 filter brightness-0 invert" alt="Industria Química Icon" src="assets/img/iconos/prueba.webp"/>
                     <h3 class="font-lexend font-bold text-white text-lg mb-3">Industria Química</h3>
@@ -297,7 +329,7 @@
             </div>
 
             <!-- Card 3 -->
-            <div class="bg-green-dark p-6 flex flex-col justify-between h-auto min-h-[220px] transition-all hover:bg-[#204c2c]">
+            <div class="reveal delay-300 bg-green-dark p-6 flex flex-col justify-between h-auto min-h-[220px] transition-all hover:bg-[#204c2c]">
                 <div>
                     <img class="h-10 w-10 object-contain mb-6 filter brightness-0 invert" alt="Comercio y Retail Icon" src="assets/img/iconos/tienda.webp"/>
                     <h3 class="font-lexend font-bold text-white text-lg mb-3">Comercio y Retail</h3>
@@ -308,7 +340,7 @@
             </div>
 
             <!-- Card 4 -->
-            <div class="bg-green-dark p-6 flex flex-col justify-between h-auto min-h-[220px] transition-all hover:bg-[#204c2c]">
+            <div class="reveal delay-100 bg-green-dark p-6 flex flex-col justify-between h-auto min-h-[220px] transition-all hover:bg-[#204c2c]">
                 <div>
                     <img class="h-10 w-10 object-contain mb-6 filter brightness-0 invert" alt="Hotelería Icon" src="assets/img/iconos/hotel-bell.webp"/>
                     <h3 class="font-lexend font-bold text-white text-lg mb-3">Hotelería</h3>
@@ -319,7 +351,7 @@
             </div>
 
             <!-- Card 5 -->
-            <div class="bg-green-dark p-6 flex flex-col justify-between h-auto min-h-[220px] transition-all hover:bg-[#204c2c]">
+            <div class="reveal delay-200 bg-green-dark p-6 flex flex-col justify-between h-auto min-h-[220px] transition-all hover:bg-[#204c2c]">
                 <div>
                     <img class="h-10 w-10 object-contain mb-6 filter brightness-0 invert" alt="Construcción Icon" src="assets/img/iconos/pared-de-ladrillo.webp"/>
                     <h3 class="font-lexend font-bold text-white text-lg mb-3">Construcción</h3>
@@ -330,7 +362,7 @@
             </div>
 
             <!-- Card 6 -->
-            <div class="bg-green-dark p-6 flex flex-col justify-between h-auto min-h-[220px] transition-all hover:bg-[#204c2c]">
+            <div class="reveal delay-300 bg-green-dark p-6 flex flex-col justify-between h-auto min-h-[220px] transition-all hover:bg-[#204c2c]">
                 <div>
                     <img class="h-10 w-10 object-contain mb-6 filter brightness-0 invert" alt="Agricultura Icon" src="assets/img/iconos/planta.webp"/>
                     <h3 class="font-lexend font-bold text-white text-lg mb-3">Agricultura</h3>

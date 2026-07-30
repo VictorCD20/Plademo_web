@@ -54,6 +54,22 @@
         .product-card {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
+        
+        /* Scroll animations styles */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            filter: blur(4px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+            filter: blur(0);
+        }
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
     </style>
 </head>
 <body class="bg-white text-navy-dark font-gilroy antialiased pt-[70px]">
@@ -182,7 +198,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="products-grid">
             
             <!-- PRODUCT 1: Rollo Polietileno calibre 600 -->
-            <article data-category="rollos" class="product-card bg-white border border-gray-100 flex flex-col md:flex-row hover:shadow-xl transition-all duration-300 group">
+            <article data-category="rollos" class="reveal delay-100 product-card bg-white border border-gray-100 flex flex-col md:flex-row hover:shadow-xl transition-all duration-300 group">
                 <div class="relative w-full md:w-1/2 bg-[#c0f1be] flex items-center justify-center p-6 overflow-hidden min-h-[320px] md:min-h-full">
                     <img alt="Rollo Polietileno calibre 600" class="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105" src="assets/foto_productos/rollo polietileno calibre 600.png"/>
                     <div class="absolute top-4 left-4 bg-navy-dark text-white px-3 py-1 font-gilroy font-bold text-[10px] tracking-wider uppercase">
@@ -213,7 +229,7 @@
             </article>
 
             <!-- PRODUCT 2: Bolsas para basura “Es-Rollo” -->
-            <article data-category="bolsas" class="product-card bg-white border border-gray-100 flex flex-col md:flex-row hover:shadow-xl transition-all duration-300 group">
+            <article data-category="bolsas" class="reveal delay-200 product-card bg-white border border-gray-100 flex flex-col md:flex-row hover:shadow-xl transition-all duration-300 group">
                 <div class="relative w-full md:w-1/2 bg-[#c0f1be] flex items-center justify-center p-6 overflow-hidden min-h-[320px] md:min-h-full">
                     <img alt="Bolsas para basura Es-Rollo" class="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105" src="assets/foto_productos/es-rollo.png"/>
                     <div class="absolute top-4 left-4 bg-navy-dark text-white px-3 py-1 font-gilroy font-bold text-[10px] tracking-wider uppercase">
@@ -244,7 +260,7 @@
             </article>
 
             <!-- PRODUCT 3: Bolsas Hoteleras -->
-            <article data-category="bolsas" class="product-card bg-white border border-gray-100 flex flex-col md:flex-row hover:shadow-xl transition-all duration-300 group">
+            <article data-category="bolsas" class="reveal delay-100 product-card bg-white border border-gray-100 flex flex-col md:flex-row hover:shadow-xl transition-all duration-300 group">
                 <div class="relative w-full md:w-1/2 bg-[#c0f1be] flex items-center justify-center p-6 overflow-hidden min-h-[320px] md:min-h-full">
                     <img alt="Bolsas Hoteleras" class="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105" src="assets/foto_productos/bolsa dorada.png"/>
                     <div class="absolute top-4 left-4 bg-navy-dark text-white px-3 py-1 font-gilroy font-bold text-[10px] tracking-wider uppercase">
@@ -275,7 +291,7 @@
             </article>
 
             <!-- PRODUCT 4: Soluciones de empaque a medida -->
-            <article data-category="medida" class="product-card bg-white border border-gray-100 flex flex-col md:flex-row hover:shadow-xl transition-all duration-300 group">
+            <article data-category="medida" class="reveal delay-200 product-card bg-white border border-gray-100 flex flex-col md:flex-row hover:shadow-xl transition-all duration-300 group">
                 <div class="relative w-full md:w-1/2 bg-[#c0f1be] flex items-center justify-center p-6 overflow-hidden min-h-[320px] md:min-h-full">
                     <img alt="Empaques personalizados PLADEMO" class="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105" src="assets/foto_productos/bolsa personalizada.png"/>
                     <div class="absolute top-4 left-4 bg-navy-dark text-white px-3 py-1 font-gilroy font-bold text-[10px] tracking-wider uppercase">
@@ -461,6 +477,21 @@
                     updateDisplay();
                 });
             }
+            
+            // Scroll reveal animation logic
+            const reveals = document.querySelectorAll('.reveal');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.05,
+                rootMargin: "0px 0px -40px 0px"
+            });
+            reveals.forEach(el => observer.observe(el));
         });
     </script>
 </body>

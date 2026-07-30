@@ -52,6 +52,22 @@
         .material-symbols-outlined.filled {
             font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
+        
+        /* Scroll animations styles */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            filter: blur(4px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+            filter: blur(0);
+        }
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
     </style>
 </head>
 <body class="bg-white text-navy-dark font-gilroy antialiased pt-[70px]">
@@ -125,6 +141,21 @@
                     }
                 });
             }
+            
+            // Scroll reveal animation logic
+            const reveals = document.querySelectorAll('.reveal');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.05,
+                rootMargin: "0px 0px -40px 0px"
+            });
+            reveals.forEach(el => observer.observe(el));
         });
     </script>
 
@@ -145,7 +176,7 @@
                     Conoce PLADEMO
                 </h1>
                 <p class="font-gilroy text-white/80 text-sm md:text-base leading-relaxed max-w-2xl mb-8">
-                    Somos una empresa dedicada al desarrollo de soluciones de empaque flexible para industrias, comercios y operaciones que requieren materiales resistentes, funcionales y adaptados a sus necesidades.
+                    PLADEMO nace con raíces yucatecas y visión industrial, atendiendo desde Motul a empresas que requieren soluciones de empaque resistentes, funcionales y adaptadas a su operación.
                 </p>
                 <div class="flex flex-wrap gap-4">
                     <a href="contacto.html" class="bg-green-main hover:bg-green-dark text-white font-gilroy font-bold text-xs uppercase tracking-widest px-6 py-3.5 transition-colors">Solicitar cotización</a>
@@ -182,16 +213,16 @@
                 </p>
             </div>
             <div class="lg:col-span-6 grid grid-cols-2 gap-4">
-                <div class="aspect-[4/3] bg-[#c0f1be] overflow-hidden shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 group">
+                <div class="reveal delay-100 aspect-[4/3] bg-[#c0f1be] overflow-hidden shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 group">
                     <img alt="Maquinaria y producción" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="assets/fotos_mercado/1.png"/>
                 </div>
-                <div class="aspect-[4/3] bg-[#c0f1be] overflow-hidden shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 group">
+                <div class="reveal delay-200 aspect-[4/3] bg-[#c0f1be] overflow-hidden shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 group">
                     <img alt="Procesos de extrusión" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="assets/fotos_mercado/2.png"/>
                 </div>
-                <div class="aspect-[4/3] bg-[#c0f1be] overflow-hidden shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 group">
+                <div class="reveal delay-100 aspect-[4/3] bg-[#c0f1be] overflow-hidden shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 group">
                     <img alt="Empaque y logística" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="assets/fotos_mercado/5.png"/>
                 </div>
-                <div class="aspect-[4/3] bg-[#c0f1be] overflow-hidden shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 group">
+                <div class="reveal delay-200 aspect-[4/3] bg-[#c0f1be] overflow-hidden shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 group">
                     <img alt="Trayectoria industrial" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="assets/img/nosotros-trayectoria.webp"/>
                 </div>
             </div>
@@ -337,13 +368,13 @@
             </div>
 
             <div class="lg:col-span-6 grid grid-cols-2 gap-4">
-                <div class="w-full aspect-[4/3] border border-gray-100 overflow-hidden shadow-lg relative rounded group">
+                <div class="reveal delay-100 w-full aspect-[4/3] border border-gray-100 overflow-hidden shadow-lg relative rounded group">
                     <img alt="Materia prima sustentable" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="assets/fotos_mercado/3.png"/>
                     <div class="absolute bottom-3 left-3 bg-navy-dark text-white px-2.5 py-1 font-gilroy font-bold text-[9px] tracking-wider uppercase">
                         Materia Prima Reciclada
                     </div>
                 </div>
-                <div class="w-full aspect-[4/3] border border-gray-100 overflow-hidden shadow-lg relative rounded group">
+                <div class="reveal delay-200 w-full aspect-[4/3] border border-gray-100 overflow-hidden shadow-lg relative rounded group">
                     <img alt="Sustentabilidad y reciclaje en la industria de empaques" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="assets/img/nosotros-sustentabilidad.webp"/>
                     <div class="absolute bottom-3 left-3 bg-navy-dark text-white px-2.5 py-1 font-gilroy font-bold text-[9px] tracking-wider uppercase">
                         Sostenibilidad Circular
