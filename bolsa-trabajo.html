@@ -125,6 +125,33 @@
                     }
                 });
             }
+
+            // WhatsApp Form Submission Handler
+            const jobsForm = document.getElementById('jobs-form');
+            if (jobsForm) {
+                jobsForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const name = document.getElementById('form_name').value.trim();
+                    const email = document.getElementById('form_email').value.trim();
+                    const phone = document.getElementById('form_phone').value.trim();
+                    const puestoSelect = document.getElementById('form_puesto');
+                    const puesto = puestoSelect.options[puestoSelect.selectedIndex].text;
+                    const message = document.getElementById('form_message').value.trim();
+                    
+                    const text = `*Nueva solicitud de empleo - PLADEMO*\n\n` +
+                                 `*Nombre:* ${name}\n` +
+                                 `*Correo:* ${email}\n` +
+                                 `*Teléfono:* ${phone}\n` +
+                                 `*Vacante:* ${puesto}\n\n` +
+                                 `*Mensaje/Presentación:*\n${message}`;
+                                 
+                    const encodedText = encodeURIComponent(text);
+                    const whatsappUrl = `https://wa.me/529992183848?text=${encodedText}`;
+                    
+                    window.open(whatsappUrl, '_blank');
+                });
+            }
         });
     </script>
 
@@ -141,127 +168,53 @@
     </header>
 
     <!-- Main Content -->
-    <main class="max-w-[1440px] mx-auto py-16 px-6 md:px-12">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+    <main class="max-w-2xl mx-auto py-16 px-6">
+        <div id="solicitud-form" class="bg-white border border-gray-100 p-8 md:p-10 shadow-sm">
+            <h2 class="font-lexend font-normal text-navy-dark text-xl md:text-2xl mb-6">Enviar Solicitud</h2>
             
-            <!-- Left Column: Vacancies & Info -->
-            <div class="lg:col-span-6 space-y-8">
+            <form id="jobs-form" class="space-y-6">
+                <!-- Nombre -->
+                <div class="flex flex-col">
+                    <label for="form_name" class="font-gilroy text-navy-dark text-sm font-semibold mb-2">Nombre y Apellido *</label>
+                    <input id="form_name" name="name" type="text" required class="border border-gray-200 px-4 py-3 text-sm focus:border-green-main focus:outline-none transition-colors" placeholder="Ingrese su nombre y apellido"/>
+                </div>
+
+                <!-- Email -->
+                <div class="flex flex-col">
+                    <label for="form_email" class="font-gilroy text-navy-dark text-sm font-semibold mb-2">Correo Electrónico *</label>
+                    <input id="form_email" name="email" type="email" required class="border border-gray-200 px-4 py-3 text-sm focus:border-green-main focus:outline-none transition-colors" placeholder="Ingrese su correo electrónico"/>
+                </div>
+
+                <!-- Teléfono -->
+                <div class="flex flex-col">
+                    <label for="form_phone" class="font-gilroy text-navy-dark text-sm font-semibold mb-2">Teléfono *</label>
+                    <input id="form_phone" name="phone" type="tel" required class="border border-gray-200 px-4 py-3 text-sm focus:border-green-main focus:outline-none transition-colors" placeholder="Ingrese su número de celular."/>
+                </div>
+
+                <!-- Puesto -->
+                <div class="flex flex-col">
+                    <label for="form_puesto" class="font-gilroy text-navy-dark text-sm font-semibold mb-2">Vacante *</label>
+                    <select id="form_puesto" name="puesto" required class="border border-gray-200 px-4 py-3 text-sm focus:border-green-main focus:outline-none transition-colors">
+                        <option value="">Selecciona el puesto.</option>
+                        <option value="ayudante">Ayudante en General</option>
+                        <option value="extrusor">Extrusor</option>
+                        <option value="bolseo">Bolseo</option>
+                    </select>
+                </div>
+
+                <!-- Mensaje -->
+                <div class="flex flex-col">
+                    <label for="form_message" class="font-gilroy text-navy-dark text-sm font-semibold mb-2">Mensaje / Presentación *</label>
+                    <textarea id="form_message" name="message" rows="4" required class="border border-gray-200 px-4 py-3 text-sm focus:border-green-main focus:outline-none transition-colors resize-none" placeholder="Cuéntanos brevemente tu experiencia y por qué deseas unirte a PLADEMO..."></textarea>
+                </div>
+
+                <!-- Submit Button -->
                 <div>
-                    <h2 class="font-lexend font-normal text-navy-dark text-2xl md:text-3xl mb-4">Vacantes Disponibles</h2>
-                    <p class="font-gilroy text-gray-text text-sm leading-relaxed">
-                        En PLADEMO valoramos la precisión, la dedicación y el trabajo en equipo. Consulta nuestras vacantes abiertas o envíanos tu postulación espontánea.
-                    </p>
+                    <button type="submit" class="bg-green-main hover:bg-navy-dark text-white font-gilroy font-semibold py-4 px-8 w-full text-center transition-all shadow-sm">
+                        Enviar Solicitud
+                    </button>
                 </div>
-
-                <div class="space-y-4">
-                    <!-- Vacante 1 -->
-                    <div class="bg-gray-50 border border-gray-100 p-6 flex flex-col justify-between hover:border-green-main transition-colors">
-                        <div class="flex justify-between items-start mb-4">
-                            <div>
-                                <span class="bg-[#bbdaea] text-navy-dark px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider rounded-sm">Operaciones</span>
-                                <h3 class="font-lexend font-normal text-lg text-navy-dark mt-2">Operador de Producción</h3>
-                            </div>
-                            <span class="material-symbols-outlined text-gray-text">factory</span>
-                        </div>
-                        <div class="flex gap-6 text-xs text-gray-text mb-6">
-                            <span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">location_on</span> Dzununcan, Yucatán</span>
-                            <span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">schedule</span> Tiempo Completo</span>
-                        </div>
-                        <p class="font-gilroy text-gray-text text-sm leading-relaxed mb-6">
-                            Operación de maquinaria de extrusión y embobinado de películas plásticas. Se requiere responsabilidad y apego a normas de seguridad.
-                        </p>
-                        <button onclick="document.getElementById('form_puesto').value='operador'; document.getElementById('solicitud-form').scrollIntoView({behavior: 'smooth'});" class="border border-navy-dark text-navy-dark font-gilroy font-semibold py-2.5 px-6 hover:bg-navy-dark hover:text-white transition-all text-center text-xs uppercase tracking-wider">
-                            Postularme
-                        </button>
-                    </div>
-
-                    <!-- Vacante 2 -->
-                    <div class="bg-gray-50 border border-gray-100 p-6 flex flex-col justify-between hover:border-green-main transition-colors">
-                        <div class="flex justify-between items-start mb-4">
-                            <div>
-                                <span class="bg-[#bbdaea] text-navy-dark px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider rounded-sm">Administración</span>
-                                <h3 class="font-lexend font-normal text-lg text-navy-dark mt-2">Auxiliar Administrativo</h3>
-                            </div>
-                            <span class="material-symbols-outlined text-gray-text">business_center</span>
-                        </div>
-                        <div class="flex gap-6 text-xs text-gray-text mb-6">
-                            <span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">location_on</span> Planta PLADEMO</span>
-                            <span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">schedule</span> Tiempo Completo</span>
-                        </div>
-                        <p class="font-gilroy text-gray-text text-sm leading-relaxed mb-6">
-                            Soporte en tareas de facturación, atención telefónica, archivo y asistencia general al departamento de ventas.
-                        </p>
-                        <button onclick="document.getElementById('form_puesto').value='auxiliar'; document.getElementById('solicitud-form').scrollIntoView({behavior: 'smooth'});" class="border border-navy-dark text-navy-dark font-gilroy font-semibold py-2.5 px-6 hover:bg-navy-dark hover:text-white transition-all text-center text-xs uppercase tracking-wider">
-                            Postularme
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Info banner -->
-                <div class="bg-[#c0f1be]/30 p-6 border-l-4 border-green-main">
-                    <h4 class="font-lexend font-bold text-navy-dark text-sm mb-1">¿No encuentras el puesto ideal?</h4>
-                    <p class="font-gilroy text-gray-text text-sm leading-relaxed">
-                        Selecciona <strong>"Candidatura Espontánea"</strong> en el formulario y envíanos tus datos. Te consideraremos para futuros procesos de selección.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Right Column: Form -->
-            <div id="solicitud-form" class="lg:col-span-6 bg-white border border-gray-100 p-8 md:p-10 shadow-sm">
-                <h2 class="font-lexend font-normal text-navy-dark text-xl md:text-2xl mb-6">Enviar Solicitud</h2>
-                
-                <form action="https://formspree.io/f/placeholder" method="POST" enctype="multipart/form-data" class="space-y-6">
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <!-- Nombre -->
-                        <div class="flex flex-col">
-                            <label for="form_name" class="font-gilroy text-navy-dark text-sm font-semibold mb-2">Nombre completo *</label>
-                            <input id="form_name" name="name" type="text" required class="border border-gray-200 px-4 py-3 text-sm focus:border-green-main focus:outline-none transition-colors" placeholder="Ej. Juan Pérez"/>
-                        </div>
-
-                        <!-- Email -->
-                        <div class="flex flex-col">
-                            <label for="form_email" class="font-gilroy text-navy-dark text-sm font-semibold mb-2">Correo electrónico *</label>
-                            <input id="form_email" name="email" type="email" required class="border border-gray-200 px-4 py-3 text-sm focus:border-green-main focus:outline-none transition-colors" placeholder="Ej. juan@ejemplo.com"/>
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <!-- Teléfono -->
-                        <div class="flex flex-col">
-                            <label for="form_phone" class="font-gilroy text-navy-dark text-sm font-semibold mb-2">Teléfono *</label>
-                            <input id="form_phone" name="phone" type="tel" required class="border border-gray-200 px-4 py-3 text-sm focus:border-green-main focus:outline-none transition-colors" placeholder="Ej. 999 123 4567"/>
-                        </div>
-
-                        <!-- Puesto -->
-                        <div class="flex flex-col">
-                            <label for="form_puesto" class="font-gilroy text-navy-dark text-sm font-semibold mb-2">Puesto de interés *</label>
-                            <select id="form_puesto" name="puesto" required class="border border-gray-200 px-4 py-3 text-sm focus:border-green-main focus:outline-none transition-colors">
-                                <option value="">Selecciona una opción</option>
-                                <option value="operador">Operador de Producción</option>
-                                <option value="auxiliar">Auxiliar Administrativo</option>
-                                <option value="spontaneous">Candidatura Espontánea / Otro</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <!-- Mensaje -->
-                    <div class="flex flex-col">
-                        <label for="form_message" class="font-gilroy text-navy-dark text-sm font-semibold mb-2">Mensaje / Presentación *</label>
-                        <textarea id="form_message" name="message" rows="4" required class="border border-gray-200 px-4 py-3 text-sm focus:border-green-main focus:outline-none transition-colors resize-none" placeholder="Cuéntanos brevemente tu experiencia y por qué deseas unirte a PLADEMO..."></textarea>
-                    </div>
-
-
-
-                    <!-- Submit Button -->
-                    <div>
-                        <button type="submit" class="bg-green-main hover:bg-navy-dark text-white font-gilroy font-semibold py-4 px-8 w-full text-center transition-all shadow-sm">
-                            Enviar Solicitud
-                        </button>
-                    </div>
-                </form>
-            </div>
-
-        </div>
+            </form>
     </main>
 
     <!-- Footer -->
