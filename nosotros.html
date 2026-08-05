@@ -229,6 +229,178 @@
         </div>
     </section>
 
+    <!-- Sección de video interactivo -->
+    <section class="max-w-[1440px] mx-auto px-6 md:px-12 py-10 reveal">
+        <div class="text-center mb-10">
+            <span class="text-green-main font-gilroy font-bold text-xs uppercase tracking-widest block mb-3">Instalaciones & Tecnología</span>
+            <h2 class="font-lexend font-normal text-3xl sm:text-4xl text-navy-dark mb-4">Nuestra Planta en Acción</h2>
+            <p class="font-gilroy text-gray-text text-sm md:text-base max-w-2xl mx-auto">
+                Conoce de cerca nuestro proceso de extrusión multicapa y la tecnología industrial con la que aseguramos la máxima resistencia en cada empaque.
+            </p>
+        </div>
+        
+        <div class="relative w-full aspect-video md:aspect-[21/9] bg-navy-dark overflow-hidden shadow-2xl border border-gray-100 group max-h-[500px]">
+            <!-- Video Element -->
+            <video id="corp-video" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.01]" loop muted playsinline>
+                <source src="assets/sitio%20web%20plademo%20copy.mp4" type="video/mp4">
+                Tu navegador no soporta el elemento de video.
+            </video>
+
+            <!-- Video Overlay / Play-Pause Big Button -->
+            <div id="video-overlay" class="absolute inset-0 flex items-center justify-center bg-navy-dark/20 transition-all duration-300 cursor-pointer">
+                <button id="big-play-btn" class="w-20 h-20 rounded-full bg-green-main/90 text-white flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 hover:bg-green-main hover:shadow-green-main/30 backdrop-blur-sm">
+                    <span id="big-play-icon" class="material-symbols-outlined text-4xl filled">play_arrow</span>
+                </button>
+            </div>
+
+            <!-- Custom Controls Bar -->
+            <div id="video-controls" class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-navy-dark/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col gap-2">
+                <!-- Progress bar -->
+                <div class="w-full h-1.5 bg-white/20 hover:h-2.5 transition-all duration-150 rounded cursor-pointer relative" id="progress-container">
+                    <div id="progress-bar" class="h-full bg-green-main w-0 rounded"></div>
+                </div>
+                
+                <div class="flex items-center justify-between text-white text-sm">
+                    <div class="flex items-center gap-4">
+                        <!-- Play/Pause Button -->
+                        <button id="ctrl-play-btn" class="hover:text-green-light transition-colors flex items-center justify-center" aria-label="Reproducir o pausar">
+                            <span id="ctrl-play-icon" class="material-symbols-outlined text-2xl">play_arrow</span>
+                        </button>
+                        <!-- Time display -->
+                        <span id="time-display" class="font-mono text-xs select-none">0:00 / 0:00</span>
+                    </div>
+
+                    <div class="flex items-center gap-4">
+                        <!-- Mute/Unmute Button -->
+                        <button id="ctrl-mute-btn" class="hover:text-green-light transition-colors flex items-center justify-center" aria-label="Silenciar o activar sonido">
+                            <span id="ctrl-mute-icon" class="material-symbols-outlined text-2xl">volume_off</span>
+                        </button>
+                        <!-- Fullscreen Button -->
+                        <button id="ctrl-fullscreen-btn" class="hover:text-green-light transition-colors flex items-center justify-center" aria-label="Pantalla completa">
+                            <span class="material-symbols-outlined text-2xl">fullscreen</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.getElementById('corp-video');
+            const overlay = document.getElementById('video-overlay');
+            const bigPlayBtn = document.getElementById('big-play-btn');
+            const bigPlayIcon = document.getElementById('big-play-icon');
+            const ctrlPlayBtn = document.getElementById('ctrl-play-btn');
+            const ctrlPlayIcon = document.getElementById('ctrl-play-icon');
+            const ctrlMuteBtn = document.getElementById('ctrl-mute-btn');
+            const ctrlMuteIcon = document.getElementById('ctrl-mute-icon');
+            const ctrlFullscreenBtn = document.getElementById('ctrl-fullscreen-btn');
+            const progressBar = document.getElementById('progress-bar');
+            const progressContainer = document.getElementById('progress-container');
+            const timeDisplay = document.getElementById('time-display');
+
+            let userPaused = false;
+
+            function togglePlay() {
+                if (video.paused) {
+                    video.play().then(() => {
+                        bigPlayIcon.textContent = 'pause';
+                        ctrlPlayIcon.textContent = 'pause';
+                        overlay.classList.add('bg-navy-dark/0');
+                        overlay.classList.remove('bg-navy-dark/20');
+                        bigPlayBtn.classList.add('opacity-0', 'pointer-events-none');
+                    }).catch(err => console.log("Play failed: ", err));
+                } else {
+                    video.pause();
+                    userPaused = true;
+                    bigPlayIcon.textContent = 'play_arrow';
+                    ctrlPlayIcon.textContent = 'play_arrow';
+                    overlay.classList.remove('bg-navy-dark/0');
+                    overlay.classList.add('bg-navy-dark/20');
+                    bigPlayBtn.classList.remove('opacity-0', 'pointer-events-none');
+                }
+            }
+
+            function toggleMute() {
+                video.muted = !video.muted;
+                if (video.muted) {
+                    ctrlMuteIcon.textContent = 'volume_off';
+                } else {
+                    ctrlMuteIcon.textContent = 'volume_up';
+                }
+            }
+
+            function formatTime(seconds) {
+                const mins = Math.floor(seconds / 60);
+                const secs = Math.floor(seconds % 60);
+                return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+            }
+
+            overlay.addEventListener('click', togglePlay);
+            ctrlPlayBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                togglePlay();
+            });
+            ctrlMuteBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                toggleMute();
+            });
+
+            ctrlFullscreenBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (video.requestFullscreen) {
+                    video.requestFullscreen();
+                } else if (video.webkitRequestFullscreen) {
+                    video.webkitRequestFullscreen();
+                } else if (video.msRequestFullscreen) {
+                    video.msRequestFullscreen();
+                }
+            });
+
+            video.addEventListener('timeupdate', () => {
+                if (video.duration) {
+                    const percentage = (video.currentTime / video.duration) * 100;
+                    progressBar.style.width = `${percentage}%`;
+                    timeDisplay.textContent = `${formatTime(video.currentTime)} / ${formatTime(video.duration)}`;
+                }
+            });
+
+            video.addEventListener('loadedmetadata', () => {
+                timeDisplay.textContent = `0:00 / ${formatTime(video.duration)}`;
+            });
+
+            progressContainer.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const rect = progressContainer.getBoundingClientRect();
+                const pos = (e.clientX - rect.left) / rect.width;
+                video.currentTime = pos * video.duration;
+            });
+
+            const videoObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        if (!userPaused) {
+                            video.play().then(() => {
+                                bigPlayIcon.textContent = 'pause';
+                                ctrlPlayIcon.textContent = 'pause';
+                                bigPlayBtn.classList.add('opacity-0', 'pointer-events-none');
+                                overlay.classList.add('bg-navy-dark/0');
+                                overlay.classList.remove('bg-navy-dark/20');
+                            }).catch(err => {
+                                console.log("Autoplay blocked:", err);
+                            });
+                        }
+                    } else {
+                        video.pause();
+                    }
+                });
+            }, { threshold: 0.25 });
+
+            videoObserver.observe(video);
+        });
+    </script>
+
     <!-- Sección de fortalezas -->
     <section class="bg-gray-50 border-y border-gray-100 py-20 px-6 md:px-12">
         <div class="max-w-[1440px] mx-auto">
