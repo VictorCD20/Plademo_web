@@ -228,6 +228,21 @@
                             Cargar en Formulario
                         </button>
                     </div>
+
+                    <!-- Confirmation Panel -->
+                    <div id="confirmation-panel" class="hidden mt-4 bg-navy-dark text-white p-4 border-l-4 border-green-main flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                        <div class="flex-grow">
+                            <span class="block font-lexend font-bold text-sm text-green-light">Producto agregado a tu solicitud de cotización.</span>
+                        </div>
+                        <div class="flex gap-3 w-full sm:w-auto shrink-0">
+                            <a href="productos.html" class="bg-transparent border border-white hover:bg-white/10 text-white font-gilroy font-bold text-xs uppercase tracking-widest px-4 py-2.5 text-center flex-1 transition-colors">
+                                Agregar otro producto
+                            </a>
+                            <button id="scroll-to-quote-btn" class="bg-green-main hover:bg-green-dark text-white font-gilroy font-bold text-xs uppercase tracking-widest px-4 py-2.5 text-center flex-1 transition-colors">
+                                Enviar solicitud
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -274,7 +289,7 @@
                         </div>
                         <div>
                             <label class="block text-xs font-gilroy font-bold text-white uppercase tracking-wider mb-2" for="quote-specs">Medida requerida / Especificaciones</label>
-                            <input class="w-full bg-white border border-transparent px-4 py-3 text-sm focus:outline-none focus:border-green-light" type="text" id="quote-specs" placeholder="Ej. Medida o especificación técnica"/>
+                            <textarea class="w-full bg-white border border-transparent px-4 py-3 text-sm focus:outline-none focus:border-green-light min-h-[100px] resize-y" id="quote-specs" placeholder="Ej. Medida o especificación técnica" rows="4"></textarea>
                         </div>
                     </div>
 
@@ -411,14 +426,14 @@
                     subtitle: 'Empaque Continuo de Alta Resistencia',
                     category: 'Empaque Continuo / Uso Industrial',
                     code: 'POL-PE',
-                    description: 'Película continua de polietileno de baja densidad (PEBD) de alta resistencia y espesor consistente. Cuenta con un calibre de 200 a 800 (equivalente a Galgas). Proporciona una barrera impermeable óptima frente a factores externos, humedad y polvo. Ideal para construcción (barrera de vapor), protección de superficies y empaque industrial pesado.',
+                    description: 'Película continua de polietileno de baja densidad (PEBD) de alta resistencia y espesor consistente. Cuenta con un calibre de 200 a 800. Proporciona una barrera impermeable óptima frente a factores externos, humedad y polvo. Ideal para construcción (barrera de vapor), protección de superficies y empaque industrial pesado.',
                     image: 'assets/foto_productos/rollo polietileno calibre 600.png',
                     specs: [
                         { name: 'Material', value: 'Polietileno de Baja Densidad (PEBD) de alta calidad' },
-                        { name: 'Calibre', value: '200 a 800 (equivalente a Galgas)' },
+                        { name: 'Calibre', value: '200 a 800' },
                         { name: 'Presentación', value: 'Bobina continua de peso regulado' },
                         { name: 'Medidas disponibles', value: 'Anchos de 1.0m a 3.0m (bajo solicitud)' },
-                        { name: 'Color', value: 'Natural, Negro, o translúcido' },
+                        { name: 'Color', value: 'Natural y Negro' },
                         { name: 'Aplicaciones', value: 'Protección industrial, barrera de vapor, uso agrícola' },
                         { name: 'Personalización', value: 'Disponible bajo solicitud (aditivos UV, colores)' },
                         { name: 'Volumen de producción', value: 'A definir por cotización' }
@@ -439,7 +454,7 @@
                         {
                             label: 'Calibre de la Bobina',
                             id: 'spec-calibre',
-                            options: ['200 Galgas', '300 Galgas', '400 Galgas', '500 Galgas', '600 Galgas', '700 Galgas', '800 Galgas']
+                            options: ['Calibre 200', 'Calibre 300', 'Calibre 400', 'Calibre 500', 'Calibre 600', 'Calibre 700', 'Calibre 800']
                         },
                         {
                             label: 'Ancho del Rollo',
@@ -463,11 +478,11 @@
                     image: 'assets/foto_productos/es-rollo.png',
                     specs: [
                         { name: 'Material', value: 'Polietileno de Baja Densidad (PEBD) reciclado seleccionado' },
-                        { name: 'Presentación', value: 'Paquete (20 rollos por paquete)' },
+                        { name: 'Presentación', value: 'Paquete con 20 piezas' },
                         { name: 'Medidas disponibles', value: '60x90 cm y 90 cm x 1.20 metros' },
                         { name: 'Color', value: 'Negro estándar (otros bajo solicitud)' },
                         { name: 'Aplicaciones', value: 'Manejo de residuos industriales, comerciales y hoteleros' },
-                        { name: 'Personalización', value: 'Medidas especiales y aditivos oxo-biodegradables' },
+                        { name: 'Personalización', value: 'Medidas especiales bajo solicitud' },
                         { name: 'Volumen de producción', value: 'Disponible bajo solicitud' }
                     ],
                     benefits: [
@@ -508,17 +523,16 @@
                     image: 'assets/foto_productos/bolsa dorada.png',
                     specs: [
                         { name: 'Material', value: 'Polietileno de Baja Densidad (PEBD) virgen' },
-                        { name: 'Presentación', value: 'Paquete de 20 rollos' },
+                        { name: 'Presentación', value: 'Paquete con 20 piezas' },
                         { name: 'Medidas disponibles', value: 'Según requerimiento del cliente' },
-                        { name: 'Color', value: 'Blanco opaco, Azul translúcido, Transparente' },
+                        { name: 'Color', value: 'Según requerimiento' },
                         { name: 'Aplicaciones', value: 'Manejo de blancos, lavandería y amenidades' },
-                        { name: 'Personalización', value: 'Impresión flexográfica hasta 3 tintas' },
+                        { name: 'Personalización', value: 'Impresión a una tinta' },
                         { name: 'Volumen de producción', value: 'A definir por cotización' }
                     ],
                     benefits: [
                         'Excelente presentación visual que cuida la imagen del establecimiento.',
                         'Espesor óptimo que asegura el resguardo de blancos y ropa de huéspedes.',
-                        'Disponible en opciones con cordón para un cierre y manejo higiénico.',
                         'Material 100% reciclable que apoya las políticas de sustentabilidad hotelera.'
                     ],
                     uses: [
@@ -531,17 +545,12 @@
                         {
                             label: 'Aplicación / Tipo',
                             id: 'spec-tipo-hotel',
-                            options: ['Lavandería de Huéspedes (Con cordón)', 'Protección de Blancos (Grande sin cordón)', 'Amenidades y Organización']
+                            options: ['Lavandería de Huéspedes', 'Protección de Blancos', 'Amenidades y Organización']
                         },
                         {
                             label: 'Impresión / Branding',
                             id: 'spec-branding',
-                            options: ['Sin Impresión (Genérica)', 'Impresión a 1 Tinta', 'Impresión a 2 Tintas (Logotipo)']
-                        },
-                        {
-                            label: 'Color de Bolsa',
-                            id: 'spec-color-hotel',
-                            options: ['Blanco Opaco Premium', 'Azul Translúcido', 'Transparente Cristal']
+                            options: ['Sin Impresión (Genérica)', 'Impresión a 1 Tinta']
                         }
                     ]
                 },
@@ -551,29 +560,28 @@
                     subtitle: 'Co-Diseño e Ingeniería Flexible',
                     category: 'Co-Diseño / Producción Personalizada',
                     code: 'MED-99',
-                    description: 'Solución integral de desarrollo técnico a la medida. Nuestro equipo técnico analiza sus requerimientos específicos de línea de producción, envasado automatizado (VFFS/HFFS) o manipulación para proponer la combinación idónea de resinas, calibres, aditivos específicos (UV, antideslave) e impresión flexográfica.',
+                    description: 'Solución integral de desarrollo técnico a la medida. Nuestro equipo técnico analiza sus requerimientos específicos para proponer la combinación idónea de materiales, calibres y aditivos según requerimiento.',
                     image: 'assets/foto_productos/bolsa personalizada.png',
                     specs: [
-                        { name: 'Material', value: 'PEAD, PEBD, Coextruidos multicapa según requerimiento' },
-                        { name: 'Calibre', value: 'Desde calibre 40 hasta calibre 1000' },
-                        { name: 'Presentación', value: 'Bobina, película plana o bolsas personalizadas' },
+                        { name: 'Material', value: 'PEAD, PEBD según requerimiento del cliente' },
+                        { name: 'Calibre', value: 'Calibre 100 a 350' },
+                        { name: 'Presentación', value: 'Paquetes de 25 kg' },
                         { name: 'Medidas disponibles', value: 'Totalmente personalizado a la medida' },
                         { name: 'Color', value: 'A definir por cotización' },
-                        { name: 'Aplicaciones', value: 'Envasado automático y logística industrial especializada' },
-                        { name: 'Personalización', value: 'Flexografía hasta 6 colores y aditivos avanzados (UV, antiestático)' },
+                        { name: 'Aplicaciones', value: 'Envasado y logística industrial según requerimiento' },
                         { name: 'Volumen de producción', value: 'Disponible bajo solicitud' }
                     ],
                     benefits: [
-                        'Total libertad en dimensiones, calibres (hasta calibre 1000) y fuelles.',
-                        'Compatibilidad con líneas de envasado automático de alta velocidad.',
-                        'Aditivos funcionales a elegir (UV, antideslizante, antiestático, etc.).',
-                        'Impresión flexográfica de alta definición para destacar la identidad de marca.'
+                        'Total libertad en dimensiones, calibres y fuelles.',
+                        'Compatibilidad con líneas de envasado automático.',
+                        'Aditivos funcionales según requerimiento (protección UV, etc.).',
+                        'Impresión de alta definición para destacar la identidad de marca.'
                     ],
                     uses: [
-                        'Envasado automático en líneas de producción continua B2B.',
+                        'Envasado y empaque de alta resistencia.',
                         'Embalaje técnico con especificaciones de resistencia a punción y desgarro.',
                         'Identificación y branding de empaques comerciales con impresión personalizada.',
-                        'Protección especializada para componentes electrónicos, industriales o agrícolas.'
+                        'Protección especializada industrial o comercial.'
                     ],
                     controls: [
                         {
@@ -582,14 +590,23 @@
                             options: ['Bolsa con Fuelles Laterales', 'Rollo Tubular Continuo', 'Película Plana para Envolvedora', 'Bolsa Plana Sencilla']
                         },
                         {
+                            label: 'Calibre Solicitado (100 a 350)',
+                            id: 'spec-calibre-medida',
+                            type: 'number',
+                            min: 100,
+                            max: 350,
+                            defaultValue: 150,
+                            suffix: ' Galgas'
+                        },
+                        {
                             label: 'Aditivos Requeridos',
                             id: 'spec-aditivos',
-                            options: ['Sin aditivos', 'Protección Solar UV (Exterior)', 'Deslizante (Desmolde rápido)', 'Antiestático / Electrónico']
+                            options: ['Sin aditivos', 'Protección Solar UV (Exterior)', 'Aditivo según requerimiento']
                         },
                         {
                             label: 'Impresión / Diseño',
                             id: 'spec-impresion-medida',
-                            options: ['Sin Impresión (Liso)', 'Impresión Flexográfica 1-3 Colores', 'Impresión Flexográfica 4-6 Colores']
+                            options: ['Sin Impresión (Liso)', 'Impresión a 1 Tinta']
                         }
                     ]
                 }
@@ -723,26 +740,80 @@
                 }
             });
 
-            // Initial summary setup
+            // Quote list management
+            function getQuoteItems() {
+                return JSON.parse(sessionStorage.getItem('quote_items') || '[]');
+            }
+
+            function addQuoteItem(title, specs) {
+                const items = getQuoteItems();
+                items.push({ title, specs });
+                sessionStorage.setItem('quote_items', JSON.stringify(items));
+            }
+
+            function updateSpecsTextarea() {
+                const items = getQuoteItems();
+                if (items.length > 0) {
+                    const formatted = items.map((item, index) => {
+                        return `Producto ${index + 1}:\n${item.title} | ${item.specs}`;
+                    }).join('\n\n');
+                    document.getElementById('quote-specs').value = formatted;
+                } else {
+                    document.getElementById('quote-specs').value = '';
+                }
+            }
+
+            function updateProductInput() {
+                const items = getQuoteItems();
+                const inputEl = document.getElementById('quote-product');
+                if (inputEl) {
+                    if (items.length === 0) {
+                        inputEl.value = currentProduct.title;
+                    } else if (items.length === 1) {
+                        inputEl.value = items[0].title;
+                    } else {
+                        inputEl.value = 'Múltiples productos';
+                    }
+                }
+            }
+
+            // Initial summary setup and input loading
             updateSpecsSummary();
+            updateProductInput();
+            updateSpecsTextarea();
 
             // "Cargar en Formulario" button handler
             const loadBtn = document.getElementById('add-to-form-btn');
             loadBtn.addEventListener('click', function() {
                 const specString = document.getElementById('summary-spec-text').textContent;
-                document.getElementById('quote-specs').value = specString;
                 
-                // Scroll to form smoothly
-                const formSection = document.getElementById('quote-section');
-                if (formSection) {
-                    formSection.scrollIntoView({ behavior: 'smooth' });
-                }
+                // Add to multi-quote list
+                addQuoteItem(currentProduct.title, specString);
+                updateSpecsTextarea();
+                updateProductInput();
+                
+                // Show confirmation panel
+                document.getElementById('confirmation-panel').classList.remove('hidden');
             });
+
+            // "Enviar solicitud" button scrolls down to form
+            const scrollToQuoteBtn = document.getElementById('scroll-to-quote-btn');
+            if (scrollToQuoteBtn) {
+                scrollToQuoteBtn.addEventListener('click', function() {
+                    const formSection = document.getElementById('quote-section');
+                    if (formSection) {
+                        formSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            }
 
             // Form Submit handler
             const form = document.getElementById('quote-form');
             form.addEventListener('submit', function(e) {
                 e.preventDefault();
+                
+                // Clear quote items on successful submit
+                sessionStorage.removeItem('quote_items');
                 
                 // Simulated AJAX submission
                 form.classList.add('hidden');
