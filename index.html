@@ -57,6 +57,14 @@
             color: transparent;
         }
         
+        @keyframes fadeInPage {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .fade-in-page {
+            animation: fadeInPage 0.4s ease-out forwards;
+            opacity: 0;
+        }
         /* Scroll animations styles */
         .reveal {
             opacity: 0;
@@ -75,7 +83,7 @@
         .delay-400 { transition-delay: 400ms; }
     </style>
 </head>
-<body class="bg-background text-on-background font-body-md antialiased pt-[88px]">
+<body class="bg-background text-on-background font-body-md antialiased pt-[88px] fade-in-page">
 <!-- TopNavBar -->
 <nav class="fixed top-0 left-0 w-full z-50 bg-white border-b border-gray-100 shadow-sm h-[70px] flex items-center font-gilroy">
     <div class="w-full max-w-[1440px] mx-auto px-6 md:px-12 flex justify-between items-center">
@@ -89,6 +97,7 @@
             <a class="text-navy-dark font-semibold border-b-2 border-green-main h-[70px] flex items-center px-1 text-sm tracking-wide transition-colors" href="index.html">Inicio</a>
             <a class="text-gray-text hover:text-blue-corp font-medium h-[70px] flex items-center px-1 text-sm tracking-wide transition-colors" href="productos.html">Productos</a>
             <a class="text-gray-text hover:text-blue-corp font-medium h-[70px] flex items-center px-1 text-sm tracking-wide transition-colors" href="mercado.html">Mercados</a>
+            <a class="text-gray-text hover:text-blue-corp font-medium h-[70px] flex items-center px-1 text-sm tracking-wide transition-colors" href="blog.html">Blog</a>
             <a class="text-gray-text hover:text-blue-corp font-medium h-[70px] flex items-center px-1 text-sm tracking-wide transition-colors" href="nosotros.html">Nosotros</a>
             
             <!-- Dropdown de Contacto (Inactivo) -->
@@ -120,6 +129,7 @@
         <a class="text-navy-dark font-semibold border-l-4 border-green-main pl-2 text-base transition-colors" href="index.html">Inicio</a>
         <a class="text-gray-text hover:text-blue-corp font-medium pl-2 text-base transition-colors" href="productos.html">Productos</a>
         <a class="text-gray-text hover:text-blue-corp font-medium pl-2 text-base transition-colors" href="mercado.html">Mercados</a>
+        <a class="text-gray-text hover:text-blue-corp font-medium pl-2 text-base transition-colors" href="blog.html">Blog</a>
         <a class="text-gray-text hover:text-blue-corp font-medium pl-2 text-base transition-colors" href="nosotros.html">Nosotros</a>
         
         <!-- Contacto en móvil -->
@@ -251,9 +261,9 @@
                 <div class="w-full h-[360px] flex items-center justify-center p-4">
                     <img class="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105" alt="Rollo Polietileno calibre 600" src="assets/foto_productos/rollo polietileno calibre 600.png"/>
                 </div>
-                <div class="bg-green-dark py-6 px-6 text-center">
+                <div class="bg-green-dark py-6 px-6 text-center flex items-center justify-center min-h-[96px]">
                     <h3 class="font-lexend font-bold text-white text-base md:text-lg tracking-wide leading-snug">
-                        Rollo Polietileno<br>calibre 600
+                        Rollo Polietileno
                     </h3>
                 </div>
             </a>
@@ -263,7 +273,7 @@
                 <div class="w-full h-[360px] flex items-center justify-center p-4">
                     <img class="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105" alt="Bolsas para basura Es-Rollo" src="assets/foto_productos/es-rollo.png"/>
                 </div>
-                <div class="bg-green-dark py-6 px-6 text-center">
+                <div class="bg-green-dark py-6 px-6 text-center flex items-center justify-center min-h-[96px]">
                     <h3 class="font-lexend font-bold text-white text-base md:text-lg tracking-wide leading-snug">
                         Bolsas para<br>basura "Es-Rollo"
                     </h3>
@@ -374,39 +384,7 @@
         </div>
     </div>
 </section>
-<section id="nosotros" class="py-20 md:py-28 px-6 md:px-12 bg-green-dark text-white">
-    <div class="max-w-[1440px] mx-auto">
-        <!-- Section Header -->
-        <div class="flex flex-col md:flex-row justify-between md:items-center items-start gap-6 pb-6">
-            <div class="max-w-2xl">
-                <span class="font-gilroy text-green-light text-xs font-bold tracking-widest uppercase block mb-3">03 / RESPONSABILIDAD ECOLÓGICA</span>
-                <h2 class="font-lexend font-normal text-white text-3xl sm:text-4xl md:text-5xl leading-tight">
-                    Tenemos un compromiso social con el medio ambiente.
-                </h2>
-            </div>
-            <div class="max-w-md py-2">
-                <p class="font-gilroy text-white/80 text-sm md:text-base leading-relaxed text-left md:text-left">
-                    Somos parte del movimiento #YoCuidoYucatán,<br>participando en limpieza de playas y manglares<br>así como promover activamente la economía<br>circular para reducir los plásticos.
-                </p>
-            </div>
-        </div>
 
-        <!-- Divider Line -->
-        <div class="w-full border-t border-white/20 mb-12"></div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="overflow-hidden shadow-md bg-green-dark">
-                <img class="w-full h-[580px] object-contain filter brightness-90 hover:brightness-100 transition-all duration-300" alt="Compromiso ambiental PLADEMO 1" src="assets/img/responsabilidad-ecologica-01.webp"/>
-            </div>
-            <div class="overflow-hidden shadow-md bg-green-dark">
-                <img class="w-full h-[580px] object-contain filter brightness-90 hover:brightness-100 transition-all duration-300" alt="Compromiso ambiental PLADEMO 2" src="assets/img/responsabilidad-ecologica-02.webp"/>
-            </div>
-            <div class="overflow-hidden shadow-md bg-green-dark">
-                <img class="w-full h-[580px] object-contain filter brightness-90 hover:brightness-100 transition-all duration-300" alt="Compromiso ambiental PLADEMO 3" src="assets/img/responsabilidad-ecologica-03.webp"/>
-            </div>
-        </div>
-    </div>
-</section>
 <section id="contacto" class="bg-navy-dark text-white py-20 md:py-28 px-6 md:px-12 relative overflow-hidden">
     <div class="max-w-[1440px] mx-auto text-center relative z-10">
         
@@ -486,6 +464,7 @@
                 <li><a href="index.html" class="text-gray-text hover:text-blue-corp transition-colors">Inicio</a></li>
                 <li><a href="productos.html" class="text-gray-text hover:text-blue-corp transition-colors">Productos</a></li>
                 <li><a href="mercado.html" class="text-gray-text hover:text-blue-corp transition-colors">Mercados atendidos</a></li>
+                <li><a href="blog.html" class="text-gray-text hover:text-blue-corp transition-colors">Blog</a></li>
                 <li><a href="nosotros.html" class="text-gray-text hover:text-blue-corp transition-colors">Responsabilidad ecológica</a></li>
                 <li><a href="contacto.html" class="text-gray-text hover:text-blue-corp transition-colors">Contacto comercial</a></li>
             </ul>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Bolsa de Trabajo | Plademo</title>
+    <title>Blog | Plademo</title>
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico"/>
     
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
@@ -52,6 +52,7 @@
         .material-symbols-outlined.filled {
             font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
+        
         @keyframes fadeInPage {
             from { opacity: 0; }
             to { opacity: 1; }
@@ -60,6 +61,21 @@
             animation: fadeInPage 0.4s ease-out forwards;
             opacity: 0;
         }
+        /* Scroll animations styles */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            filter: blur(4px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+            filter: blur(0);
+        }
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
     </style>
 </head>
 <body class="bg-white text-navy-dark font-gilroy antialiased pt-[70px] fade-in-page">
@@ -76,18 +92,18 @@
                 <a class="text-gray-text hover:text-blue-corp font-medium h-[70px] flex items-center px-1 text-sm tracking-wide transition-colors" href="index.html">Inicio</a>
                 <a class="text-gray-text hover:text-blue-corp font-medium h-[70px] flex items-center px-1 text-sm tracking-wide transition-colors" href="productos.html">Productos</a>
                 <a class="text-gray-text hover:text-blue-corp font-medium h-[70px] flex items-center px-1 text-sm tracking-wide transition-colors" href="mercado.html">Mercados</a>
-                <a class="text-gray-text hover:text-blue-corp font-medium h-[70px] flex items-center px-1 text-sm tracking-wide transition-colors" href="blog.html">Blog</a>
+                <a class="text-navy-dark font-semibold border-b-2 border-green-main h-[70px] flex items-center px-1 text-sm tracking-wide transition-colors" href="blog.html">Blog</a>
                 <a class="text-gray-text hover:text-blue-corp font-medium h-[70px] flex items-center px-1 text-sm tracking-wide transition-colors" href="nosotros.html">Nosotros</a>
                 
-                <!-- Dropdown de Contacto (Activo) -->
+                <!-- Dropdown de Contacto (Inactivo) -->
                 <div class="relative group h-[70px] flex items-center">
-                    <button class="text-navy-dark font-semibold border-b-2 border-green-main h-[70px] flex items-center gap-1 px-1 text-sm tracking-wide transition-colors focus:outline-none">
+                    <button class="text-gray-text hover:text-blue-corp font-medium h-[70px] flex items-center gap-1 px-1 text-sm tracking-wide transition-colors focus:outline-none">
                         Contacto
                         <span class="material-symbols-outlined text-xs transition-transform group-hover:rotate-180">keyboard_arrow_down</span>
                     </button>
                     <div class="absolute top-[70px] left-1/2 -translate-x-1/2 bg-white border border-gray-100 shadow-lg py-2 min-w-[160px] hidden group-hover:block transition-all duration-300">
                         <a class="block px-4 py-2 text-sm text-gray-text hover:text-blue-corp hover:bg-gray-50 font-medium" href="contacto.html">Contacto</a>
-                        <a class="block px-4 py-2 text-sm text-navy-dark font-semibold hover:bg-gray-50" href="bolsa-trabajo.html">Bolsa de trabajo</a>
+                        <a class="block px-4 py-2 text-sm text-gray-text hover:text-blue-corp hover:bg-gray-50 font-medium" href="bolsa-trabajo.html">Bolsa de trabajo</a>
                     </div>
                 </div>
             </div>
@@ -108,14 +124,14 @@
             <a class="text-gray-text hover:text-blue-corp font-medium pl-2 text-base transition-colors" href="index.html">Inicio</a>
             <a class="text-gray-text hover:text-blue-corp font-medium pl-2 text-base transition-colors" href="productos.html">Productos</a>
             <a class="text-gray-text hover:text-blue-corp font-medium pl-2 text-base transition-colors" href="mercado.html">Mercados</a>
-            <a class="text-gray-text hover:text-blue-corp font-medium pl-2 text-base transition-colors" href="blog.html">Blog</a>
+            <a class="text-navy-dark font-semibold border-l-4 border-green-main pl-2 text-base transition-colors" href="blog.html">Blog</a>
             <a class="text-gray-text hover:text-blue-corp font-medium pl-2 text-base transition-colors" href="nosotros.html">Nosotros</a>
             
             <!-- Contacto en móvil -->
             <div class="flex flex-col gap-2 pl-2">
-                <span class="text-navy-dark font-semibold text-base">Contacto</span>
+                <span class="text-gray-text hover:text-blue-corp font-medium text-base">Contacto</span>
                 <a class="text-gray-text hover:text-blue-corp font-medium pl-4 text-sm transition-colors" href="contacto.html">- Formulario de Contacto</a>
-                <a class="text-navy-dark font-semibold pl-4 text-sm transition-colors" href="bolsa-trabajo.html">- Bolsa de trabajo</a>
+                <a class="text-gray-text hover:text-blue-corp font-medium pl-4 text-sm transition-colors" href="bolsa-trabajo.html">- Bolsa de trabajo</a>
             </div>
             
             <a href="contacto.html" class="bg-blue-corp hover:bg-navy-dark text-white text-center py-3 text-sm font-semibold transition-all mt-2">Solicitar Cotización</a>
@@ -135,96 +151,30 @@
                     }
                 });
             }
-
-            // WhatsApp Form Submission Handler
-            const jobsForm = document.getElementById('jobs-form');
-            if (jobsForm) {
-                jobsForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    
-                    const name = document.getElementById('form_name').value.trim();
-                    const email = document.getElementById('form_email').value.trim();
-                    const phone = document.getElementById('form_phone').value.trim();
-                    const puestoSelect = document.getElementById('form_puesto');
-                    const puesto = puestoSelect.options[puestoSelect.selectedIndex].text;
-                    const message = document.getElementById('form_message').value.trim();
-                    
-                    const text = `*Nueva solicitud de empleo - PLADEMO*\n\n` +
-                                 `*Nombre:* ${name}\n` +
-                                 `*Correo:* ${email}\n` +
-                                 `*Teléfono:* ${phone}\n` +
-                                 `*Vacante:* ${puesto}\n\n` +
-                                 `*Mensaje/Presentación:*\n${message}`;
-                                 
-                    const encodedText = encodeURIComponent(text);
-                    const whatsappUrl = `https://wa.me/529992183848?text=${encodedText}`;
-                    
-                    window.open(whatsappUrl, '_blank');
-                });
-            }
         });
     </script>
 
-    <!-- Hero Section -->
+    <!-- Blog Header -->
     <header class="bg-navy-dark text-white py-16 md:py-24 px-6 md:px-12 text-center relative overflow-hidden">
         <div class="max-w-[1440px] mx-auto relative z-10">
-            <span class="font-gilroy text-green-light text-xs font-bold tracking-[0.2em] uppercase block mb-4">ÚNETE A NUESTRO EQUIPO</span>
-            <h1 class="font-lexend font-normal text-3xl sm:text-4xl md:text-5xl mb-6">Bolsa de Trabajo</h1>
+            <span class="font-gilroy text-green-light text-xs font-bold tracking-[0.2em] uppercase block mb-4">RECURSOS E IDEAS</span>
+            <h1 class="font-lexend font-normal text-3xl sm:text-4xl md:text-5xl mb-6">Nuestro Blog</h1>
             <p class="font-gilroy text-white/80 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-                Buscamos personas comprometidas para crecer junto a nuestro equipo.<br><br>Únete a una empresa líder en soluciones de empaque industrial.
+                Tendencias de empaque, noticias de la industria y guías técnicas para optimizar su cadena de suministro.
             </p>
         </div>
         <div class="absolute inset-0 bg-gradient-to-b from-[#0a2343] to-[#0f2d56] opacity-90 z-0"></div>
     </header>
 
     <!-- Main Content -->
-    <main class="max-w-2xl mx-auto py-16 px-6">
-        <div id="solicitud-form" class="bg-white border border-gray-100 p-8 md:p-10 shadow-sm">
-            <h2 class="font-lexend font-normal text-navy-dark text-xl md:text-2xl mb-6">Enviar Solicitud</h2>
-            
-            <form id="jobs-form" class="space-y-6">
-                <!-- Nombre -->
-                <div class="flex flex-col">
-                    <label for="form_name" class="font-gilroy text-navy-dark text-sm font-semibold mb-2">Nombre y Apellido *</label>
-                    <input id="form_name" name="name" type="text" required class="border border-gray-200 px-4 py-3 text-sm focus:border-green-main focus:outline-none transition-colors" placeholder="Ingrese su nombre y apellido"/>
-                </div>
-
-                <!-- Email -->
-                <div class="flex flex-col">
-                    <label for="form_email" class="font-gilroy text-navy-dark text-sm font-semibold mb-2">Correo Electrónico *</label>
-                    <input id="form_email" name="email" type="email" required class="border border-gray-200 px-4 py-3 text-sm focus:border-green-main focus:outline-none transition-colors" placeholder="Ingrese su correo electrónico"/>
-                </div>
-
-                <!-- Teléfono -->
-                <div class="flex flex-col">
-                    <label for="form_phone" class="font-gilroy text-navy-dark text-sm font-semibold mb-2">Teléfono *</label>
-                    <input id="form_phone" name="phone" type="tel" required class="border border-gray-200 px-4 py-3 text-sm focus:border-green-main focus:outline-none transition-colors" placeholder="Ingrese su número de celular."/>
-                </div>
-
-                <!-- Puesto -->
-                <div class="flex flex-col">
-                    <label for="form_puesto" class="font-gilroy text-navy-dark text-sm font-semibold mb-2">Vacante *</label>
-                    <select id="form_puesto" name="puesto" required class="border border-gray-200 px-4 py-3 text-sm focus:border-green-main focus:outline-none transition-colors">
-                        <option value="">Selecciona el puesto.</option>
-                        <option value="ayudante">Ayudante en General</option>
-                        <option value="extrusor">Extrusor</option>
-                        <option value="bolseo">Bolseo</option>
-                    </select>
-                </div>
-
-                <!-- Mensaje -->
-                <div class="flex flex-col">
-                    <label for="form_message" class="font-gilroy text-navy-dark text-sm font-semibold mb-2">Mensaje / Presentación *</label>
-                    <textarea id="form_message" name="message" rows="4" required class="border border-gray-200 px-4 py-3 text-sm focus:border-green-main focus:outline-none transition-colors resize-none" placeholder="Cuéntanos brevemente tu experiencia y por qué deseas unirte a PLADEMO..."></textarea>
-                </div>
-
-                <!-- Submit Button -->
-                <div>
-                    <button type="submit" class="bg-green-main hover:bg-navy-dark text-white font-gilroy font-semibold py-4 px-8 w-full text-center transition-all shadow-sm">
-                        Enviar Solicitud
-                    </button>
-                </div>
-            </form>
+    <main class="max-w-[1440px] mx-auto py-16 md:py-24 px-6 md:px-12">
+        <div class="text-center py-12">
+            <span class="material-symbols-outlined text-6xl text-green-main mb-4">article</span>
+            <h2 class="font-lexend text-2xl font-semibold mb-2">Próximamente más artículos</h2>
+            <p class="text-gray-text max-w-md mx-auto">
+                Estamos preparando contenido de alta ingeniería sobre empaques flexibles y optimización industrial. Regrese pronto.
+            </p>
+        </div>
     </main>
 
     <!-- Footer -->
@@ -254,10 +204,9 @@
                     <li><a href="index.html" class="text-gray-text hover:text-blue-corp transition-colors">Inicio</a></li>
                     <li><a href="productos.html" class="text-gray-text hover:text-blue-corp transition-colors">Productos</a></li>
                     <li><a href="mercado.html" class="text-gray-text hover:text-blue-corp transition-colors">Mercados atendidos</a></li>
-                    <li><a href="blog.html" class="text-gray-text hover:text-blue-corp transition-colors">Blog</a></li>
+                    <li><a href="blog.html" class="text-navy-dark font-semibold transition-colors">Blog</a></li>
                     <li><a href="nosotros.html" class="text-gray-text hover:text-blue-corp transition-colors">Responsabilidad ecológica</a></li>
                     <li><a href="contacto.html" class="text-gray-text hover:text-blue-corp transition-colors">Contacto comercial</a></li>
-                    <li><a href="bolsa-trabajo.html" class="text-gray-text hover:text-blue-corp transition-colors font-semibold">Bolsa de trabajo</a></li>
                 </ul>
             </div>
 
