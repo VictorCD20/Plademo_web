@@ -366,7 +366,7 @@
                         <span class="material-symbols-outlined text-blue-corp text-lg">location_on</span>
                         <div class="text-center md:text-left">
                             <span class="font-semibold block text-navy-dark">Dirección:</span>
-                            <span class="text-gray-text">Carretera Dzununcan-Motul, C.P. 97430</span>
+                            <span class="text-gray-text">Carretera Motul Dzununcan, C.P. 97430</span>
                         </div>
                     </li>
                 </ul>
@@ -463,9 +463,8 @@
                     image: 'assets/foto_productos/es-rollo.png',
                     specs: [
                         { name: 'Material', value: 'Polietileno de Baja Densidad (PEBD) reciclado seleccionado' },
-                        { name: 'Calibre', value: 'Calibre 120 a 220 según requerimiento' },
-                        { name: 'Presentación', value: 'Rollo continuo con precorte de precisión' },
-                        { name: 'Medidas disponibles', value: 'Desde 50x60 cm hasta 120x150 cm' },
+                        { name: 'Presentación', value: 'Paquete (20 rollos por paquete)' },
+                        { name: 'Medidas disponibles', value: '60x90 cm y 90 cm x 1.20 metros' },
                         { name: 'Color', value: 'Negro estándar (otros bajo solicitud)' },
                         { name: 'Aplicaciones', value: 'Manejo de residuos industriales, comerciales y hoteleros' },
                         { name: 'Personalización', value: 'Medidas especiales y aditivos oxo-biodegradables' },
@@ -487,17 +486,15 @@
                         {
                             label: 'Dimensión / Capacidad',
                             id: 'spec-dim',
-                            options: ['Chica (50x60 cm)', 'Mediana (70x90 cm)', 'Grande (90x120 cm)', 'Industrial (120x150 cm)']
+                            options: ['60x90 cm', '90 cm x 1.20 metros']
                         },
                         {
-                            label: 'Calibre y Resistencia',
-                            id: 'spec-resistencia',
-                            options: ['Uso Comercial (120)', 'Uso Rudo Industrial (180)', 'Extra Pesado B2B (220)']
-                        },
-                        {
-                            label: 'Presentación en Rollo',
-                            id: 'spec-presentacion',
-                            options: ['Rollo con 10 bolsas', 'Rollo con 20 bolsas', 'Rollo con 50 bolsas']
+                            label: 'Cantidad de Paquetes (1 paquete = 20 rollos)',
+                            id: 'spec-paquetes',
+                            type: 'number',
+                            min: 1,
+                            defaultValue: 1,
+                            suffix: ' Paquetes'
                         }
                     ]
                 },
@@ -511,8 +508,7 @@
                     image: 'assets/foto_productos/bolsa dorada.png',
                     specs: [
                         { name: 'Material', value: 'Polietileno de Baja Densidad (PEBD) virgen' },
-                        { name: 'Calibre', value: 'Calibre 80 a 140' },
-                        { name: 'Presentación', value: 'Bolsa plana con o sin cordón de cierre' },
+                        { name: 'Presentación', value: 'Paquete de 20 rollos' },
                         { name: 'Medidas disponibles', value: 'Según requerimiento del cliente' },
                         { name: 'Color', value: 'Blanco opaco, Azul translúcido, Transparente' },
                         { name: 'Aplicaciones', value: 'Manejo de blancos, lavandería y amenidades' },
@@ -675,17 +671,26 @@
                 const div = document.createElement('div');
                 div.className = 'flex flex-col';
                 
-                let optionsHtml = '';
-                ctrl.options.forEach(opt => {
-                    optionsHtml += `<option value="${opt}">${opt}</option>`;
-                });
+                if (ctrl.type === 'number') {
+                    div.innerHTML = `
+                        <label class="block text-xs font-gilroy font-bold text-navy-dark uppercase tracking-wider mb-2" for="${ctrl.id}">${ctrl.label}</label>
+                        <div class="relative flex items-center">
+                            <input type="number" id="${ctrl.id}" min="${ctrl.min || 1}" value="${ctrl.defaultValue || 1}" class="w-full bg-white border border-gray-200 px-4 py-3 text-sm focus:outline-none focus:border-green-main" />
+                        </div>
+                    `;
+                } else {
+                    let optionsHtml = '';
+                    ctrl.options.forEach(opt => {
+                        optionsHtml += `<option value="${opt}">${opt}</option>`;
+                    });
 
-                div.innerHTML = `
-                    <label class="block text-xs font-gilroy font-bold text-navy-dark uppercase tracking-wider mb-2" for="${ctrl.id}">${ctrl.label}</label>
-                    <select id="${ctrl.id}" class="w-full bg-white border border-gray-200 px-4 py-3 text-sm focus:outline-none focus:border-green-main">
-                        ${optionsHtml}
-                    </select>
-                `;
+                    div.innerHTML = `
+                        <label class="block text-xs font-gilroy font-bold text-navy-dark uppercase tracking-wider mb-2" for="${ctrl.id}">${ctrl.label}</label>
+                        <select id="${ctrl.id}" class="w-full bg-white border border-gray-200 px-4 py-3 text-sm focus:outline-none focus:border-green-main">
+                            ${optionsHtml}
+                        </select>
+                    `;
+                }
                 controlsContainer.appendChild(div);
             });
 
@@ -693,9 +698,13 @@
             function updateSpecsSummary() {
                 const selectedSpecs = [];
                 currentProduct.controls.forEach(ctrl => {
-                    const selectEl = document.getElementById(ctrl.id);
-                    if (selectEl) {
-                        selectedSpecs.push(selectEl.value);
+                    const el = document.getElementById(ctrl.id);
+                    if (el) {
+                        if (ctrl.type === 'number') {
+                            selectedSpecs.push(`${el.value}${ctrl.suffix || ''}`);
+                        } else {
+                            selectedSpecs.push(el.value);
+                        }
                     }
                 });
                 
@@ -705,9 +714,12 @@
 
             // Bind change events to configurator controls
             currentProduct.controls.forEach(ctrl => {
-                const selectEl = document.getElementById(ctrl.id);
-                if (selectEl) {
-                    selectEl.addEventListener('change', updateSpecsSummary);
+                const el = document.getElementById(ctrl.id);
+                if (el) {
+                    el.addEventListener('change', updateSpecsSummary);
+                    if (ctrl.type === 'number') {
+                        el.addEventListener('input', updateSpecsSummary);
+                    }
                 }
             });
 
