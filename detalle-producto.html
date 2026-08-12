@@ -479,7 +479,7 @@
                     specs: [
                         { name: 'Material', value: 'Polietileno de Baja Densidad (PEBD) reciclado seleccionado' },
                         { name: 'Presentación', value: 'Paquete con 20 piezas' },
-                        { name: 'Medidas disponibles', value: '60x90 cm y 90 cm x 1.20 metros' },
+                        { name: 'Medidas disponibles', value: '60 cm x 90 cm y 90 cm x 120 cm' },
                         { name: 'Color', value: 'Negro estándar (otros bajo solicitud)' },
                         { name: 'Aplicaciones', value: 'Manejo de residuos industriales, comerciales y hoteleros' },
                         { name: 'Personalización', value: 'Medidas especiales bajo solicitud' },
@@ -501,7 +501,7 @@
                         {
                             label: 'Dimensión / Capacidad',
                             id: 'spec-dim',
-                            options: ['60x90 cm', '90 cm x 1.20 metros']
+                            options: ['60 cm x 90 cm', '90 cm x 120 cm']
                         },
                         {
                             label: 'Cantidad de Paquetes (1 paquete = 20 rollos)',
@@ -686,12 +686,12 @@
             controlsContainer.innerHTML = '';
             currentProduct.controls.forEach(ctrl => {
                 const div = document.createElement('div');
-                div.className = 'flex flex-col';
+                div.className = 'flex flex-col h-full';
                 
                 if (ctrl.type === 'number') {
                     div.innerHTML = `
                         <label class="block text-xs font-gilroy font-bold text-navy-dark uppercase tracking-wider mb-2" for="${ctrl.id}">${ctrl.label}</label>
-                        <div class="relative flex items-center">
+                        <div class="relative flex items-center mt-auto">
                             <input type="number" id="${ctrl.id}" min="${ctrl.min || 1}" value="${ctrl.defaultValue || 1}" class="w-full bg-white border border-gray-200 px-4 py-3 text-sm focus:outline-none focus:border-green-main" />
                         </div>
                     `;
@@ -703,7 +703,7 @@
 
                     div.innerHTML = `
                         <label class="block text-xs font-gilroy font-bold text-navy-dark uppercase tracking-wider mb-2" for="${ctrl.id}">${ctrl.label}</label>
-                        <select id="${ctrl.id}" class="w-full bg-white border border-gray-200 px-4 py-3 text-sm focus:outline-none focus:border-green-main">
+                        <select id="${ctrl.id}" class="w-full bg-white border border-gray-200 px-4 py-3 text-sm focus:outline-none focus:border-green-main mt-auto">
                             ${optionsHtml}
                         </select>
                     `;
