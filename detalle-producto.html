@@ -480,41 +480,46 @@
                 },
                 'es-rollo': {
                     id: 'es-rollo',
-                    title: 'Bolsas para basura “Es-Rollo”',
-                    subtitle: 'Manejo Eficiente de Residuos',
-                    category: 'Manejo de Residuos / Higiene B2B',
+                    title: 'Bolsas empaque',
+                    subtitle: 'Soluciones de empaque industrial y comercial',
+                    category: 'Empaque de Alta Resistencia',
                     code: 'RES-01',
-                    description: 'Bolsas de alta resistencia fabricadas con polímeros reciclados post-industriales, presentadas en rollos compactos y prácticos con línea de precorte. Su diseño optimiza el espacio de almacenamiento y garantiza una dispensación rápida y limpia en entornos industriales, corporativos u hoteleros.',
+                    description: 'Bolsas de alta resistencia en polietileno de baja densidad (PEBD). Disponibles en colores negro y natural (dorado), ideales para diversos requerimientos de empaque comercial e industrial.',
                     image: 'assets/foto_productos/es-rollo.png',
                     specs: [
-                        { name: 'Material', value: 'Polietileno de Baja Densidad (PEBD) reciclado seleccionado' },
+                        { name: 'Material', value: 'Polietileno de Baja Densidad (PEBD) de alta calidad' },
                         { name: 'Presentación', value: 'Paquete con 20 piezas' },
-                        { name: 'Medidas disponibles', value: '60 cm x 90 cm y 90 cm x 120 cm' },
-                        { name: 'Color', value: 'Negro estándar (otros bajo solicitud)' },
-                        { name: 'Aplicaciones', value: 'Manejo de residuos industriales, comerciales y hoteleros' },
+                        { name: 'Medidas disponibles', value: '50 cm x 70 cm, 60 cm x 90 cm, 75 cm x 90 cm y 90 cm x 120 cm' },
+                        { name: 'Color', value: 'Negro y Natural (Dorado)' },
+                        { name: 'Aplicaciones', value: 'Empaque, almacenamiento y protección industrial o comercial' },
                         { name: 'Personalización', value: 'Medidas especiales bajo solicitud' },
                         { name: 'Volumen de producción', value: 'Disponible bajo solicitud' }
                     ],
                     benefits: [
-                        'Precorte de alta precisión que facilita el desprendimiento rápido sin desgarros.',
-                        'Formato en rollo compacto que optimiza el espacio de almacenamiento.',
-                        'Sello de estrella reforzado en el fondo para evitar escurrimientos y goteos.',
-                        'Fabricado con polímeros reciclados de alta resistencia mecánica.'
+                        'Excelente resistencia a la tracción y punción para cargas pesadas.',
+                        'Fabricadas con sellos de alta calidad para evitar aberturas o goteos.',
+                        'Disponibilidad en colores Negro y Natural (Dorado) para distintas necesidades de presentación.',
+                        'Prácticas y adaptables a múltiples necesidades de empaquetado.'
                     ],
                     uses: [
-                        'Manejo de residuos en oficinas corporativas y áreas administrativas.',
-                        'Operación de limpieza diaria en pasillos, lobby y áreas comunes.',
-                        'Mantenimiento general en instalaciones industriales y comerciales.',
-                        'Áreas de servicio de alimentos y hospitalidad.'
+                        'Empaque de productos industriales y comerciales.',
+                        'Almacenamiento y transporte seguro de mercancías.',
+                        'Protección de insumos en bodegas o durante traslados.',
+                        'Uso general de empaque de alta resistencia.'
                     ],
                     controls: [
                         {
                             label: 'Dimensión / Capacidad',
                             id: 'spec-dim',
-                            options: ['60 cm x 90 cm', '90 cm x 120 cm']
+                            options: ['50 cm x 70 cm', '60 cm x 90 cm', '75 cm x 90 cm', '90 cm x 120 cm']
                         },
                         {
-                            label: 'Cantidad de Paquetes (1 paquete = 20 rollos)',
+                            label: 'Color / Material',
+                            id: 'spec-color',
+                            options: ['Negro', 'Natural (Dorado)']
+                        },
+                        {
+                            label: 'Cantidad de Paquetes (1 paquete = 20 piezas)',
                             id: 'spec-paquetes',
                             type: 'number',
                             min: 1,
