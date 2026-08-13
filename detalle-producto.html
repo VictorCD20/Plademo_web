@@ -482,12 +482,12 @@
                     id: 'es-rollo',
                     title: 'Bolsas es-rollo',
                     subtitle: 'Soluciones de empaque industrial y comercial',
-                    category: 'Empaque de Alta Resistencia',
+                    category: 'Empaque Reciclado',
                     code: 'RES-01',
-                    description: 'Bolsas de alta resistencia en polietileno de baja densidad (PEBD). Disponibles en colores negro y natural (dorado), ideales para diversos requerimientos de empaque comercial e industrial.',
+                    description: 'Bolsas de polietileno de baja densidad (PEBD) reciclado. Disponibles en colores negro y natural (dorado), ideales para diversos requerimientos de empaque comercial e industrial.',
                     image: 'assets/foto_productos/es-rollo.png',
                     specs: [
-                        { name: 'Material', value: 'Polietileno de Baja Densidad (PEBD) de alta calidad' },
+                        { name: 'Material', value: 'Polietileno de Baja Densidad (PEBD) reciclado' },
                         { name: 'Presentación', value: 'Paquete con 20 piezas' },
                         { name: 'Medidas disponibles', value: '60 cm x 90 cm y 90 cm x 120 cm' },
                         { name: 'Color', value: 'Negro y Natural (Dorado)' },
@@ -537,10 +537,10 @@
                     description: 'Desarrolladas específicamente para responder a los flujos y estándares de la industria hotelera y de hospitalidad. Diseños funcionales y discretos para el embalaje y transporte de blancos, recolección de lavandería de huéspedes o protección de amenidades en habitaciones.',
                     image: 'assets/foto_productos/bolsa dorada.png',
                     specs: [
-                        { name: 'Material', value: 'Polietileno de Baja Densidad (PEBD) virgen' },
+                        { name: 'Material', value: 'Polietileno de Baja Densidad (PEBD) reciclado' },
                         { name: 'Presentación', value: 'Paquete con 20 piezas' },
-                        { name: 'Medidas disponibles', value: 'Según requerimiento del cliente' },
-                        { name: 'Color', value: 'Según requerimiento' },
+                        { name: 'Medidas disponibles', value: '60 cm x 90 cm y 90 cm x 120 cm' },
+                        { name: 'Color', value: 'Natural (dorado) y Negro' },
                         { name: 'Aplicaciones', value: 'Manejo de blancos, lavandería y amenidades' },
                         { name: 'Personalización', value: 'Impresión a una tinta' },
                         { name: 'Volumen de producción', value: 'A definir por cotización' }
@@ -557,6 +557,16 @@
                         'Distribución de amenidades y kits de servicio al huésped.'
                     ],
                     controls: [
+                        {
+                            label: 'Dimensión / Capacidad',
+                            id: 'spec-dim',
+                            options: ['60 cm x 90 cm', '90 cm x 120 cm']
+                        },
+                        {
+                            label: 'Color / Material',
+                            id: 'spec-color',
+                            options: ['Natural (dorado)', 'Negro']
+                        },
                         {
                             label: 'Aplicación / Tipo',
                             id: 'spec-tipo-hotel',
