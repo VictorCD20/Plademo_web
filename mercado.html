@@ -5,6 +5,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Mercados | Plademo</title>
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico"/>
+    <link rel="preload" as="image" href="assets/img/generales/hero-planta.webp"/>
     
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
     
@@ -75,6 +76,9 @@
         }
         .delay-100 { transition-delay: 100ms; }
         .delay-200 { transition-delay: 200ms; }
+        html, body {
+            background-color: #0f2d56;
+        }
     </style>
 </head>
 <body class="bg-white text-navy-dark font-gilroy antialiased pt-[70px] fade-in-page">
@@ -83,9 +87,9 @@
         <div class="w-full max-w-[1440px] mx-auto px-6 md:px-12 flex justify-between items-center">
             
             <a href="index.html" class="flex items-center gap-3">
-                <img alt="plademo_logo" class="h-10 w-auto object-contain" src="assets/img/plademo-original.webp"/>
+                <img alt="plademo_logo" class="h-10 w-auto object-contain" src="assets/logos/plademo-original.webp"/>
                 <span class="w-[1px] h-6 bg-gray-200"></span>
-                <img alt="hecho_en_yucatan_logo" class="h-10 w-auto object-contain" src="assets/hey-logo.svg"/>
+                <img alt="hecho_en_yucatan_logo" class="h-10 w-auto object-contain" src="assets/logos/hey-logo.svg"/>
             </a>
 
             
@@ -173,13 +177,13 @@
     <!-- Hero Section -->
     <section class="relative w-full py-24 md:py-32 bg-navy-dark text-white overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <img alt="Instalaciones de producción PLADEMO" class="w-full h-full object-cover opacity-30 mix-blend-overlay" src="assets/img/hero-planta.webp"/>
+            <img alt="Instalaciones de producción PLADEMO" class="w-full h-full object-cover opacity-30 mix-blend-overlay" src="assets/img/generales/hero-planta.webp"/>
             <div class="absolute inset-0 bg-gradient-to-t from-navy-dark via-navy-dark/70 to-transparent"></div>
         </div>
 
         <!-- Floating Hecho en Yucatán badge in bottom right -->
         <div class="absolute bottom-6 right-6 z-20">
-            <img alt="Hecho en Yucatán" class="h-16 w-auto object-contain" src="assets/hechoYucatan_blanco_sinfondo.png"/>
+            <img alt="Hecho en Yucatán" class="h-16 w-auto object-contain" src="assets/logos/hechoYucatan_blanco_sinfondo.png"/>
         </div>
         <div class="relative z-10 max-w-[1440px] mx-auto px-6 md:px-12 w-full flex flex-col md:flex-row justify-between items-end gap-8">
             <div class="max-w-3xl">
@@ -218,7 +222,7 @@
             <!-- CARD 1: Industria General -->
             <article class="reveal delay-100 bg-white border border-gray-100 flex flex-col justify-between hover:shadow-xl transition-all duration-300 group">
                 <div class="relative w-full aspect-[4/3] bg-[#c0f1be] overflow-hidden">
-                    <img alt="Industria General" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="assets/fotos/fotos%20mercado/industria%20general.png"/>
+                    <img alt="Industria General" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="assets/img/mercados/industria general.png"/>
                 </div>
                 <div class="p-8 flex flex-col justify-between flex-grow bg-navy-dark border-t border-navy-dark text-white">
                     <div>
@@ -255,7 +259,7 @@
             <!-- CARD 3: Comercio y Retail -->
             <article class="reveal delay-100 bg-white border border-gray-100 flex flex-col justify-between hover:shadow-xl transition-all duration-300 group">
                 <div class="relative w-full aspect-[4/3] bg-[#c0f1be] overflow-hidden">
-                    <img alt="Comercio y Retail" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="assets/fotos/fotos%20mercado/venta%20y%20retail.png"/>
+                    <img alt="Comercio y Retail" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="assets/img/mercados/venta y retail.png"/>
                 </div>
                 <div class="p-8 flex flex-col justify-between flex-grow bg-navy-dark border-t border-navy-dark text-white">
                     <div>
@@ -290,7 +294,7 @@
             <!-- CARD 4: Hotelería -->
             <article class="reveal delay-200 bg-white border border-gray-100 flex flex-col justify-between hover:shadow-xl transition-all duration-300 group">
                 <div class="relative w-full aspect-[4/3] bg-[#c0f1be] overflow-hidden">
-                    <img alt="Hotelería" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="assets/fotos/fotos%20mercado/hoteleria.png"/>
+                    <img alt="Hotelería" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="assets/img/mercados/hoteleria.png"/>
                 </div>
                 <div class="p-8 flex flex-col justify-between flex-grow bg-navy-dark border-t border-navy-dark text-white">
                     <div>
@@ -325,7 +329,7 @@
             <!-- CARD 5: Construcción -->
             <article class="reveal delay-100 bg-white border border-gray-100 flex flex-col justify-between hover:shadow-xl transition-all duration-300 group">
                 <div class="relative w-full aspect-[4/3] bg-[#c0f1be] overflow-hidden">
-                    <img alt="Construcción" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="assets/fotos/fotos%20mercado/construccion.png"/>
+                    <img alt="Construcción" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="assets/img/mercados/construccion.png"/>
                 </div>
                 <div class="p-8 flex flex-col justify-between flex-grow bg-navy-dark border-t border-navy-dark text-white">
                     <div>
@@ -383,9 +387,9 @@
         
         <div class="flex flex-col items-center md:items-start max-w-sm">
             <div class="flex items-center gap-3 mb-6">
-                <img alt="plademo_logo" class="h-10 w-auto object-contain" src="assets/img/plademo-original.webp"/>
+                <img alt="plademo_logo" class="h-10 w-auto object-contain" src="assets/logos/plademo-original.webp"/>
                 <span class="w-[1px] h-6 bg-gray-200"></span>
-                <img alt="hecho_en_yucatan_logo" class="h-10 w-auto object-contain" src="assets/hey-logo.svg"/>
+                <img alt="hecho_en_yucatan_logo" class="h-10 w-auto object-contain" src="assets/logos/hey-logo.svg"/>
             </div>
             <p class="text-gray-text text-sm leading-relaxed mb-6">
                 Precisión Flexible. Soluciones de empaque industrial de alta ingeniería para operaciones que exigen calidad, especificaciones exactas y continuidad.

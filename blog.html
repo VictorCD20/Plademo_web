@@ -76,6 +76,10 @@
         .delay-100 { transition-delay: 100ms; }
         .delay-200 { transition-delay: 200ms; }
         .delay-300 { transition-delay: 300ms; }
+        
+        html, body {
+            background-color: #0f2d56;
+        }
     </style>
 </head>
 <body class="bg-white text-navy-dark font-gilroy antialiased pt-[70px] fade-in-page">
@@ -84,9 +88,9 @@
         <div class="w-full max-w-[1440px] mx-auto px-6 md:px-12 flex justify-between items-center">
             
             <a href="index.html" class="flex items-center gap-3">
-                <img alt="plademo_logo" class="h-10 w-auto object-contain" src="assets/img/plademo-original.webp"/>
+                <img alt="plademo_logo" class="h-10 w-auto object-contain" src="assets/logos/plademo-original.webp"/>
                 <span class="w-[1px] h-6 bg-gray-200"></span>
-                <img alt="hecho_en_yucatan_logo" class="h-10 w-auto object-contain" src="assets/hey-logo.svg"/>
+                <img alt="hecho_en_yucatan_logo" class="h-10 w-auto object-contain" src="assets/logos/hey-logo.svg"/>
             </a>
 
             
@@ -160,7 +164,7 @@
     <header class="bg-navy-dark text-white py-16 md:py-24 px-6 md:px-12 text-center relative overflow-hidden">
         <!-- Floating Hecho en Yucatán badge in bottom right -->
         <div class="absolute bottom-6 right-6 z-20">
-            <img alt="Hecho en Yucatán" class="h-16 w-auto object-contain" src="assets/hechoYucatan_blanco_sinfondo.png"/>
+            <img alt="Hecho en Yucatán" class="h-16 w-auto object-contain" src="assets/logos/hechoYucatan_blanco_sinfondo.png"/>
         </div>
         <div class="max-w-[1440px] mx-auto relative z-10">
             <span class="font-gilroy text-green-light text-xs font-bold tracking-[0.2em] uppercase block mb-4">RECURSOS E IDEAS</span>
@@ -174,7 +178,11 @@
 
     <!-- Main Content -->
     <main class="max-w-[1440px] mx-auto py-16 md:py-24 px-6 md:px-12">
-        <div class="text-center py-12">
+        <div id="articles-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Los artículos se cargarán aquí dinámicamente -->
+        </div>
+
+        <div id="no-articles-message" class="hidden text-center py-12">
             <span class="material-symbols-outlined text-6xl text-green-main mb-4">article</span>
             <h2 class="font-lexend text-2xl font-semibold mb-2">Próximamente más artículos</h2>
             <p class="text-gray-text max-w-md mx-auto">
@@ -183,15 +191,52 @@
         </div>
     </main>
 
+    <script src="blog_articulos/articulos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.getElementById('articles-container');
+            const noMessage = document.getElementById('no-articles-message');
+            
+            if (typeof ARTICULOS !== 'undefined' && ARTICULOS.length > 0) {
+                container.innerHTML = '';
+                ARTICULOS.forEach(art => {
+                    const card = document.createElement('article');
+                    card.className = 'bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col group';
+                    card.innerHTML = `
+                        <div class="aspect-video w-full overflow-hidden bg-gray-50 relative">
+                            <img src="${art.image}" alt="${art.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+                            <span class="absolute top-4 left-4 bg-green-main text-white text-[10px] font-bold tracking-wider uppercase px-2.5 py-1 z-10">${art.category}</span>
+                        </div>
+                        <div class="p-6 md:p-8 flex flex-col flex-grow">
+                            <span class="text-gray-text text-xs font-semibold mb-3 block">${art.date}</span>
+                            <h3 class="font-lexend text-xl font-semibold text-navy-dark mb-3 group-hover:text-blue-corp transition-colors line-clamp-2">
+                                <a href="${art.url}">${art.title}</a>
+                            </h3>
+                            <p class="text-gray-text text-sm leading-relaxed mb-6 line-clamp-3">${art.excerpt}</p>
+                            <a href="${art.url}" class="mt-auto inline-flex items-center gap-2 text-blue-corp hover:text-navy-dark font-semibold text-sm transition-colors">
+                                Leer artículo 
+                                <span class="material-symbols-outlined text-sm font-bold">arrow_forward</span>
+                            </a>
+                        </div>
+                    `;
+                    container.appendChild(card);
+                });
+            } else {
+                container.classList.add('hidden');
+                noMessage.classList.remove('hidden');
+            }
+        });
+    </script>
+
     <!-- Footer -->
     <footer class="w-full bg-white border-t border-gray-100 py-16 px-6 md:px-12 font-gilroy text-navy-dark">
         <div class="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 mb-12 justify-items-center text-center md:text-left">
             
             <div class="flex flex-col items-center md:items-start max-w-sm">
                 <div class="flex items-center gap-3 mb-6">
-                    <img alt="plademo_logo" class="h-10 w-auto object-contain" src="assets/img/plademo-original.webp"/>
+                    <img alt="plademo_logo" class="h-10 w-auto object-contain" src="assets/logos/plademo-original.webp"/>
                     <span class="w-[1px] h-6 bg-gray-200"></span>
-                    <img alt="hecho_en_yucatan_logo" class="h-10 w-auto object-contain" src="assets/hey-logo.svg"/>
+                    <img alt="hecho_en_yucatan_logo" class="h-10 w-auto object-contain" src="assets/logos/hey-logo.svg"/>
                 </div>
                 <p class="text-gray-text text-sm leading-relaxed mb-6">
                     Precisión Flexible. Soluciones de empaque industrial de alta ingeniería para operaciones que exigen calidad, especificaciones exactas y continuidad.

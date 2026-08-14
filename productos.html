@@ -5,6 +5,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Productos | Plademo</title>
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico"/>
+    <link rel="preload" as="image" href="assets/img/generales/hero-planta.webp"/>
     
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com" rel="preconnect"/>
@@ -78,6 +79,10 @@
         .delay-100 { transition-delay: 100ms; }
         .delay-200 { transition-delay: 200ms; }
         .delay-300 { transition-delay: 300ms; }
+        
+        html, body {
+            background-color: #0f2d56;
+        }
     </style>
 </head>
 <body class="bg-white text-navy-dark font-gilroy antialiased pt-[70px] fade-in-page">
@@ -86,9 +91,9 @@
         <div class="w-full max-w-[1440px] mx-auto px-6 md:px-12 flex justify-between items-center">
             
             <a href="index.html" class="flex items-center gap-3">
-                <img alt="plademo_logo" class="h-10 w-auto object-contain" src="assets/img/plademo-original.webp"/>
+                <img alt="plademo_logo" class="h-10 w-auto object-contain" src="assets/logos/plademo-original.webp"/>
                 <span class="w-[1px] h-6 bg-gray-200"></span>
-                <img alt="hecho_en_yucatan_logo" class="h-10 w-auto object-contain" src="assets/hey-logo.svg"/>
+                <img alt="hecho_en_yucatan_logo" class="h-10 w-auto object-contain" src="assets/logos/hey-logo.svg"/>
             </a>
 
             <!-- Desktop Nav -->
@@ -145,13 +150,13 @@
     <!-- Editorial Hero Section -->
     <section class="relative w-full py-24 md:py-32 bg-navy-dark text-white overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <img alt="Instalaciones de producción PLADEMO" class="w-full h-full object-cover opacity-50 mix-blend-overlay" src="assets/img/hero-planta.webp"/>
+            <img alt="Instalaciones de producción PLADEMO" class="w-full h-full object-cover opacity-50 mix-blend-overlay" src="assets/img/generales/hero-planta.webp"/>
             <div class="absolute inset-0 bg-gradient-to-t from-navy-dark via-navy-dark/60 to-transparent"></div>
         </div>
 
         <!-- Floating Hecho en Yucatán badge in bottom right -->
         <div class="absolute bottom-6 right-6 z-20">
-            <img alt="Hecho en Yucatán" class="h-16 w-auto object-contain" src="assets/hechoYucatan_blanco_sinfondo.png"/>
+            <img alt="Hecho en Yucatán" class="h-16 w-auto object-contain" src="assets/logos/hechoYucatan_blanco_sinfondo.png"/>
         </div>
         <div class="relative z-10 max-w-[1440px] mx-auto px-6 md:px-12 w-full flex flex-col md:flex-row justify-between items-end gap-8">
             <div class="max-w-3xl">
@@ -217,7 +222,7 @@
             <!-- PRODUCT 1: Rollo Polietileno calibre 600 -->
             <article data-category="rollos" class="reveal delay-100 product-card bg-white border border-gray-100 flex flex-col md:flex-row hover:shadow-xl transition-all duration-300 group">
                 <div class="relative w-full md:w-1/2 bg-[#c0f1be] flex items-center justify-center p-6 overflow-hidden min-h-[320px] md:min-h-full">
-                    <img alt="Rollo Tubular" class="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105" src="assets/foto_productos/rollo polietileno calibre 600.png"/>
+                    <img alt="Rollo Tubular" class="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105" src="assets/img/productos/rollo polietileno calibre 600.png"/>
                     <div class="absolute top-4 left-4 bg-navy-dark text-white px-3 py-1 font-gilroy font-bold text-[10px] tracking-wider uppercase">
                         POL-PE
                     </div>
@@ -248,7 +253,7 @@
             <!-- PRODUCT 2: Bolsas empaque -->
             <article data-category="bolsas" class="reveal delay-200 product-card bg-white border border-gray-100 flex flex-col md:flex-row hover:shadow-xl transition-all duration-300 group">
                 <div class="relative w-full md:w-1/2 bg-[#c0f1be] flex items-center justify-center p-6 overflow-hidden min-h-[320px] md:min-h-full">
-                    <img alt="Bolsas empaque" class="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105" src="assets/foto_productos/es-rollo.png"/>
+                    <img alt="Bolsas empaque" class="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105" src="assets/img/productos/es-rollo.png"/>
                     <div class="absolute top-4 left-4 bg-navy-dark text-white px-3 py-1 font-gilroy font-bold text-[10px] tracking-wider uppercase">
                         RES-01
                     </div>
@@ -279,7 +284,7 @@
             <!-- PRODUCT 3: Bolsas Hoteleras -->
             <article data-category="bolsas" class="reveal delay-100 product-card bg-white border border-gray-100 flex flex-col md:flex-row hover:shadow-xl transition-all duration-300 group">
                 <div class="relative w-full md:w-1/2 bg-[#c0f1be] flex items-center justify-center p-6 overflow-hidden min-h-[320px] md:min-h-full">
-                    <img alt="Bolsas Hoteleras" class="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105" src="assets/foto_productos/bolsa dorada.png"/>
+                    <img alt="Bolsas Hoteleras" class="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105" src="assets/img/productos/bolsa dorada.png"/>
                     <div class="absolute top-4 left-4 bg-navy-dark text-white px-3 py-1 font-gilroy font-bold text-[10px] tracking-wider uppercase">
                         HOT-02
                     </div>
@@ -310,7 +315,7 @@
             <!-- PRODUCT 4: Soluciones de empaque a medida -->
             <article data-category="medida" class="reveal delay-200 product-card bg-white border border-gray-100 flex flex-col md:flex-row hover:shadow-xl transition-all duration-300 group">
                 <div class="relative w-full md:w-1/2 bg-[#c0f1be] flex items-center justify-center p-6 overflow-hidden min-h-[320px] md:min-h-full">
-                    <img alt="Empaques personalizados PLADEMO" class="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105" src="assets/foto_productos/bolsa personalizada.png"/>
+                    <img alt="Empaques personalizados PLADEMO" class="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105" src="assets/img/productos/bolsa personalizada.png"/>
                     <div class="absolute top-4 left-4 bg-navy-dark text-white px-3 py-1 font-gilroy font-bold text-[10px] tracking-wider uppercase">
                         MED-99
                     </div>
@@ -363,9 +368,9 @@
             
             <div class="flex flex-col items-center md:items-start max-w-sm">
                 <div class="flex items-center gap-3 mb-6">
-                    <img alt="plademo_logo" class="h-10 w-auto object-contain" src="assets/img/plademo-original.webp"/>
+                    <img alt="plademo_logo" class="h-10 w-auto object-contain" src="assets/logos/plademo-original.webp"/>
                     <span class="w-[1px] h-6 bg-gray-200"></span>
-                    <img alt="hecho_en_yucatan_logo" class="h-10 w-auto object-contain" src="assets/hey-logo.svg"/>
+                    <img alt="hecho_en_yucatan_logo" class="h-10 w-auto object-contain" src="assets/logos/hey-logo.svg"/>
                 </div>
                 <p class="text-gray-text text-sm leading-relaxed mb-6">
                     Precisión Flexible. Soluciones de empaque industrial de alta ingeniería para operaciones que exigen calidad, especificaciones exactas y continuidad.
